@@ -1,9 +1,8 @@
 Description
 ===========
 
-Solutions (in C++) to problems from the book "Cracking the Coding Interview,
-4th Edition - 150 Programming Interview Questions and Solutions".
-
+Solutions (in C++) to selected problems from the book "Cracking the Coding
+Interview, 4th Edition - 150 Programming Interview Questions and Solutions".
 
 
 License
@@ -18,13 +17,17 @@ Instructions
 Each solution in this repository is self-contained. Each directory contains
 the solution to a given problem and tests to check its correctness (most of
 the tests are randomized). To run the tests for a given problem on Linux,
-enter the associated directory for that solution and run:
+enter the associated directory for that solution and compile it first:
 
 	make
 
-The solution can then be tested by running:
+The tests can then be executed by running:
 
 	./solve
+
+
+
+==================================
 
 
 
