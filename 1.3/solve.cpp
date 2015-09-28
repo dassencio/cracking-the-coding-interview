@@ -66,7 +66,7 @@ std::string& remove_duplicates_2(std::string& str)
 	/* next writing position (the first character is skipped) */
 	size_t i = 1;
 
-	/* the first character is seen and skipped */
+	/* the first character is marked as seen and skipped */
 	chars_seen[str[0]] = true;
 
 	for (size_t j = 1; j < str.size(); ++j)
@@ -87,7 +87,7 @@ std::string& remove_duplicates_2(std::string& str)
 }
 
 /**
- * @brief generates a random string of length n
+ * @brief generates a random ASCII string of length n
  * @note complexity: O(n) in both space and time
  */
 std::string random_string(size_t n)
