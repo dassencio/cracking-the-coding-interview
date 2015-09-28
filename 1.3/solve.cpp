@@ -61,19 +61,19 @@ std::string& remove_duplicates_2(std::string& str)
 		return str;
 	}
 
-	std::bitset< 128 > seen{};
+	std::bitset< 128 > chars_seen{};
 
 	/* next writing position (the first character is skipped) */
 	size_t i = 1;
 
 	/* the first character is seen and skipped */
-	seen[str[0]] = true;
+	chars_seen[str[0]] = true;
 
 	for (size_t j = 1; j < str.size(); ++j)
 	{
-		if (seen[str[j]] == false)
+		if (chars_seen[str[j]] == false)
 		{
-			seen[str[j]] = true;
+			chars_seen[str[j]] = true;
 
 			str[i] = str[j];
 			++i;
