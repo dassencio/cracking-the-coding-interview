@@ -5,8 +5,7 @@
 
 /**
  * @brief reverses an input C-string in-place
- * @param pointer to a C-string (null-terminated)
- * @return pointer to the (reversed) input string
+ * @return pointer to input string (reversed)
  * @note complexity: O(n) in time, O(1) in space
  */
 char* reverse_c_string(char* str)
