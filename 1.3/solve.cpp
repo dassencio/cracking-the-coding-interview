@@ -49,8 +49,8 @@ std::string& remove_duplicates_1(std::string& str)
 }
 
 /**
- * @brief solution using a fixed-size array to track seen characters (the input
- *        string is assumed to contain only valid ASCII characters)
+ * @brief solution using a bitmask to track seen characters (the input
+ *        string is allowed to contain any valid ASCII characters)
  * @return reference to input string with all duplicate characters removed
  * @note complexity: O(n) in time, O(1) in space
  */
