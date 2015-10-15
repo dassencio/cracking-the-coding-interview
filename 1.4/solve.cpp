@@ -99,13 +99,6 @@ int main()
 
 			assert(is_anagram_1(str, str_copy) == true);
 			assert(is_anagram_2(str, str_copy) == true);
-
-			str_copy += random_string(n+1);
-
-			std::shuffle(str_copy.begin(), str_copy.end(), generator);
-
-			assert(is_anagram_1(str, str_copy) == false);
-			assert(is_anagram_2(str, str_copy) == false);
 		}
 
 		std::cout << "passed random tests for strings of length " << n << std::endl;
