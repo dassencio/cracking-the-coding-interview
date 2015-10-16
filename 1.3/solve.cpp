@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <bitset>
-#include <random>	/* std::random_device, std::uniform_int_distribution */
+#include <random>	/* std::uniform_int_distribution */
 #include <cassert>
 
 /**
