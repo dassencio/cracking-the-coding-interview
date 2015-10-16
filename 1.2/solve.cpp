@@ -30,7 +30,6 @@ char* reverse_c_string(char* str)
 	return str;
 }
 
-
 /**
  * @brief generates a random C-string of length n and characters in [a-z]
  * @note complexity: O(n) in both space and time
