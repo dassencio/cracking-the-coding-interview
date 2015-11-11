@@ -4,7 +4,7 @@
 #include <cassert>
 
 /**
- * @brief reverses an input C-string in-place
+ * @brief reverses an input C-string in place
  * @return pointer to input string (reversed)
  * @note complexity: O(n) in time, O(1) in space
  */

@@ -61,7 +61,7 @@ private:
 };
 
 /**
- * @brief returns a copy of the input matrix with relevant rows/cols zeroed out
+ * @brief solution which requires the matrix to be copied
  * @return copy of input matrix with relevant rows/columns zeroed out
  * @note complexity: O(m*n) in both space and time
  */
@@ -96,7 +96,7 @@ matrix zero_when_necessary_1(const matrix& A)
 }
 
 /**
- * @brief zeroes out the relevant rows/columns of a matrix in-place
+ * @brief solution which zoeres the relevant rows/columns in place
  * @return reference to input matrix (with rows/columns zeroed out)
  * @note complexity: O(m*n) in time, O(m+n) in space
  */

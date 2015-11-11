@@ -55,7 +55,7 @@ private:
 };
 
 /**
- * @brief returns a rotated version of an input square matrix
+ * @brief solution which requires the matrix to be copied
  * @return copy of input matrix rotated 90 degrees counterclockwise
  * @note complexity: O(n²) in time, O(n²) in space
  */
@@ -78,7 +78,7 @@ square_matrix rotate_square_matrix_1(const square_matrix& A)
 }
 
 /**
- * @brief rotates a square matrix in place
+ * @brief solution which rotates the matrix in place
  * @return reference to input matrix (rotatetd 90 degrees counterclockwise)
  * @note complexity: O(n²) in time, O(1) in space
  */
