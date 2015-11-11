@@ -99,7 +99,7 @@ std::string random_string(size_t n)
 
 int main()
 {
-	for (int n = 0; n <= 100; ++n)
+	for (size_t n = 0; n <= 100; ++n)
 	{
 		for (int i = 0; i < 1000; ++i)
 		{

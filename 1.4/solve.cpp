@@ -88,7 +88,7 @@ int main()
 	std::random_device device;
 	std::mt19937 generator(device());
 
-	for (int n = 0; n <= 100; ++n)
+	for (size_t n = 0; n <= 100; ++n)
 	{
 		for (int i = 0; i < 1000; ++i)
 		{
