@@ -26,11 +26,6 @@ The tests can then be executed by running:
 	./solve
 
 
-
-==================================
-
-
-
 Contributors & Contact Information
 ==================================
 
