@@ -37,7 +37,7 @@ bool is_rotation_2(std::string str1, const std::string& str2)
 	{
 		std::rotate(str1.begin(), str1.begin()+1, str1.end());
 
-		result = (str1.find(str2) != std::string::npos);
+		result = (str1 == str2);
 	}
 
 	return result;
