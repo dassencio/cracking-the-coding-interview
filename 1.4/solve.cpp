@@ -92,13 +92,16 @@ int main()
 	{
 		for (int i = 0; i < 1000; ++i)
 		{
-			std::string str = random_string(n);
-			std::string str_copy(str);
+			std::string str1 = random_string(n);
+			std::string str2 = random_string(n);
 
-			std::shuffle(str_copy.begin(), str_copy.end(), generator);
+			assert(is_anagram_1(str1, str2) == is_anagram_2(str1, str2));
 
-			assert(is_anagram_1(str, str_copy) == true);
-			assert(is_anagram_2(str, str_copy) == true);
+			std::string str1_shuf = str1;
+			std::shuffle(str1_shuf.begin(), str1_shuf.end(), generator);
+
+			assert(is_anagram_1(str1, str1_shuf) == true);
+			assert(is_anagram_2(str1, str1_shuf) == true);
 		}
 
 		std::cout << "passed random tests for strings of length " << n << std::endl;
