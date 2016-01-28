@@ -76,6 +76,7 @@ uint64_t to_integer(const number& a)
 		na += factor * d;
 		factor *= 10;
 	}
+
 	return na;
 }
 
