@@ -68,15 +68,15 @@ number add_numbers(const number& a, const number& b)
  */
 uint64_t to_integer(const number& a)
 {
-	uint64_t number = 0;
+	uint64_t na = 0;
 	uint64_t factor = 1;
 
 	for (const digit& d : a)
 	{
-		number += factor * d;
+		na += factor * d;
 		factor *= 10;
 	}
-	return number;
+	return na;
 }
 
 /**
