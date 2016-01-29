@@ -1,5 +1,4 @@
 #include <list>
-#include <iterator>	/* std::next, std::begin, std::end */
 #include <iostream>
 #include <random>	/* std::uniform_int_distribution */
 #include <cassert>
@@ -22,39 +21,39 @@ number add_numbers(const number& a, const number& b)
 {
 	number sum;
 
-	auto a_it = std::begin(a);
-	auto b_it = std::begin(b);
+	auto a_it = a.begin();
+	auto b_it = b.begin();
 
 	digit carry = 0;
 
-	while (a_it != std::end(a) && b_it != std::end(b))
+	while (a_it != a.end() && b_it != b.end())
 	{
 		sum.push_back(((*a_it + *b_it) % 10) + carry);
 		carry = (*a_it + *b_it) / 10;
 
-		a_it = std::next(a_it);
-		b_it = std::next(b_it);
+		++a_it;
+		++b_it;
 	}
 
 	/* if a and b have the same number of digits but we have a carry */
-	if (a_it == std::end(a) && b_it == std::end(b) && carry > 0)
+	if (a_it == a.end() && b_it == b.end() && carry > 0)
 	{
 		sum.push_back(carry);
 	}
 
 	/* this loop runs if b has less digits than a */
-	while (a_it != std::end(a))
+	while (a_it != a.end())
 	{
 		sum.push_back(*a_it + carry);
-		a_it = std::next(a_it);
+		++a_it;
 		carry = 0;
 	}
 
 	/* this loop runs if a has less digits than b */
-	while (b_it != std::end(b))
+	while (b_it != b.end())
 	{
 		sum.push_back(*b_it + carry);
-		b_it = std::next(b_it);
+		++b_it;
 		carry = 0;
 	}
 
