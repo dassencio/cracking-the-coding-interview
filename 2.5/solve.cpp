@@ -121,7 +121,7 @@ list_node* get_loop_start_2(list_node* head)
 
 	while (current != nullptr)
 	{
-		if (seen.find(current) != std::end(seen))
+		if (seen.find(current) != seen.end())
 		{
 			return current;
 		}
