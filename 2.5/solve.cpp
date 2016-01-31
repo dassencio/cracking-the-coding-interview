@@ -72,7 +72,7 @@ list_node* get_loop_start_1(list_node* head)
 
 	while (n2 != nullptr && n2->next != nullptr)
 	{
-		/* n2 moves forward two times faster than n1 */
+		/* n2 moves forward twice as fast as n1 */
 		n1 = n1->next;
 		n2 = n2->next->next;
 
