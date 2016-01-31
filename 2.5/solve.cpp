@@ -65,10 +65,10 @@ public:
  * @note complexity: O(n) in time, O(1) in space, where n is the number of
  *       nodes in the list
  */
-list_node* get_loop_start_1(list_node* head)
+const list_node* get_loop_start_1(const list_node* head)
 {
-	list_node* n1 = head;
-	list_node* n2 = head;
+	const list_node* n1 = head;
+	const list_node* n2 = head;
 
 	while (n2 != nullptr && n2->next != nullptr)
 	{
@@ -114,10 +114,10 @@ list_node* get_loop_start_1(list_node* head)
  * @note complexity: O(n) in both time and space, where n is the number of
  *       nodes in the list
  */
-list_node* get_loop_start_2(list_node* head)
+const list_node* get_loop_start_2(const list_node* head)
 {
-	list_node* current = head;
-	std::unordered_set< list_node* > seen;
+	const list_node* current = head;
+	std::unordered_set< const list_node* > seen;
 
 	while (current != nullptr)
 	{
