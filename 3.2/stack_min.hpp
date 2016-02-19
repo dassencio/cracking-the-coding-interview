@@ -15,6 +15,7 @@ class stack_min
 	};
 
 	typedef stack_node* node_pointer;
+
 public:
 	/**
 	 * @brief destructor
