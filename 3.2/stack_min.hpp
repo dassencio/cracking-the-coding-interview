@@ -30,7 +30,7 @@ public:
 	}
 
 	/**
-	 * @brief pushes a value into the stack
+	 * @brief pushes a value onto the stack
 	 * @note complexity: O(1) in both time and space
 	 */
 	void push(const T& value)
@@ -42,7 +42,7 @@ public:
 		};
 
 		/*
-		 * if this is the first node we are pushing to the stack or
+		 * if this is the first node we are pushing onto the stack or
 		 * if its value is the new stack minimum
 		 */
 		if (empty() == true || value < stack_min_->value_)

@@ -25,7 +25,7 @@ public:
 	}
 
 	/**
-	 * @brief pushes a value into the k-th stack
+	 * @brief pushes a value onto the k-th stack
 	 * @return true if the value was inserted, false otherwise
 	 * @note complexity: O(1) in both time and space
 	 */
