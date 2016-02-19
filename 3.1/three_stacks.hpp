@@ -62,7 +62,7 @@ public:
 	 */
 	T top(const size_t k) const
 	{
-		assert(!empty(k));
+		assert(empty(k) == false);
 		return values_[k*max_stack_size_ + stack_size_[k] - 1];
 	}
 
