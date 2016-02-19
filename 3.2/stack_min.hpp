@@ -74,7 +74,7 @@ public:
 		}
 
 		/*
-		 * if we are deleting the current minimum value in the stack,
+		 * if we are deleting the current minimum value on the stack,
 		 * we must update the stack minimum node pointer
 		 */
 		if (stack_top_ == stack_min_)
