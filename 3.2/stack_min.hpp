@@ -45,7 +45,7 @@ public:
 		 * if this is the first node we are pushing onto the stack or
 		 * if its value is the new stack minimum
 		 */
-		if (empty() == true || value < stack_min_->value_)
+		if (empty() == true || value <= stack_min_->value_)
 		{
 			stack_min_ = new_node;
 		}
