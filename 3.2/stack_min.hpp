@@ -7,14 +7,12 @@ template< typename T >
 class stack_min
 {
 	/* node as a private member structure (we don't need it to be public) */
-	struct stack_node
+	struct node
 	{
 		T value_;
-		stack_node* next_node_;
-		stack_node* next_min_;
+		node* next_node_;
+		node* next_min_;
 	};
-
-	typedef stack_node* node_pointer;
 
 public:
 	/**
@@ -35,22 +33,22 @@ public:
 	 */
 	void push(const T& value)
 	{
-		node_pointer new_node = new stack_node{
+		node* new_node = new node{
 			.value_ = value,
-			.next_node_ = stack_top_,
-			.next_min_ = stack_min_
+			.next_node_ = top_,
+			.next_min_ = min_
 		};
 
 		/*
 		 * if this is the first node we are pushing onto the stack or
 		 * if its value is the new stack minimum
 		 */
-		if (empty() == true || value <= stack_min_->value_)
+		if (empty() == true || value <= min_->value_)
 		{
-			stack_min_ = new_node;
+			min_ = new_node;
 		}
 
-		stack_top_ = new_node;
+		top_ = new_node;
 	}
 
 	/**
@@ -59,7 +57,7 @@ public:
 	 */
 	const T& top() const
 	{
-		return stack_top_->value_;
+		return top_->value_;
 	}
 
 	/**
@@ -77,14 +75,14 @@ public:
 		 * if we are deleting the current minimum value on the stack,
 		 * we must update the stack minimum node pointer
 		 */
-		if (stack_top_ == stack_min_)
+		if (top_ == min_)
 		{
-			stack_min_ = stack_top_->next_min_;
+			min_ = top_->next_min_;
 		}
 
-		node_pointer old_stack_top = stack_top_;
-		stack_top_ = stack_top_->next_node_;
-		delete old_stack_top;
+		node* old_top = top_;
+		top_ = top_->next_node_;
+		delete old_top;
 	}
 
 	/**
@@ -93,8 +91,8 @@ public:
 	 */
 	const T& min() const
 	{
-		assert(stack_top_ != nullptr);
-		return stack_min_->value_;
+		assert(top_ != nullptr);
+		return min_->value_;
 	}
 
 	/**
@@ -103,12 +101,12 @@ public:
 	 */
 	bool empty() const
 	{
-		return stack_top_ == nullptr;
+		return top_ == nullptr;
 	}
 
 private:
-	node_pointer stack_top_ = nullptr;
-	node_pointer stack_min_ = nullptr;
+	node* top_ = nullptr;
+	node* min_ = nullptr;
 };
 
 #endif /* __STACK_MIN_HPP__ */
