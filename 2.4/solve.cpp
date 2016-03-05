@@ -120,7 +120,7 @@ int main()
 			assert(to_integer(a) + to_integer(b) == to_integer(sum));
 		}
 
-		std::cout << "passed tests for numbers up to " << n << std::endl;
+		std::cout << "passed random tests for numbers up to " << n << std::endl;
 	}
 
 	return 0;

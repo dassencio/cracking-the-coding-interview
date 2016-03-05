@@ -43,10 +43,11 @@ int main()
 {
 	std::random_device device;
 	std::mt19937 generator(device());
-	std::uniform_int_distribution< int > distribution;
 
 	for (size_t n = 0; n <= 50; ++n)
 	{
+		std::uniform_int_distribution< int > distribution(-n,n);
+
 		for (int i = 0; i < 1000; ++i)
 		{
 			std::stack< int > A;

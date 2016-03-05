@@ -51,7 +51,7 @@ int main()
 			}
 		}
 
-		std::cout << "passed tests for stacks of size " << n << std::endl;
+		std::cout << "passed random tests for stacks of size " << n << std::endl;
 	}
 
 	return 0;
