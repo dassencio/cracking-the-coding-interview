@@ -8,7 +8,7 @@ int main()
 	std::random_device device;
 	std::mt19937 generator(device());
 
-	for (size_t n = 0; n <= 100; ++n)
+	for (int n = 0; n <= 100; ++n)
 	{
 		std::uniform_int_distribution< int > distribution(-n,n);
 
@@ -22,7 +22,7 @@ int main()
 					     std::greater< int > > Q;
 
 			/* populate the stack */
-			for (size_t k = 0; k < n; ++k)
+			for (int k = 0; k < n; ++k)
 			{
 				int value = distribution(generator);
 
