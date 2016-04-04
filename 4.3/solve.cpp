@@ -119,10 +119,10 @@ size_t count(const tree_node* root, const int x)
 }
 
 /**
- * @brief generates a random vector of length n and values in [-n,n]
+ * @brief generates a sorted random vector of length n and values in [-n,n]
  * @note complexity: O(n) in both time and space
  */
-std::vector< int > random_vector(int n)
+std::vector< int > sorted_random_vector(int n)
 {
 	std::random_device device;
 	std::mt19937 generator(device());
@@ -148,7 +148,7 @@ int main()
 	{
 		for (int i = 0; i < 1000; ++i)
 		{
-			std::vector< int > values = random_vector(n);
+			std::vector< int > values = sorted_random_vector(n);
 
 			tree_node* root = build_min_height_tree(values.begin(), values.end());
 
