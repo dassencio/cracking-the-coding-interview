@@ -57,7 +57,7 @@ private:
 /**
  * @brief solution which requires the matrix to be copied
  * @return copy of input matrix rotated 90 degrees counterclockwise
- * @note complexity: O(n²) in time, O(n²) in space
+ * @note complexity: O(n²) in time, O(n²) in space, where n is the matrix size
  */
 square_matrix rotate_square_matrix_1(const square_matrix& A)
 {
@@ -80,7 +80,7 @@ square_matrix rotate_square_matrix_1(const square_matrix& A)
 /**
  * @brief solution which rotates the matrix in place
  * @return reference to input matrix (rotatetd 90 degrees counterclockwise)
- * @note complexity: O(n²) in time, O(1) in space
+ * @note complexity: O(n²) in time, O(1) in space, where n is the matrix size
  */
 square_matrix& rotate_square_matrix_2(square_matrix& A)
 {

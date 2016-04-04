@@ -27,7 +27,8 @@ public:
 
 	/**
 	 * @brief returns the value on the front of the queue
-	 * @note complexity: O(n) in time, O(1) in space
+	 * @note complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of elements in the queue
 	 */
 	const T& front()
 	{
@@ -43,7 +44,8 @@ public:
 
 	/**
 	 * @brief returns the value on the back of the queue
-	 * @note complexity: O(n) in time, O(1) in space
+	 * @note complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of elements in the queue
 	 */
 	const T& back()
 	{
@@ -59,7 +61,8 @@ public:
 
 	/**
 	 * @brief pops an element from the front of the queue
-	 * @note complexity: O(n) in time, O(1) in space
+	 * @note complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of elements in the queue
 	 */
 	void pop()
 	{
@@ -94,7 +97,8 @@ public:
 private:
 	/**
 	 * @brief transfers all elements from stack src to stack dst
-	 * @note complexity: O(n) in time, O(1) in space
+	 * @note complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of elements in the queue
 	 */
 	void transfer_elements(std::stack< T >& src, std::stack< T >& dst)
 	{

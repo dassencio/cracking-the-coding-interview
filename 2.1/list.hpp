@@ -16,7 +16,11 @@ private:
 	};
 
 public:
-	/** @brief destructor */
+	/**
+	 * @brief destructor
+	 * @note complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of nodes in the list
+	 */
 	~list()
 	{
 		node* position = head_;
@@ -46,7 +50,8 @@ public:
 
 	/**
 	 * @brief removes duplicates using a buffer (set) with "seen values"
-	 * @note complexity: O(n) in both time and space
+	 * @note complexity: O(n) in both time and space, where n is the number
+	 *       of nodes in the list
 	 * @return the number of removed nodes
 	 */
 	size_t remove_duplicates_1()
@@ -93,7 +98,8 @@ public:
 
 	/**
 	 * @brief removes all duplicates without using an extra buffer
-	 * @note complexity: O(n²) in time, O(1) in space
+	 * @note complexity: O(n²) in time, O(1) in space, where n is the number
+	 *       of nodes in the list
 	 */
 	size_t remove_duplicates_2()
 	{
@@ -151,7 +157,8 @@ public:
 	/**
 	 * @brief returns the number of occurrences of a value in the list
 	 * @param value the value to search for
-	 * @note complexity: O(n) in time, O(1) in space
+	 * @note complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of nodes in the list
 	 */
 	size_t count(const T& value) const
 	{

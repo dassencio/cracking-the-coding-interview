@@ -11,7 +11,7 @@
 /**
  * @brief solution using a bitmask to mark the seen characters
  * @return true if the input string has duplicate characters, false otherwise
- * @note complexity: O(n) in time, O(1) in space
+ * @note complexity: O(n) in time, O(1) in space, where n is the string length
  * @note this implementation assumes all characters are in the range [a-z]
  */
 bool has_duplicates_1(const std::string& str)
@@ -36,7 +36,8 @@ bool has_duplicates_1(const std::string& str)
  * @return true if the input string has duplicate characters, false otherwise
  * @note complexity: O(n*log(n)) in time, O(n) in space (but can be O(1) in
  *       space if we don't mind losing the original string str since we can
- *       sort it in place instead of sorting a copy of it)
+ *       sort it in place instead of sorting a copy of it), where n is the
+ *       string length
  */
 bool has_duplicates_2(std::string str)
 {
@@ -57,7 +58,7 @@ bool has_duplicates_2(std::string str)
 /**
  * @brief brute-force solution: check all characters against each other
  * @return true if the input string has duplicate characters, false otherwise
- * @note complexity: O(n²) in time, O(1) in space
+ * @note complexity: O(n²) in time, O(1) in space, where n is the string length
  */
 bool has_duplicates_3(const std::string& str)
 {

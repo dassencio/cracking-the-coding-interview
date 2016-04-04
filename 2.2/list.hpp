@@ -17,7 +17,11 @@ private:
 	};
 
 public:
-	/** @brief destructor */
+	/*
+	 * @brief destructor
+	 * @note complexity: O(m) in time, O(1) in space, where m is the number
+	 *       of nodes in the list
+	 */
 	~list()
 	{
 		node* position = head_;
@@ -48,8 +52,8 @@ public:
 	/**
 	 * @brief returns the n-th to last value in the list, with n = 0
 	 *        meaning the last value in the list
-	 * @note complexity: O(m) in time, O(1) in space, where m is the
-	 *       list length
+	 * @note complexity: O(m) in time, O(1) in space, where m is the number
+	 *       of nodes in the list
 	 */
 	const T& get_nth_to_last(const size_t n)
 	{
