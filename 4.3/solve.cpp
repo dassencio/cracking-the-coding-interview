@@ -143,7 +143,6 @@ std::vector< int > sorted_random_vector(int n)
 
 int main()
 {
-
 	for (int n = 0; n <= 100; ++n)
 	{
 		for (int i = 0; i < 1000; ++i)
