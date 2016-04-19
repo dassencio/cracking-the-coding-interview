@@ -1,7 +1,7 @@
 /*
  * TASK: Construct a binary tree with minimal height from the values of a
  *       sorted array.
-
+ *
  * NOTE: the tree constructed by the algorithm below is balanced but is not
  *       always a binary search tree (e.g. when all values in the tree are
  *       equal); it is, however, "ordered" in the sense that for a given node,
