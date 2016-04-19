@@ -1,3 +1,8 @@
+/*
+ * TASK: Implement a queue using two stacks (with push, front, back and pop
+ *        operations).
+ */
+
 #include "two_stacks_queue.hpp"
 #include <iostream>
 

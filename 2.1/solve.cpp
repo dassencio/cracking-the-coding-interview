@@ -1,3 +1,9 @@
+/*
+ * TASK: Remove all duplicate elements from an unsorted linked list. Try solving
+ *       this problem without using any additional data structures (i.e.,
+ *       without generating a copy of the linked list).
+ */
+
 #include "list.hpp"
 #include <iostream>
 #include <set>

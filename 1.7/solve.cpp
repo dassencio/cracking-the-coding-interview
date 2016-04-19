@@ -1,3 +1,8 @@
+/*
+ * TASK: You are given an M×N matrix. For each element M(i,j) which is zero,
+ *       make all elements in the i-th row and the j-th column equal to zero.
+ */
+
 #include <vector>
 #include <iostream>
 #include <iomanip>

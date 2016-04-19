@@ -1,3 +1,9 @@
+/*
+ * TASK: Design a stack which has push and pop operations with O(1) complexity
+ *       in time and space such that its minimum value can also be determined
+ *       in O(1) complexity in both time and space.
+ */
+
 #include "stack_min.hpp"
 #include <iostream>
 #include <queue>

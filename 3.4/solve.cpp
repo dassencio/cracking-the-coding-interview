@@ -1,3 +1,9 @@
+/*
+ * TASK: Solve the towers of Hanoi problem with n disks. The description of
+ *       the game can be found at https://en.wikipedia.org/wiki/Tower_of_Hanoi.
+ *       Your solution must use stacks to represent each rod.
+ */
+
 #include <stack>
 #include <iostream>
 #include <cassert>

@@ -1,3 +1,11 @@
+/*
+ * TASK: You are given a circular linked list. Determine the first node at the
+ *       beginning of the loop. A circular linked list is one in which a node
+ *       n_k points to a node_j for j < k, with n_1 being the head node of the
+ *       list. As an example, A -> B -> C -> D -> B is a circular list, and B
+ *       is the first node in the loop.
+ */
+
 #include <unordered_set>
 #include <iostream>
 #include <random>

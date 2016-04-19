@@ -1,3 +1,7 @@
+/*
+ * TASK: Implement three stacks using a single array.
+ */
+
 #include "three_stacks.hpp"
 #include <iostream>
 

@@ -1,3 +1,14 @@
+/*
+ * TASK: Implement a set of stacks such that when the most recently created
+ *       stack gets too high (say, with n elements), a new stack is created to
+ *       accommodate new elements. When popping an element from this set of
+ *       stacks, the element must be popped from the most recently created
+ *       stack. Try also to create a method which can pop from any stack, in
+ *       which case an element from the next stack must be moved to the replace
+ *       the popped one and so on (all stacks up to the most recent one must
+ *       remain full).
+ */
+
 #include "stacks.hpp"
 #include <iostream>
 

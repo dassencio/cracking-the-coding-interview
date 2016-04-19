@@ -1,3 +1,10 @@
+/*
+ * TASK: Given two strings, determine if they are anagrams. Two strings are
+ *       said to be anagrams if they contains exactly the same characters (but
+ *       not necessarily in the same order).
+ *
+ */
+
 #include <iostream>
 #include <string>
 #include <algorithm>	/* std::sort, std::shuffle */

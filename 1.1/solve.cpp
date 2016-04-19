@@ -1,6 +1,7 @@
 /*
- * NOTE: the question is asking you to determine if a string has duplicate
- *       characters or not
+ * TASK: Given a string, determine if each of its characters is unique, i.e.,
+ *       whether the string has duplicate characters or not. Try solving this
+ *       problem without using any additional data structures (such as a buffer).
  */
 
 #include <iostream>

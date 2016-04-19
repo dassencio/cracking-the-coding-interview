@@ -1,3 +1,11 @@
+/*
+ * TASK: You are given two strings. Determine if one is a rotation of the other.
+ *       As an example, given a string "abcde", its possible rotations are
+ *       "abcde" (no rotation), "bcdea", "cdeab", "deabc" and "eabcd". You are
+ *       allowed to determine if one string is a substring of the other (e.g.
+ *       using std::find) at most once.
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <algorithm>	/* std::rotate */

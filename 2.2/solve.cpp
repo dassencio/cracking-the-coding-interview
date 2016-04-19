@@ -1,3 +1,7 @@
+/*
+ * TASK: Given a singly-linked list, determine its n-th to last element.
+ */
+
 #include "list.hpp"
 #include <iostream>
 #include <cassert>

@@ -1,3 +1,10 @@
+/*
+ * TASK: You are given an image whose pixels (4 bytes each) are stored as an
+ *       N×N matrix. Rotate the image by 90 degrees counterclockwise. Try to
+ *       solve this problem in place (i.e., without generating a copy of the
+ *       matrix).
+ */
+
 #include <vector>
 #include <iostream>
 #include <iomanip>

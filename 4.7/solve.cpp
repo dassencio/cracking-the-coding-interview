@@ -1,7 +1,7 @@
 /*
  * TASK: Suppose you have a very large binary tree T1 (e.g. containing millions
- * of nodes) and a small binary tree T2 (e.g. containing a few hundred nodes).
- * Determine if T2 is a subtree of T1.
+ *       of nodes) and a small binary tree T2 (e.g. containing a few hundred
+ *       nodes). Determine if T2 is a subtree of T1.
  */
 
 #include <vector>

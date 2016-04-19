@@ -1,3 +1,9 @@
+/*
+ * TASK: Given a binary tree, determine if it is balanced. In this question,
+ *       "balanced" means the smallest and largest distances between the
+ *       leaf nodes and the root node cannot differ by more than one.
+ */
+
 #include <vector>
 #include <iostream>
 #include <algorithm>

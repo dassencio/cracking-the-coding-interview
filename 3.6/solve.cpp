@@ -1,3 +1,9 @@
+/*
+ * TASK: Create an algorithm which sorts a stack in ascending order (i.e., the
+ *       stack top will be its minimum element after sorting). Only use the
+ *       push, pop, top and is_empty operations of your stack implementation.
+ */
+
 #include <iostream>
 #include <stack>
 #include <random>	/* std::uniform_int_distribution */

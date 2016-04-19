@@ -1,3 +1,9 @@
+/*
+ * TASK: Given an input string, remove its duplicate characters without using
+ *       an additional buffer (i.e., modify the string in place; do not make
+ *       a copy of it). As an example: "abcadbce" is changed into "abcde".
+ */
+
 #include <iostream>
 #include <string>
 #include <bitset>

@@ -1,3 +1,13 @@
+/*
+ * TASK: You are given two numbers stored as linked lists. Each node of these
+ *       lists stores a single digit of its associated number, and the digits
+ *       are stored in reverse order, i.e., the least significant digit is the
+ *       first element in the list and the most significant digit is the last
+ *       element in the list. Compute the sum of the two given numbers and
+ *       return the sum using the same (list) representation. As an example,
+ *       215 + 58 = 273 is represented as {5,1,2} + {8,5} = {3,7,2}.
+ */
+
 #include <list>
 #include <iostream>
 #include <random>	/* std::uniform_int_distribution */

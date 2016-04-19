@@ -1,3 +1,9 @@
+/*
+ * TASK: Reverse an input C-string. A C-string is a an array of characters whose
+ *       last element is the null character '\0'. As an example, the elements of
+ *       the C-string literal "word" are {'w','o','r','d','\0'}.
+ */
+
 #include <iostream>
 #include <cstring>	/* std::strlen */
 #include <algorithm>	/* std::reverse */

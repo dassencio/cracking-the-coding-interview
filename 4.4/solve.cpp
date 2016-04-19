@@ -1,3 +1,10 @@
+/*
+ * TASK: For a given binary search tree, build a list whose k-th element is a
+ *       list of all nodes at the k-th tree level. The first list element must
+ *       be a list with only the root node, the second list should be a list
+ *       containing only the children of the root node and so on.
+ */
+
 #include "binary_search_tree.hpp"
 #include <iostream>
 #include <algorithm>
@@ -48,8 +55,6 @@ int main()
 			std::vector< std::list< size_t > > lists_dfs = tree.level_node_list_dfs();
 
 			assert(lists_bfs == lists_dfs);
-
-			/* the tree height is its number of levels D */
 			assert(tree.height() == lists_bfs.size());
 
 			/*

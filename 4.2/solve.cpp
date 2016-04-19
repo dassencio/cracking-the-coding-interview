@@ -1,3 +1,8 @@
+/*
+ * TASK: Determine whether there is a route between two nodes of a given
+ *       directed graph.
+ */
+
 #include <iostream>
 #include <unordered_set>
 #include <vector>

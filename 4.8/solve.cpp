@@ -1,3 +1,12 @@
+/*
+ * TASK: For a given binary tree whose keys are integer values and an integer
+ *       value V, determine all paths in the tree such that the sum of their
+ *       keys is V. Here, a tree path is any downward list of nodes, i.e., the
+ *       first node in the path is the one closest to root, and every edge on
+ *       a path must point away from the root (it goes always from a parent
+ *       node to one of its children nodes).
+ */
+
 #include <list>
 #include <vector>
 #include <iostream>
@@ -20,11 +29,6 @@ struct tree_node
 	}
 };
 
-/*
- * a path is a downward list of nodes, i.e., the first node in the path is the
- * one closest to root, and every edge on a path must point away from the root
- * (it goes always from a parent node to one of its children nodes)
- */
 typedef std::list< const tree_node* > path;
 
 /**

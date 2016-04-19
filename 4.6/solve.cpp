@@ -1,3 +1,7 @@
+/*
+ * TASK: For a given binary tree and two nodes of this tree, determine their
+ *       first common ancestor.
+ */
 #include <vector>
 #include <iostream>
 #include <algorithm>
