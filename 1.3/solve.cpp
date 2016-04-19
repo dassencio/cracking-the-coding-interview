@@ -50,6 +50,7 @@ std::string& remove_duplicates_1(std::string& str)
 
 	/* all characters in str[i..str.size()) are duplicates, discard them */
 	str.resize(i);
+	str.shrink_to_fit();
 
 	return str;
 }
@@ -88,6 +89,7 @@ std::string& remove_duplicates_2(std::string& str)
 
 	/* all characters in str[i..str.size()) are duplicates, discard them */
 	str.resize(i);
+	str.shrink_to_fit();
 
 	return str;
 }
