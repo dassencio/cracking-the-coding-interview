@@ -123,8 +123,9 @@ square_matrix& rotate_square_matrix_2(square_matrix& A)
  */
 square_matrix random_matrix(const size_t n)
 {
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
 	std::uniform_int_distribution< int > distribution(0,1000);
 
 	square_matrix A(n);
