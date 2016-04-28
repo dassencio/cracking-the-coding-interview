@@ -42,9 +42,10 @@ char* reverse_c_string(char* str)
  */
 char* random_string(size_t n)
 {
-	std::random_device device;
-	std::mt19937 generator(device());
-	std::uniform_int_distribution< int > distribution(0,25);
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
+	std::uniform_int_distribution< char > distribution('a','z');
 
 	char* str = new char[n+1];
 	str[n] = '\0';
@@ -52,7 +53,7 @@ char* random_string(size_t n)
 	while (n > 0)
 	{
 		--n;
-		str[n] = 'a' + distribution(generator);
+		str[n] = distribution(generator);
 	}
 
 	return str;
