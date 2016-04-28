@@ -127,8 +127,9 @@ size_t count(const tree_node* root, const int x)
  */
 std::vector< int > sorted_random_vector(int n)
 {
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
 	std::uniform_int_distribution< int > distribution(-n,n);
 
 	std::vector< int > values;
