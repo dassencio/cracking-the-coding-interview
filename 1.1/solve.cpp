@@ -81,19 +81,18 @@ bool has_duplicates_3(const std::string& str)
  * @brief generates a random string of length n and characters in [a-z]
  * @note complexity: O(n) in both space and time
  */
-std::string random_string(size_t n)
+std::string random_string(const size_t n)
 {
-	std::random_device device;
-	std::mt19937 generator(device());
-	std::uniform_int_distribution< int > distribution(0,25);
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
+	std::uniform_int_distribution< char > distribution('a','z');
 
 	std::string str;
 
-	while (n > 0)
+	while (str.size() < n)
 	{
-		char letter = 'a' + distribution(generator);
-		str.push_back(letter);
-		--n;
+		str.push_back(distribution(generator));
 	}
 
 	return str;
