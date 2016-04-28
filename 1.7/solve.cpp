@@ -147,8 +147,9 @@ matrix zero_when_necessary_2(matrix& A)
  */
 matrix random_matrix(const size_t m, const size_t n)
 {
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
 	std::uniform_int_distribution< int > distribution(0,100);
 
 	matrix A(m,n);
