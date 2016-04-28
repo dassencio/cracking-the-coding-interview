@@ -16,8 +16,9 @@
  */
 std::vector< size_t > random_vector(const size_t n)
 {
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
 	std::uniform_int_distribution< size_t > distribution(0,n);
 
 	std::vector< size_t > values;
