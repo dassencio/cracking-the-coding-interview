@@ -98,19 +98,18 @@ std::string& remove_duplicates_2(std::string& str)
  * @brief generates a random ASCII string of length n
  * @note complexity: O(n) in both space and time
  */
-std::string random_string(size_t n)
+std::string random_string(const size_t n)
 {
-	std::random_device device;
-	std::mt19937 generator(device());
-	std::uniform_int_distribution< int > distribution(0,127);
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
+	std::uniform_int_distribution< char > distribution(0,127);
 
 	std::string str;
 
-	while (n > 0)
+	while (str.size() < n)
 	{
-		char letter = distribution(generator);
-		str.push_back(letter);
-		--n;
+		str.push_back(distribution(generator));
 	}
 
 	return str;
