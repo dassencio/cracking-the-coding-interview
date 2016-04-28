@@ -166,8 +166,8 @@ list_node* random_list(const size_t n)
 
 	list_node* tail = nodes[0];
 
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
 
 	std::bernoulli_distribution coinflip(0.5);
 
