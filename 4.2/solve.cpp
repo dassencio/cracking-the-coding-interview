@@ -135,13 +135,13 @@ bool has_path_dfs(const directed_graph& G, const size_t s, const size_t d)
  */
 directed_graph random_graph(const size_t n, size_t m)
 {
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
 	directed_graph G(n);
 
 	if (n > 0)
 	{
-		std::random_device device;
-		std::mt19937 generator(device());
-
 		std::uniform_int_distribution< size_t > distribution(0, n-1);
 
 		while (m > 0)
