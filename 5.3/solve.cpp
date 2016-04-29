@@ -205,8 +205,9 @@ uint16_t random_number(uint16_t n)
 {
 	uint16_t number = 0;
 
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
 	std::uniform_int_distribution< uint8_t > bit_chooser(0,15);
 
 	while (n > 0)
