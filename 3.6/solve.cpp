@@ -52,11 +52,11 @@ int main()
 
 	for (size_t n = 0; n <= 50; ++n)
 	{
-		std::uniform_int_distribution< int > distribution(-n,n);
+		std::uniform_int_distribution< size_t > distribution(0,n);
 
 		for (int i = 0; i < 1000; ++i)
 		{
-			std::stack< int > A;
+			std::stack< size_t > A;
 
 			/* add elements to the stack */
 			while (A.size() < n)
@@ -68,7 +68,7 @@ int main()
 
 			assert(A.size() == n);
 
-			int a = std::numeric_limits< int >::min();
+			size_t a = 0;
 
 			/* check if the stack is now sorted */
 			while (A.empty() == false)
