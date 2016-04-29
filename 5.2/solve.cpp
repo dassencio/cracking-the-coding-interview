@@ -123,8 +123,8 @@ std::string random_decimal_string(const size_t n)
 		return {};
 	}
 
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
 
 	std::uniform_int_distribution< size_t > dot_chooser(0,n);
 	std::uniform_int_distribution< char > digit_chooser('0','9');
