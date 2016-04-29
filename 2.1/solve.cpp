@@ -15,7 +15,7 @@ int main()
 	std::random_device device;
 	std::mt19937 generator(device());
 
-	for (size_t n = 0; n < 100; ++n)
+	for (int n = 0; n < 100; ++n)
 	{
 		for (int i = 0; i < 1000; ++i)
 		{
@@ -28,7 +28,7 @@ int main()
 			std::set< int > S;
 
 			/* L1 and L2 are copies of each other */
-			for (size_t i = 0; i < n; ++i)
+			for (int k = 0; k < n; ++k)
 			{
 				int value = distribution(generator);
 
