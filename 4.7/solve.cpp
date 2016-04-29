@@ -92,8 +92,8 @@ std::vector< tree_node* > random_tree(int n)
 		return {};
 	}
 
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
 
 	std::uniform_int_distribution< int > key_chooser(-n,n);
 	std::bernoulli_distribution left_or_right(0.5);
