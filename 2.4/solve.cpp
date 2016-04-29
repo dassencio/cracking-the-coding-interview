@@ -110,9 +110,9 @@ int main()
 	std::random_device device;
 	std::mt19937 generator(device());
 
-	for (size_t n = 1; n <= 1000000000000; n *= 10)
+	for (uint64_t n = 1; n <= 1000000000000; n *= 10)
 	{
-		for (size_t i = 0; i < 1000; ++i)
+		for (int i = 0; i < 1000; ++i)
 		{
 			std::uniform_int_distribution< uint64_t > distribution(0,n);
 
