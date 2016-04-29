@@ -128,8 +128,10 @@ std::vector< tree_node* > random_tree(size_t n)
 		return {};
 	}
 
-	std::random_device device;
-	std::mt19937 generator(device());
+	static std::random_device device;
+	static std::mt19937 generator(device());
+
+	std::bernoulli_distribution left_or_right(0.5);
 
 	/* the first generated node is the root */
 	std::vector< tree_node* > nodes = { new tree_node };
@@ -138,7 +140,6 @@ std::vector< tree_node* > random_tree(size_t n)
 	while (n > 0)
 	{
 		std::uniform_int_distribution< size_t > node_chooser(0, nodes.size()-1);
-		std::bernoulli_distribution left_or_right(0.5);
 
 		size_t index = node_chooser(generator);
 		bool side = left_or_right(generator);
