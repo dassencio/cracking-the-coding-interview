@@ -42,6 +42,7 @@ int main()
 {
 	std::random_device device;
 	std::mt19937 generator(device());
+
 	std::uniform_int_distribution< uint32_t > distribution;
 
 	for (uint8_t i = 0; i <= 31; ++i)
