@@ -29,7 +29,7 @@ struct tree_node
 	}
 };
 
-typedef std::list< const tree_node* > path;
+using path = std::list< const tree_node* >;
 
 /**
  * @brief determines all tree paths which sum to a given value

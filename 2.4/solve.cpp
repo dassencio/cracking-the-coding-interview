@@ -14,10 +14,10 @@
 #include <cassert>
 
 /* a decimal digit (value on range [0,9]) */
-typedef uint8_t digit;
+using digit = uint8_t;
 
 /* a number represented as a list of decimal digits (in reverse order) */
-typedef std::list< digit > number;
+using number = std::list< digit >;
 
 /**
  * @brief returns the sum of two numbers stored as linked lists
