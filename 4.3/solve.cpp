@@ -40,15 +40,15 @@ struct tree_node
  *       O(log(n)) levels
  */
 template< typename bidirectional_iterator >
-tree_node* build_min_height_tree(const bidirectional_iterator& begin,
-                                 const bidirectional_iterator& end)
+tree_node* build_min_height_tree(const bidirectional_iterator begin,
+                                 const bidirectional_iterator end)
 {
 	if (begin == end)
 	{
 		return nullptr;
 	}
 
-	bidirectional_iterator middle = begin + std::distance(begin,end)/2;
+	const bidirectional_iterator middle = begin + std::distance(begin,end)/2;
 
 	tree_node* node = new tree_node;
 
