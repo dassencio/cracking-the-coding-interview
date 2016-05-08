@@ -43,8 +43,8 @@ using obstacles = std::vector< std::vector< bool > >;
  * @param y the index of the grid row where the robot is initially located
  * @param O a matrix representing the state of each grid cell (obstacle/free)
  * @return a list containing all valid paths from (x,y) to (0,0)
- * @note complexity: O((x+y)! / (x!*y!)) in time, O((x+y+1)! / (x!*y!) in
- *       space, because each computed path has length x+y+1
+ * @note complexity: O((x+y+1)! / (x!*y!) in both time and space because each
+ *       computed path has length x+y+1
  */
 std::list< path > compute_all_paths(const size_t x,
                                     const size_t y,
@@ -159,7 +159,7 @@ size_t num_valid_paths_no_obstacles(const size_t n)
  *        on an n×n grid, where the top-left cell is always free
  * @param n the grid size
  * @param k the number of obstacles to place on the grid
- * @note complexity: O(n) in time, O(n²) in space, if k = O(n)
+ * @note complexity: O(n²) in time, O(n²) in space if k = O(n)
  */
 obstacles random_obstacles(const size_t n, size_t k)
 {
