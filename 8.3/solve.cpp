@@ -12,13 +12,13 @@ using subsets = std::vector< std::vector< size_t > >;
 /**
  * @brief computes all subsets of a set recursively
  * @param values an array containing the values in the set
- * @param i index such that subsets will only be built from elements with
- *        indices [i,n), where n is the number of elements in the set
- * @return a list of all subsets of the given set
+ * @param i index such that subsets will be built only from elements of values
+ *        with indices in [i,n), where n is the number of elements in the set
+ * @return an array holding all subsets of the given set (with indices >= i)
  * @note complexity: O(n*2^n) in both time and space, because the total number
  *       of subsets is 2^n and each subset has size O(n)
  */
-subsets all_sets_1(const std::vector< size_t >& values, const size_t i = 0)
+subsets all_subsets_1(const std::vector< size_t >& values, const size_t i = 0)
 {
 	/* base case: we are one past the last element of the input set */
 	if (i == values.size())
@@ -27,7 +27,7 @@ subsets all_sets_1(const std::vector< size_t >& values, const size_t i = 0)
 		return { {} };
 	}
 
-	subsets sets = all_sets_1(values, i+1);
+	subsets sets = all_subsets_1(values, i+1);
 
 	subsets __sets = sets;
 
@@ -48,18 +48,18 @@ subsets all_sets_1(const std::vector< size_t >& values, const size_t i = 0)
 /**
  * @brief computes all subsets of a set iteratively
  * @param values an array containing the values in the set
- * @return a list of all subsets of the specified set
+ * @return an array holding all subsets of the given set
  * @note complexity: O(n*2^n) in both time and space, where n is the number of
  *       elements in the set, because the total number of subsets is 2^n and
  *       each subset has size O(n)
  */
-subsets all_sets_2(std::vector< size_t >& values)
+subsets all_subsets_2(const std::vector< size_t >& values)
 {
 	size_t i = 0;
 
 	subsets sets = { {} };
 
-	while (i != values.size())
+	while (i < values.size())
 	{
 		subsets __sets = sets;
 
@@ -114,8 +114,8 @@ int main()
 			values.push_back(i);
 		}
 
-		subsets U = all_sets_1(values);
-		subsets V = all_sets_2(values);
+		subsets U = all_subsets_1(values);
+		subsets V = all_subsets_2(values);
 
 		assert(sets_are_equal(U,V) == true);
 
