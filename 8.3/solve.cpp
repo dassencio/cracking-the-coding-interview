@@ -117,6 +117,9 @@ int main()
 		subsets U = all_subsets_1(values);
 		subsets V = all_subsets_2(values);
 
+		assert(U.size() == std::pow(2,n));
+		assert(V.size() == std::pow(2,n));
+
 		assert(sets_are_equal(U,V) == true);
 
 		std::cout << "passed test for set with size " << n << std::endl;
