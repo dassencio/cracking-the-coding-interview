@@ -35,9 +35,9 @@ subsets all_subsets_1(const std::vector< size_t >& values, const size_t i = 0)
 	 * go over each set obtained so far and generate a copy which also
 	 * contains values[i]
 	 */
-	for (std::vector< size_t >& S : __sets)
+	for (std::vector< size_t >& s : __sets)
 	{
-		S.push_back(values[i]);
+		s.push_back(values[i]);
 	}
 
 	std::move(__sets.begin(), __sets.end(), std::back_inserter(sets));
