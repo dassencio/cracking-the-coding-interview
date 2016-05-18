@@ -191,4 +191,6 @@ int main()
 
 		std::cout << "passed random tests for trees of size " << n << std::endl;
 	}
+
+	return 0;
 }
