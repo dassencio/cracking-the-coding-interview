@@ -123,7 +123,7 @@ size_t count(const tree_node* root, const int x)
 
 /**
  * @brief generates a sorted random vector of length n and values in [-n,n]
- * @note complexity: O(n) in both time and space
+ * @note complexity: O(n*log(n)) in time, O(n) in space
  */
 std::vector< int > sorted_random_vector(int n)
 {
