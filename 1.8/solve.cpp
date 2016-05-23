@@ -54,7 +54,7 @@ bool is_rotation_2(std::string str1, const std::string& str2)
 
 /**
  * @brief generates a random ASCII string of length n and characters in [a-c]
- * @note complexity: O(n) in both space and time
+ * @note complexity: O(n) in both time and space
  */
 std::string random_string(const size_t n)
 {

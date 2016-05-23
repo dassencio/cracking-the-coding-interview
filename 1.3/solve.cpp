@@ -96,7 +96,7 @@ std::string& remove_duplicates_2(std::string& str)
 
 /**
  * @brief generates a random ASCII string of length n
- * @note complexity: O(n) in both space and time
+ * @note complexity: O(n) in both time and space
  */
 std::string random_string(const size_t n)
 {

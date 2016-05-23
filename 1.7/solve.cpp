@@ -68,7 +68,7 @@ private:
 /**
  * @brief solution which requires the matrix to be copied
  * @return copy of input matrix with relevant rows/columns zeroed out
- * @note complexity: O(m*n) in both space and time
+ * @note complexity: O(m*n) in both time and space
  */
 matrix zero_when_necessary_1(const matrix& A)
 {
@@ -143,7 +143,7 @@ matrix zero_when_necessary_2(matrix& A)
 
 /**
  * @brief generates a random m×n matrix
- * @note complexity: O(m*n) in both space and time
+ * @note complexity: O(m*n) in both time and space
  */
 matrix random_matrix(const size_t m, const size_t n)
 {

@@ -79,7 +79,7 @@ bool has_duplicates_3(const std::string& str)
 
 /**
  * @brief generates a random string of length n and characters in [a-z]
- * @note complexity: O(n) in both space and time
+ * @note complexity: O(n) in both time and space
  */
 std::string random_string(const size_t n)
 {

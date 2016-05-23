@@ -143,7 +143,7 @@ const list_node* get_loop_start_2(const list_node* head)
 
 /**
  * @brief generates a random list which is circular with 50% probability
- * @note complexity: O(n) in both space and time
+ * @note complexity: O(n) in both time and space
  */
 list_node* random_list(const size_t n)
 {

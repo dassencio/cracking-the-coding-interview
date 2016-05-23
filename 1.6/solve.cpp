@@ -119,7 +119,7 @@ square_matrix& rotate_square_matrix_2(square_matrix& A)
 
 /**
  * @brief generates a random n×n matrix
- * @note complexity: O(n²) in both space and time
+ * @note complexity: O(n²) in both time and space
  */
 square_matrix random_matrix(const size_t n)
 {
