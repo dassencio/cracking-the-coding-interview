@@ -45,23 +45,9 @@ public:
 		return (m_ == B.m_) && (values_ == B.values_);
 	}
 
-	std::ostream& print(std::ostream& stream = std::cout) const
-	{
-		for (size_t i = 0; i < m_; ++i)
-		{
-			for (size_t j = 0; j < n_; ++j)
-			{
-				stream << std::setw(5) << (*this)(i,j);
-			}
-			stream << std::endl;
-		}
-
-		return stream;
-	}
-
 private:
-	size_t m_ = 0;
-	size_t n_ = 0;
+	size_t m_;
+	size_t n_;
 	std::vector< int > values_;
 };
 
