@@ -121,7 +121,7 @@ const tree_node* find_common_ancestor_2(const tree_node* n1, const tree_node* n2
  *        vector of nodes, with the first element being the tree's root node
  * @note complexity: O(n) in both time and space (on average)
  */
-std::vector< tree_node* > random_tree(size_t n)
+std::vector< tree_node* > random_tree(const size_t n)
 {
 	if (n == 0)
 	{
@@ -135,9 +135,8 @@ std::vector< tree_node* > random_tree(size_t n)
 
 	/* the first generated node is the root */
 	std::vector< tree_node* > nodes = { new tree_node };
-	--n;
 
-	while (n > 0)
+	while (nodes.size() < n)
 	{
 		std::uniform_int_distribution< size_t > node_chooser(0, nodes.size()-1);
 
@@ -150,14 +149,12 @@ std::vector< tree_node* > random_tree(size_t n)
 			nodes.push_back(new tree_node);
 			nodes[index]->left = nodes.back();
 			nodes.back()->parent = nodes[index];
-			--n;
 		}
 		else if (side == false && nodes[index]->right == nullptr)
 		{
 			nodes.push_back(new tree_node);
 			nodes[index]->right = nodes.back();
 			nodes.back()->parent = nodes[index];
-			--n;
 		}
 	}
 
