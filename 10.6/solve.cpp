@@ -24,7 +24,7 @@ std::vector< line > build_all_lines(const std::vector< point >& points)
 	{
 		for (size_t j = i+1; j < points.size(); ++j)
 		{
-			lines.push_back(line{points[i], points[j]});
+			lines.push_back(line(points[i], points[j]));
 		}
 	}
 
