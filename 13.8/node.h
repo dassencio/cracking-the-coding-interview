@@ -12,7 +12,7 @@ class node
 public:
 	node(const size_t __index): index(__index)
 	{
-		/* nothing here */
+		/* nothing needs to be done here */
 	}
 
 	/**
