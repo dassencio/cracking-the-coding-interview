@@ -52,11 +52,11 @@ uint64_t find_number_1(const size_t k)
  */
 uint64_t find_number_2(size_t k)
 {
-	std::deque< uint64_t > q3 = { uint64_t{1} };
-	std::deque< uint64_t > q5 = { uint64_t{1} };
-	std::deque< uint64_t > q7 = { uint64_t{1} };
+	std::deque< uint64_t > q3 = { uint64_t(1) };
+	std::deque< uint64_t > q5 = { uint64_t(1) };
+	std::deque< uint64_t > q7 = { uint64_t(1) };
 
-	uint64_t next = uint64_t{1};
+	uint64_t next = uint64_t(1);
 
 	++k;
 
@@ -68,9 +68,9 @@ uint64_t find_number_2(size_t k)
 		 * again (but pop the queue whose candidate was the best one),
 		 * otherwise add the winning candidate to all queues
 		 */
-		uint64_t next3 = uint64_t{3} * q3.front();
-		uint64_t next5 = uint64_t{5} * q5.front();
-		uint64_t next7 = uint64_t{7} * q7.front();
+		uint64_t next3 = uint64_t(3) * q3.front();
+		uint64_t next5 = uint64_t(5) * q5.front();
+		uint64_t next7 = uint64_t(7) * q7.front();
 
 		/* if next3 is the smallest candidate */
 		if (next3 <= next5 && next3 <= next7)

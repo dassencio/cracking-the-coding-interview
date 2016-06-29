@@ -26,7 +26,7 @@ using queen_setup = std::list< position >;
 uint64_t position_mask(const uint64_t i, const uint64_t j)
 {
 	assert(i < 8 && j < 8);
-	return uint64_t{1} << (uint64_t{8}*i + j);
+	return uint64_t(1) << (uint64_t(8)*i + j);
 }
 
 /**
