@@ -157,7 +157,7 @@ int main()
 			}
 		}
 
-		std::cerr << "passed random tests for arrays of size " << n << std::endl;
+		std::cout << "passed random tests for arrays of size " << n << std::endl;
 	}
 
 	return 0;
