@@ -9,6 +9,7 @@
  *       (2 × 1 cent) + (1 × 10 cent)
  */
 
+#include <array>
 #include <vector>
 #include <iostream>
 #include <algorithm>
