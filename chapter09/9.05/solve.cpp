@@ -153,7 +153,6 @@ std::vector< std::string > sorted_random_strings(const size_t n)
 	return strings;
 }
 
-
 int main()
 {
 	for (size_t n = 0; n <= 50; ++n)
