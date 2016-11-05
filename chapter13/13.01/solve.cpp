@@ -11,6 +11,11 @@
 
 int main(int argc, char** argv)
 {
+	/*
+	 * usage: ./solve <num-lines> <filename>
+	 * example: ./solve 10 solve.cpp
+	 */
+
 	assert(argc > 2);
 
 	int n = std::stoi(argv[1]);
