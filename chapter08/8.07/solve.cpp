@@ -74,7 +74,7 @@ int main()
 			assert(std::accumulate(seq.begin(), seq.end(), 0) == n);
 		}
 
-		std::cout << "passed tests for " << n << " cents" << std::endl;
+		std::cout << "passed test for " << n << " cents" << std::endl;
 	}
 
 	return 0;
