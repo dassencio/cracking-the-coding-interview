@@ -8,11 +8,12 @@ Interview, 4th Edition - 150 Programming Interview Questions and Solutions".
 License
 =======
 
-All code from this project is licensed under the GPLv3. See 'LICENSE' for more.
+All code from this project is licensed under the GPLv3. See the `LICENSE` file
+for more information.
 
 
-Instructions
-============
+Usage instructions
+==================
 
 Each solution in this repository is self-contained. Each directory contains
 the solution to a given problem and tests to check its correctness (most of
@@ -26,7 +27,7 @@ The tests can then be executed by running:
 	./solve
 
 
-Contributors & Contact Information
+Contributors & contact information
 ==================================
 
 Diego Assencio / diego@assencio.com
