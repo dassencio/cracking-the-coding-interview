@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dassencio/cracking-the-coding-interview.svg?branch=master)](https://travis-ci.org/dassencio/cracking-the-coding-interview)
+
 Description
 ===========
 

@@ -29,12 +29,13 @@ int main(int argc, char** argv)
 
 	while (std::getline(in_file, line).good() == true)
 	{
-		if (lines.size() == static_cast< size_t >(n))
+		lines.push_back(line);
+
+		/* if we reach n+1 lines, discard the oldest one */
+		if (lines.size() == static_cast< size_t >(n+1))
 		{
 			lines.pop_front();
 		}
-
-		lines.push_back(line);
 	}
 
 	for (const std::string& line : lines)

@@ -31,7 +31,7 @@ int main()
 {
 	std::map< std::string, size_t > count = count_words(std::cin);
 
-	for (auto p : count)
+	for (const auto& p : count)
 	{
 		std::cout << p.first << ": " << p.second << "\n";
 	}

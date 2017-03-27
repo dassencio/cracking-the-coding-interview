@@ -1,0 +1,16 @@
+language: cpp
+
+dist: trusty
+
+git:
+  depth: 3
+
+script:
+  - ./run-tests
+
+notifications:
+  email:
+    recipients:
+      - diego@assencio.com
+    on_success: change
+    on_failure: always
