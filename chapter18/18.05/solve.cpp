@@ -103,5 +103,5 @@ int main()
 		std::cout << "passed random test for call sequence of size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

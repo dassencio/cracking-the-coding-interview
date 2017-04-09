@@ -87,5 +87,5 @@ int main()
 		std::cout << "passed test for tower of height " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

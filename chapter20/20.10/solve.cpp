@@ -222,5 +222,5 @@ int main(int argc, char** argv)
 		          << word2 << "'" << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

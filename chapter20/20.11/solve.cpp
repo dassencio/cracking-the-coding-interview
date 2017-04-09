@@ -250,5 +250,5 @@ int main()
 		std::cout << "passed random tests for boards of size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

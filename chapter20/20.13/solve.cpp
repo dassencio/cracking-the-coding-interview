@@ -449,5 +449,5 @@ int main(int argc, char** argv)
 		std::cout << "no rectangle could be built\n";
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

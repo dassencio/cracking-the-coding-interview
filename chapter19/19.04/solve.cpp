@@ -35,5 +35,5 @@ int main()
 
 	std::cout << "passed all random tests" << std::endl;
 
-	return 0;
+	return EXIT_SUCCESS;
 }

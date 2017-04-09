@@ -252,6 +252,6 @@ int main()
 		std::cout << "passed random tests for numbers with " << n << " bits set" << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 

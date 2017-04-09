@@ -61,5 +61,5 @@ int main()
 		std::cout << "passed random tests for lists of length " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

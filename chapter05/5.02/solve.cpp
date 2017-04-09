@@ -167,5 +167,5 @@ int main()
 		std::cout << "passed random tests for numbers with " << n << " digits" << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

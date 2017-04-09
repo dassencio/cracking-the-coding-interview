@@ -168,5 +168,5 @@ int main()
 		std::cout << "passed tests for trees of size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

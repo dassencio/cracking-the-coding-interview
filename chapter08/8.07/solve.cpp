@@ -77,5 +77,5 @@ int main()
 		std::cout << "passed test for " << n << " cents" << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

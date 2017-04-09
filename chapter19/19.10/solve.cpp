@@ -92,5 +92,5 @@ int main()
 		std::cout << i+1 << ": " << (100.0 * count[i]) / samples << "\n";
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

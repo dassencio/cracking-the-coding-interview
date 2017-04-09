@@ -92,5 +92,5 @@ int main()
 		std::cout << "passed random tests for array " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -86,5 +86,5 @@ int main()
 
 	std::cout << "passed all tests" << std::endl;
 
-	return 0;
+	return EXIT_SUCCESS;
 }

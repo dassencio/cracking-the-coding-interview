@@ -125,5 +125,5 @@ int main()
 		std::cout << "passed test for set with size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -160,5 +160,5 @@ int main()
 		std::cout << "passed random test for file with " << n << " words" << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

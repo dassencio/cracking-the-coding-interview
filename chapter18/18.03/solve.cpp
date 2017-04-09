@@ -83,5 +83,5 @@ int main()
 
 	delete singleton< int >::instance();
 
-	return 0;
+	return EXIT_SUCCESS;
 }

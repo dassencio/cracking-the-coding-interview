@@ -283,4 +283,6 @@ int main()
 
 		std::cout << "passed random tests for matrices of size " << n << std::endl;
 	}
+
+	return EXIT_SUCCESS;
 }

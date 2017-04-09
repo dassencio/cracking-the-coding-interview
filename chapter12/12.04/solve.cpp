@@ -84,5 +84,5 @@ int main()
 		std::cout << "passed random test for array of size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

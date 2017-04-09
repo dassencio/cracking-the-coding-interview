@@ -62,5 +62,5 @@ int main()
 
 	std::cout << "passed random tests" << std::endl;
 
-	return 0;
+	return EXIT_SUCCESS;
 }

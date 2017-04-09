@@ -212,5 +212,5 @@ int main()
 		std::cout << "passed random tests for grids of size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

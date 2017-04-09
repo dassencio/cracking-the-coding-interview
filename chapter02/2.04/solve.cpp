@@ -133,5 +133,5 @@ int main()
 		std::cout << "passed random tests for numbers up to " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

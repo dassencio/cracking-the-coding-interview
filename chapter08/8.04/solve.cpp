@@ -90,5 +90,5 @@ int main()
 		std::cout << "passed random tests for strings of length " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

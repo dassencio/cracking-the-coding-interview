@@ -60,5 +60,5 @@ int main()
 		std::cout << "passed random tests for stacks of size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

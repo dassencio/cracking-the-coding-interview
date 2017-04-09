@@ -82,5 +82,5 @@ int main()
 		std::cout << "passed random tests for arrays of size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

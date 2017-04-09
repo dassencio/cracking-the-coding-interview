@@ -43,5 +43,5 @@ int main()
 		std::cout << "passed tests for queues of length " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

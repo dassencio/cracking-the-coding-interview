@@ -171,5 +171,5 @@ int main()
 		}
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

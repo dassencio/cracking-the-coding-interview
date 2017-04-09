@@ -159,5 +159,5 @@ int main()
 		assert(is_valid_solution(setup));
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

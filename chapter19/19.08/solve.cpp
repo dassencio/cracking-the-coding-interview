@@ -36,5 +36,5 @@ int main()
 		std::cout << p.first << ": " << p.second << "\n";
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -76,5 +76,5 @@ int main()
 		std::cout << "passed tests for stacks of total size " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

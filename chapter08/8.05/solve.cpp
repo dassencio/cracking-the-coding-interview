@@ -132,7 +132,7 @@ int main()
 		std::cout << "passed tests for parentheses strings of length " << n << std::endl;
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 

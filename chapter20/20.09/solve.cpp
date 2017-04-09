@@ -124,5 +124,5 @@ int main()
 
 	std::cout << "passed random test" << std::endl;
 
-	return 0;
+	return EXIT_SUCCESS;
 }

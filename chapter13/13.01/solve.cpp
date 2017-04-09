@@ -43,5 +43,5 @@ int main(int argc, char** argv)
 		std::cout << line << "\n";
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }
