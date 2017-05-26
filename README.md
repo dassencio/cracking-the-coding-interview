@@ -10,8 +10,9 @@ Interview, 4th Edition - 150 Programming Interview Questions and Solutions".
 License
 =======
 
-All code from this project is licensed under the GPLv3. See the `LICENSE` file
-for more information.
+All code from this project is licensed under the GPLv3. See the
+[`LICENSE`](https://github.com/dassencio/cracking-the-coding-interview/tree/master/LICENSE)
+file for more information.
 
 
 Usage instructions
