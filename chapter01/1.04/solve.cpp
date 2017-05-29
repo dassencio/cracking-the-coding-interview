@@ -11,12 +11,12 @@
 #include <cassert>
 
 /**
- * @brief solution using sorting
- * @return true if str1 and str2 are anagrams, false otherwise
- * @note complexity: O(n*log(n)) in time, O(n) in space (but can be O(1) in
+ * @brief Solution using sorting.
+ * @return true if str1 and str2 are anagrams, false otherwise.
+ * @note Complexity: O(n*log(n)) in time, O(n) in space (but can be O(1) in
  *       space if we don't mind losing the original strings since we can sort
  *       them in place instead of sorting copies of them), where n is the
- *       length of the longest string
+ *       length of the longest string.
  */
 bool is_anagram_1(std::string str1, std::string str2)
 {
@@ -27,12 +27,12 @@ bool is_anagram_1(std::string str1, std::string str2)
 }
 
 /**
- * @brief solution using counters for each character (the input strings are
- *        allowed to contain any valid ASCII characters)
- * @return true if str1 and str2 are anagrams, false otherwise
- * @note complexity: O(n) in time, O(1) in space but needs to use a somewhat
+ * @brief Solution using counters for each character (the input strings are
+ *        allowed to contain any valid ASCII characters).
+ * @return true if str1 and str2 are anagrams, false otherwise.
+ * @note Complexity: O(n) in time, O(1) in space but needs to use a somewhat
  *       large array (128 integers corresponding to each possible character),
- *       where n is the length of the longest string
+ *       where n is the length of the longest string.
  */
 bool is_anagram_2(const std::string& str1, const std::string& str2)
 {
@@ -71,8 +71,8 @@ bool is_anagram_2(const std::string& str1, const std::string& str2)
 }
 
 /**
- * @brief generates a random ASCII string of length n
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random ASCII string of length n.
+ * @note Complexity: O(n) in both time and space.
  */
 std::string random_string(const size_t n)
 {

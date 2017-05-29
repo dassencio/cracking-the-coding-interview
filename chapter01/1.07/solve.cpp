@@ -52,9 +52,9 @@ private:
 };
 
 /**
- * @brief solution which requires the matrix to be copied
- * @return copy of input matrix with relevant rows/columns zeroed out
- * @note complexity: O(m*n) in both time and space
+ * @brief Solution which requires the matrix to be copied.
+ * @return A copy of the input matrix with relevant rows/columns zeroed out.
+ * @note Complexity: O(m*n) in both time and space.
  */
 matrix zero_when_necessary_1(const matrix& A)
 {
@@ -87,9 +87,9 @@ matrix zero_when_necessary_1(const matrix& A)
 }
 
 /**
- * @brief solution which zoeres the relevant rows/columns in place
- * @return reference to input matrix (with rows/columns zeroed out)
- * @note complexity: O(m*n) in time, O(m+n) in space
+ * @brief Solution which zeroes the relevant rows/columns in place.
+ * @return A reference to the input matrix (with rows/columns zeroed out).
+ * @note Complexity: O(m*n) in time, O(m+n) in space.
  */
 matrix zero_when_necessary_2(matrix& A)
 {
@@ -128,8 +128,8 @@ matrix zero_when_necessary_2(matrix& A)
 }
 
 /**
- * @brief generates a random m×n matrix
- * @note complexity: O(m*n) in both time and space
+ * @brief Generates a random m×n matrix.
+ * @note Complexity: O(m*n) in both time and space.
  */
 matrix random_matrix(const size_t m, const size_t n)
 {

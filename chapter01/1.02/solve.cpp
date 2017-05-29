@@ -10,9 +10,9 @@
 #include <cassert>
 
 /**
- * @brief reverses an input C-string in place
- * @return pointer to input string (reversed)
- * @note complexity: O(n) in time, O(1) in space, where n is the string length
+ * @brief Reverses an input C-string in place.
+ * @return A pointer to the input string (reversed).
+ * @note Complexity: O(n) in time, O(1) in space, where n is the string length.
  */
 char* reverse_c_string(char* str)
 {
@@ -37,8 +37,8 @@ char* reverse_c_string(char* str)
 }
 
 /**
- * @brief generates a random C-string of length n and characters in [a-z]
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random C-string of length n and characters in [a-z].
+ * @note Complexity: O(n) in both time and space.
  */
 char* random_string(size_t n)
 {

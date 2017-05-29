@@ -9,8 +9,8 @@
 #include <cassert>
 
 /**
- * @brief replaces spaces with "%20" on a string without using an extra buffer
- * @note complexity: O(n) in both time and space, where n is the string length
+ * @brief Replaces spaces with "%20" on a string without using an extra buffer.
+ * @note Complexity: O(n) in both time and space, where n is the string length.
  */
 void replace_spaces_1(std::string& str)
 {
@@ -39,8 +39,8 @@ void replace_spaces_1(std::string& str)
 }
 
 /**
- * @brief replaces spaces with "%20" on a string using an extra buffer
- * @note complexity: O(n) in both time and space, where n is the string length
+ * @brief Replaces spaces with "%20" on a string using an extra buffer.
+ * @note Complexity: O(n) in both time and space, where n is the string length.
  */
 void replace_spaces_2(std::string& str)
 {
@@ -62,9 +62,9 @@ void replace_spaces_2(std::string& str)
 }
 
 /**
- * @brief generates a random string of length n and characters in [a-d ], i.e.,
- *        { 'a', 'b', 'c', 'd', ' ' }
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random string of length n and characters in [a-d ], i.e.,
+ *        { 'a', 'b', 'c', 'd', ' ' }.
+ * @note Complexity: O(n) in both time and space.
  */
 std::string random_string(const size_t n)
 {

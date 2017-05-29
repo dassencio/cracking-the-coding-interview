@@ -11,9 +11,9 @@
 #include <cassert>
 
 /**
- * @brief solution without using an additional buffer
- * @return reference to input string with all duplicate characters removed
- * @note complexity: O(n²) in time, O(1) in space, where n is the string length
+ * @brief Solution without using an additional buffer.
+ * @return A reference to the input string with all duplicate characters removed.
+ * @note Complexity: O(n²) in time, O(1) in space, where n is the string length.
  */
 std::string& remove_duplicates_1(std::string& str)
 {
@@ -56,10 +56,10 @@ std::string& remove_duplicates_1(std::string& str)
 }
 
 /**
- * @brief solution using a bitmask to track seen characters (the input
- *        string is allowed to contain any valid ASCII characters)
- * @return reference to input string with all duplicate characters removed
- * @note complexity: O(n) in time, O(1) in space, where n is the string length
+ * @brief Solution using a bitmask to track seen characters (the input
+ *        string is allowed to contain any valid ASCII characters).
+ * @return A reference to the input string with all duplicate characters removed.
+ * @note Complexity: O(n) in time, O(1) in space, where n is the string length.
  */
 std::string& remove_duplicates_2(std::string& str)
 {
@@ -95,8 +95,8 @@ std::string& remove_duplicates_2(std::string& str)
 }
 
 /**
- * @brief generates a random ASCII string of length n
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random ASCII string of length n.
+ * @note Complexity: O(n) in both time and space.
  */
 std::string random_string(const size_t n)
 {

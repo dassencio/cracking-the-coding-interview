@@ -12,10 +12,10 @@
 #include <cassert>
 
 /**
- * @brief solution which checks if str2 appears in (str1 + str1)
- * @return true if str2 is a rotation of str1, false otherwise
- * @note complexity: O(n) in both time and space, where n is the length of
- *       the strings (if not the same, one cannot be a rotation of the other)
+ * @brief Solution which checks if str2 appears in (str1 + str1).
+ * @return true if str2 is a rotation of str1, false otherwise.
+ * @note Complexity: O(n) in both time and space, where n is the length of
+ *       the strings (if not the same, one cannot be a rotation of the other).
  */
 bool is_rotation_1(const std::string& str1, const std::string& str2)
 {
@@ -28,10 +28,10 @@ bool is_rotation_1(const std::string& str1, const std::string& str2)
 }
 
 /**
- * @brief brute-force solution: compares str2 with all rotations of str1
- * @return true if str2 is a rotation of str1, false otherwise
- * @note complexity: O(n²) in time, O(n) in space, where n is the length of
- *       the strings (if not the same, one cannot be a rotation of the other)
+ * @brief Brute-force solution: compares str2 with all rotations of str1.
+ * @return true if str2 is a rotation of str1, false otherwise.
+ * @note Complexity: O(n²) in time, O(n) in space, where n is the length of
+ *       the strings (if not the same, one cannot be a rotation of the other).
  */
 bool is_rotation_2(std::string str1, const std::string& str2)
 {
@@ -53,8 +53,8 @@ bool is_rotation_2(std::string str1, const std::string& str2)
 }
 
 /**
- * @brief generates a random ASCII string of length n and characters in [a-c]
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random ASCII string of length n and characters in [a-c].
+ * @note Complexity: O(n) in both time and space.
  */
 std::string random_string(const size_t n)
 {
