@@ -16,9 +16,9 @@ public:
 	list_node* next;
 
 	/**
-	 * @brief deletes this and the following list nodes
-	 * @note complexity: O(n) in both time and space, where n is the
-	 *       number of nodes in the list
+	 * @brief Deletes this and the following list nodes.
+	 * @note Complexity: O(n) in both time and space, where n is the
+	 *       number of nodes in the list.
 	 */
 	~list_node()
 	{
@@ -27,8 +27,8 @@ public:
 };
 
 /**
- * @brief removes a node from a singly-linked list
- * @note complexity: O(1) in both time and space
+ * @brief Removes a node from a singly-linked list.
+ * @note Complexity: O(1) in both time and space.
  */
 void delete_node(list_node* node)
 {
@@ -46,8 +46,8 @@ void delete_node(list_node* node)
 }
 
 /**
- * @brief generates a singly-linked list 0 -> 1 -> ... -> (n-1)
- * @note complexity: O(n) in both time and space
+ * @brief Generates a singly-linked list 0 -> 1 -> ... -> (n-1).
+ * @note Complexity: O(n) in both time and space.
  */
 list_node* generate_list(size_t n)
 {

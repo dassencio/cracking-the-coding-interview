@@ -20,12 +20,12 @@ using digit = uint8_t;
 using number = std::list< digit >;
 
 /**
- * @brief returns the sum of two numbers stored as linked lists
- * @param a a number stored as a linked list
- * @param b a number stored as a linked list
- * @return a + b stored as a linked list
- * @note complexity: O(m+n) in time, O(max(m,n)) in space, where m and n are
- *       the number of digits in a and b respectively
+ * @brief Returns the sum of two numbers stored as linked lists.
+ * @param a A number stored as a linked list.
+ * @param b B number stored as a linked list.
+ * @return a + b stored as a linked list.
+ * @note Complexity: O(m+n) in time, O(max(m,n)) in space, where m and n are
+ *       the number of digits in a and b respectively.
  */
 number add_numbers(const number& a, const number& b)
 {
@@ -71,9 +71,9 @@ number add_numbers(const number& a, const number& b)
 }
 
 /**
- * @brief converts a number stored as a list to a uint64_t
- * @note complexity: O(n) in time, O(1) in space, where n is the number of
- *       digits in a (a must fit on a uint64_t, otherwise this will fail)
+ * @brief Converts a number stored as a list to a uint64_t.
+ * @note Complexity: O(n) in time, O(1) in space, where n is the number of
+ *       digits in a (a must fit on a uint64_t, otherwise this will fail).
  */
 uint64_t to_integer(const number& a)
 {
@@ -90,7 +90,7 @@ uint64_t to_integer(const number& a)
 }
 
 /**
- * @brief converts a number stored as a uint64_t to a list
+ * @brief Converts a number stored as a uint64_t to a list.
  */
 number to_list(uint64_t n)
 {

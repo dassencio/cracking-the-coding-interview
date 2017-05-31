@@ -17,9 +17,9 @@ private:
 
 public:
 	/**
-	 * @brief destructor
-	 * @note complexity: O(n) in time, O(1) in space, where n is the number
-	 *       of nodes in the list
+	 * @brief Destructor.
+	 * @note Complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of nodes in the list.
 	 */
 	~list()
 	{
@@ -34,9 +34,9 @@ public:
 	}
 
 	/**
-	 * @brief inserts a new node on the list head
-	 * @param value the value of the inserted node
-	 * @note complexity: O(1) in both time and space
+	 * @brief Inserts a new node on the list.
+	 * @param value The value of the inserted node.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void insert(const T& value)
 	{
@@ -49,10 +49,10 @@ public:
 	}
 
 	/**
-	 * @brief removes duplicates using a buffer (set) with "seen values"
-	 * @note complexity: O(n) in both time and space, where n is the number
-	 *       of nodes in the list
-	 * @return the number of removed nodes
+	 * @brief Removes duplicates using a buffer (set) with "seen values".
+	 * @note Complexity: O(n) in both time and space, where n is the number
+	 *       of nodes in the list.
+	 * @return The number of removed nodes.
 	 */
 	size_t remove_duplicates_1()
 	{
@@ -97,9 +97,9 @@ public:
 	}
 
 	/**
-	 * @brief removes all duplicates without using an extra buffer
-	 * @note complexity: O(n²) in time, O(1) in space, where n is the number
-	 *       of nodes in the list
+	 * @brief Removes all duplicates without using an extra buffer.
+	 * @note Complexity: O(n²) in time, O(1) in space, where n is the number
+	 *       of nodes in the list.
 	 */
 	size_t remove_duplicates_2()
 	{
@@ -148,17 +148,17 @@ public:
 		return removed;
 	}
 
-	/** @brief returns the list size */
+	/** @brief Returns the list size. */
 	size_t size() const
 	{
 		return size_;
 	}
 
 	/**
-	 * @brief returns the number of occurrences of a value in the list
-	 * @param value the value to search for
-	 * @note complexity: O(n) in time, O(1) in space, where n is the number
-	 *       of nodes in the list
+	 * @brief Returns the number of occurrences of a value in the list.
+	 * @param value The value to search for.
+	 * @note Complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of nodes in the list.
 	 */
 	size_t count(const T& value) const
 	{

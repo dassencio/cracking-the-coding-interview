@@ -17,10 +17,10 @@ private:
 	};
 
 public:
-	/*
-	 * @brief destructor
-	 * @note complexity: O(m) in time, O(1) in space, where m is the number
-	 *       of nodes in the list
+	/**
+	 * @brief Destructor.
+	 * @note Complexity: O(m) in time, O(1) in space, where m is the number
+	 *       of nodes in the list.
 	 */
 	~list()
 	{
@@ -35,9 +35,9 @@ public:
 	}
 
 	/**
-	 * @brief inserts a new node on the list head
-	 * @param value the value of the inserted node
-	 * @note complexity: O(1) in both time and space
+	 * @brief Inserts a new node on the list.
+	 * @param value The value of the inserted node.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void insert(const T& value)
 	{
@@ -50,10 +50,10 @@ public:
 	}
 
 	/**
-	 * @brief returns the n-th to last value in the list, with n = 0
-	 *        meaning the last value in the list
-	 * @note complexity: O(m) in time, O(1) in space, where m is the number
-	 *       of nodes in the list
+	 * @brief Returns the n-th to last value in the list, with n = 0
+	 *        meaning the last value in the list.
+	 * @note Complexity: O(m) in time, O(1) in space, where m is the number
+	 *       of nodes in the list.
 	 */
 	const T& get_nth_to_last(const size_t n)
 	{
@@ -81,7 +81,7 @@ public:
 		return left->value_;
 	}
 
-	/** @brief returns the list size */
+	/** @brief Returns the list size. */
 	size_t size() const
 	{
 		return size_;

@@ -18,9 +18,9 @@ public:
 	list_node* next = nullptr;
 
 	/**
-	 * @brief deletes this and the following list nodes
-	 * @note complexity: O(n) in both time and space, where n is the
-	 *       number of nodes in the list
+	 * @brief Deletes this and the following list nodes.
+	 * @note Complexity: O(n) in both time and space, where n is the
+	 *       number of nodes in the list.
 	 */
 	~list_node()
 	{
@@ -66,12 +66,12 @@ public:
 };
 
 /**
- * @brief detects the starting node of a loop on a circular list
- * @param head the head of the list
- * @return a pointer to the node where the loop begins if the list has a loop,
- *         otherwise nullptr
- * @note complexity: O(n) in time, O(1) in space, where n is the number of
- *       nodes in the list
+ * @brief Detects the starting node of a loop on a circular list.
+ * @param head The head of the list.
+ * @return A pointer to the node where the loop begins if the list has a loop,
+ *         otherwise nullptr.
+ * @note Complexity: O(n) in time, O(1) in space, where n is the number of
+ *       nodes in the list.
  */
 const list_node* get_loop_start_1(const list_node* head)
 {
@@ -114,13 +114,13 @@ const list_node* get_loop_start_1(const list_node* head)
 }
 
 /**
- * @brief detects the starting node of a loop on a circular list by keeping
- *        a set of seen nodes and detecting duplicates
- * @param head the head of the list
- * @return a pointer to the node where the loop begins if the list has a loop,
- *         otherwise nullptr
- * @note complexity: O(n) in both time and space, where n is the number of
- *       nodes in the list
+ * @brief Detects the starting node of a loop on a circular list by keeping
+ *        a set of seen nodes and detecting duplicates.
+ * @param head The head of the list.
+ * @return A pointer to the node where the loop begins if the list has a loop,
+ *         otherwise nullptr.
+ * @note Complexity: O(n) in both time and space, where n is the number of
+ *       nodes in the list.
  */
 const list_node* get_loop_start_2(const list_node* head)
 {
@@ -142,8 +142,8 @@ const list_node* get_loop_start_2(const list_node* head)
 }
 
 /**
- * @brief generates a random list which is circular with 50% probability
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random list which is circular with 50% probability.
+ * @note Complexity: O(n) in both time and space.
  */
 list_node* random_list(const size_t n)
 {
