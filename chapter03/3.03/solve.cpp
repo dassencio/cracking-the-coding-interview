@@ -13,8 +13,8 @@
 #include <iostream>
 
 /**
- * @brief returns the number of stacks necessary to store n elements if each
- *        stack can store at most capacity elements
+ * @brief Returns the number of stacks necessary to store n elements if each
+ *        stack can store at most capacity elements.
  */
 size_t needed_stacks(const size_t capacity, const size_t n)
 {

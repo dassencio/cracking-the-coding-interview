@@ -5,29 +5,29 @@
 #include <cassert>
 
 /**
- * @brief implementation of three stacks stored as a single array of length 3n,
- *        with each stack being allowed to store at most n elements
+ * @brief Implementation of three stacks stored as a single array of length 3n,
+ *        with each stack being allowed to store at most n elements.
  */
 template< typename T >
 class three_stacks
 {
 public:
-	/** @brief constructor for three stacks of maximum size n */
+	/** @brief Constructor for three stacks of maximum size n. */
 	three_stacks(const size_t n): max_stack_size_(n)
 	{
 		values_ = new T[3*n];
 	}
 
-	/** @brief destructor */
+	/** @brief Destructor. */
 	~three_stacks()
 	{
 		delete[] values_;
 	}
 
 	/**
-	 * @brief pushes a value onto the k-th stack
-	 * @return true if the value was inserted, false otherwise
-	 * @note complexity: O(1) in both time and space
+	 * @brief Pushes a value onto the k-th stack.
+	 * @return true if the value was inserted, false otherwise.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	bool push(const size_t k, const T& value)
 	{
@@ -44,8 +44,8 @@ public:
 	}
 
 	/**
-	 * @brief pops a value from the k-th stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Pops a value from the k-th stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void pop(const size_t k)
 	{
@@ -57,8 +57,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the value on top of the k-th stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the value on top of the k-th stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	T top(const size_t k) const
 	{
@@ -67,8 +67,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the number of elements on the k-th stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the number of elements on the k-th stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t size(const size_t k) const
 	{
@@ -76,8 +76,8 @@ public:
 	}
 
 	/**
-	 * @brief returns true if the k-th stack is empty, false otherwise
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns true if the k-th stack is empty, false otherwise.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	bool empty(const size_t k) const
 	{

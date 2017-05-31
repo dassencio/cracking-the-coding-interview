@@ -10,9 +10,9 @@
 #include <cassert>
 
 /**
- * @brief sorts a stack A with n elements in ascending order (i.e., the stack
- *        top will be its minimum element after sorting)
- * @note complexity: O(n²) in time, O(n) in space
+ * @brief Sorts a stack A with n elements in ascending order (i.e., the stack
+ *        top will be its minimum element after sorting).
+ * @note Complexity: O(n²) in time, O(n) in space.
  */
 template< typename T >
 void sort_stack(std::stack< T >& A)

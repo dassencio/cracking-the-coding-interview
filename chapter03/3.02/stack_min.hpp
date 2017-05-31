@@ -16,8 +16,8 @@ class stack_min
 
 public:
 	/**
-	 * @brief destructor
-	 * @note complexity: O(n) in time, O(1) in space
+	 * @brief Destructor.
+	 * @note Complexity: O(n) in time, O(1) in space.
 	 */
 	~stack_min()
 	{
@@ -28,8 +28,8 @@ public:
 	}
 
 	/**
-	 * @brief pushes a value onto the stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Pushes a value onto the stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void push(const T& value)
 	{
@@ -52,8 +52,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the value on the top of the stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the value on the top of the stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	const T& top() const
 	{
@@ -61,8 +61,8 @@ public:
 	}
 
 	/**
-	 * @brief pops the value on the top of the stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Pops the value on the top of the stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void pop()
 	{
@@ -86,8 +86,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the minimum value on the stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the minimum value on the stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	const T& min() const
 	{
@@ -96,8 +96,8 @@ public:
 	}
 
 	/**
-	 * @brief returns true if the stack is empty, false otherwise
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns true if the stack is empty, false otherwise.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	bool empty() const
 	{

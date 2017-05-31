@@ -9,17 +9,17 @@
 #include <cassert>
 
 /**
- * @brief solves the Hanoi problem recursively
- * @param A the origin rod containing disks which must be moved
- * @param B the helper rod
- * @param C the target rod to which n disks from A must be moved
- * @param n the number of disks from A which must be moved to C (this number
- *        may be smaller than the total number of disks in A)
- * @note complexity: O(2^n) in time since the work T(n) done to move n
+ * @brief Solves the Hanoi problem recursively.
+ * @param A The origin rod containing disks which must be moved.
+ * @param B The helper rod.
+ * @param C The target rod to which n disks from A must be moved.
+ * @param N The number of disks from A which must be moved to C (this number
+ *        may be smaller than the total number of disks in A).
+ * @note Complexity: O(2^n) in time since the work T(n) done to move n
  *       disks from A to C requires 2T(n-1) + O(1) steps, O(n) in space
  *       because the recursion will not go deeper than O(n) levels inside
- *       this function and the function itself requires O(1) space in memory
- * @note the correctness of this method is easily proved by induction
+ *       this function and the function itself requires O(1) space in memory.
+ * @note The correctness of this method is easily proved by induction.
  */
 void solve(std::stack< size_t >& A,
            std::stack< size_t >& B,

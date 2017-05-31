@@ -6,19 +6,18 @@
 #include <cassert>
 
 /**
- * @brief queue implementation using two stacks: one holds the back end of
+ * @brief Queue implementation using two stacks: one holds the back end of
  *        the queue, the other holds the front end of the queue; whenever
  *        one end becomes empty and an element needs to be accessed there,
- *        the elements from the other end are moved to the empty one
+ *        the elements from the other end are moved to the empty one.
  */
 template< typename T >
 class two_stacks_queue
 {
 public:
 	/**
-	 * @brief pushes an element onto the back of the queue
-	 * @param value a value to push
-	 * @note complexity: O(1) in both time and space
+	 * @brief Pushes a value onto the back of the queue.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void push(const T& value)
 	{
@@ -26,9 +25,9 @@ public:
 	}
 
 	/**
-	 * @brief returns the value on the front of the queue
-	 * @note complexity: O(n) in time, O(1) in space, where n is the number
-	 *       of elements in the queue
+	 * @brief Returns the value on the front of the queue.
+	 * @note Complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of elements in the queue.
 	 */
 	const T& front()
 	{
@@ -43,9 +42,9 @@ public:
 	}
 
 	/**
-	 * @brief returns the value on the back of the queue
-	 * @note complexity: O(n) in time, O(1) in space, where n is the number
-	 *       of elements in the queue
+	 * @brief Returns the value on the back of the queue.
+	 * @note Complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of elements in the queue.
 	 */
 	const T& back()
 	{
@@ -60,9 +59,9 @@ public:
 	}
 
 	/**
-	 * @brief pops an element from the front of the queue
-	 * @note complexity: O(n) in time, O(1) in space, where n is the number
-	 *       of elements in the queue
+	 * @brief Pops an element from the front of the queue.
+	 * @note Complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of elements in the queue.
 	 */
 	void pop()
 	{
@@ -77,8 +76,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the number of elements in the queue
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the number of elements in the queue.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t size() const
 	{
@@ -86,8 +85,8 @@ public:
 	}
 
 	/**
-	 * @brief returns true if the queue is empty, false otherwise
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns true if the queue is empty, false otherwise.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	bool empty() const
 	{
@@ -96,9 +95,9 @@ public:
 
 private:
 	/**
-	 * @brief transfers all elements from stack src to stack dst
-	 * @note complexity: O(n) in time, O(1) in space, where n is the number
-	 *       of elements in the queue
+	 * @brief Transfers all elements from stack src to stack dst.
+	 * @note Complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of elements in the queue.
 	 */
 	void transfer_elements(std::stack< T >& src, std::stack< T >& dst)
 	{

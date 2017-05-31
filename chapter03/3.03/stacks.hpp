@@ -16,10 +16,9 @@ public:
 	}
 
 	/**
-	 * @brief pushes an element onto the last stack if possible,
-	 *        otherwise create a new stack for it
-	 * @param value the value to push
-	 * @note complexity: O(1) in both time and space
+	 * @brief Pushes a value onto the last stack if possible, otherwise
+	 *        create a new stack for it.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void push(const T& value)
 	{
@@ -41,8 +40,8 @@ public:
 	}
 
 	/**
-	 * @brief pops an element from the last stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Pops an element from the last stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void pop()
 	{
@@ -55,9 +54,9 @@ public:
 	}
 
 	/**
-	 * @brief pops an element from the k-th stack
-	 * @note complexity: O(stack capacity) in space, O(n) in time, where
-	 *       n is the total number of elements stored
+	 * @brief Pops an element from the k-th stack.
+	 * @note Complexity: O(stack capacity) in space, O(n) in time, where
+	 *       n is the total number of elements stored.
 	 */
 	void pop_at(size_t k)
 	{
@@ -114,8 +113,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the element on the top of the last stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the element on the top of the last stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	const T& top() const
 	{
@@ -125,8 +124,8 @@ public:
 	}
 
 	/**
-	 * @brief returns true if no stacks have been created, false otherwise
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns true if no stacks have been created, false otherwise.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	bool empty() const
 	{
@@ -134,8 +133,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the maximum capacity of a single stack
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the maximum capacity of a single stack.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t stack_capacity() const
 	{
@@ -143,8 +142,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the total number of stacks created
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the total number of stacks created.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t num_stacks() const
 	{
@@ -152,8 +151,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the total number of elements over all stacks
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the total number of elements over all stacks.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t size() const
 	{
