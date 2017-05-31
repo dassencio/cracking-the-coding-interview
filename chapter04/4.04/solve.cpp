@@ -11,8 +11,8 @@
 #include <cassert>
 
 /**
- * @brief generates a random vector of length n and values in [0,n]
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random vector of length n and values in [0,n].
+ * @note Complexity: O(n) in both time and space.
  */
 std::vector< size_t > random_vector(const size_t n)
 {

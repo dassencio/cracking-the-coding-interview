@@ -27,8 +27,8 @@ class binary_search_tree
 
 public:
 	/**
-	 * @brief empty constructor
-	 * @note complexity: O(1) in both time and space
+	 * @brief Default constructor.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	binary_search_tree()
 	{
@@ -36,10 +36,10 @@ public:
 	}
 
 	/**
-	 * @brief destructor
-	 * @note complexity: O(n) in both time and space, where n is the number
+	 * @brief Destructor.
+	 * @note Complexity: O(n) in both time and space, where n is the number
 	 *       of tree nodes, because the recursion will not go deeper than n
-	 *       levels
+	 *       levels.
 	 */
 	~binary_search_tree()
 	{
@@ -47,9 +47,9 @@ public:
 	}
 
 	/**
-	 * @brief inserts an element into the binary tree
-	 * @note complexity: O(n) in time, O(1) in space, where n is the number
-	 *       of tree nodes
+	 * @brief Inserts an element into the binary tree.
+	 * @note Complexity: O(n) in time, O(1) in space, where n is the number
+	 *       of tree nodes.
 	 */
 	void insert(const T& key)
 	{
@@ -101,8 +101,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the number of elements stored on the tree
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the number of elements stored on the tree.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t size() const
 	{
@@ -110,10 +110,10 @@ public:
 	}
 
 	/**
-	 * @brief returns the tree height
-	 * @note complexity: O(n) in both time and space, where n is the number
+	 * @brief Returns the tree height.
+	 * @note Complexity: O(n) in both time and space, where n is the number
 	 *       of tree nodes, because the recursion will not go deeper than n
-	 *       levels
+	 *       levels.
 	 */
 	size_t height() const
 	{
@@ -121,10 +121,10 @@ public:
 	}
 
 	/**
-	 * @brief returns a vector of lists which contain the keys of the nodes
-	 *        at each level of the tree (using BFS)
-	 * @note complexity: O(n) in both time and space, where n is the number
-	 *       of nodes in the tree
+	 * @brief Returns a vector of lists which contain the keys of the nodes
+	 *        at each level of the tree (using BFS).
+	 * @note Complexity: O(n) in both time and space, where n is the number
+	 *       of nodes in the tree.
 	 */
 	std::vector< std::list< T > > level_node_list_bfs() const
 	{
@@ -183,10 +183,10 @@ public:
 	}
 
 	/**
-	 * @brief returns a vector of lists which contain the keys of the nodes
-	 *        at each level of the tree (using DFS)
-	 * @note complexity: O(n) in both time and space, where n is the number
-	 *       of nodes in the tree
+	 * @brief Returns a vector of lists which contain the keys of the nodes
+	 *        at each level of the tree (using DFS).
+	 * @note Complexity: O(n) in both time and space, where n is the number
+	 *       of nodes in the tree.
 	 */
 	std::vector< std::list< T > > level_node_list_dfs() const
 	{

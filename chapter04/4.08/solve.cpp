@@ -32,17 +32,17 @@ struct tree_node
 using path = std::list< const tree_node* >;
 
 /**
- * @brief determines all tree paths which sum to a given value
- * @param last_node a node in the tree at which a path must end
- * @param total the value to which a tree path must sum
- * @param paths vector on which the paths which sum to total will be written
- * @note complexity: O(n³) in both time and space, where n is the number of
+ * @brief Determines all tree paths which sum to a given value.
+ * @param last_node A node in the tree at which a path must end.
+ * @param total The value to which a tree path must sum.
+ * @param paths The vector on which the paths which sum to total will be written.
+ * @note Complexity: O(n³) in both time and space, where n is the number of
  *       tree nodes (consider the case in which the tree is a single path
  *       node_1 -> node_2 -> ... -> node_n, with node_1 being the root node;
  *       in this case, the work done for node_k [including memory allocation]
  *       is O(k²) if all keys are zero and total = zero), but if we only
  *       wanted to print the paths which sum to total, the complexity would
- *       be only O(n²) in time and O(n) in space
+ *       be only O(n²) in time and O(n) in space.
  */
 void get_paths_which_sum_to(const tree_node* last_node,
                             const int total,
@@ -76,14 +76,14 @@ void get_paths_which_sum_to(const tree_node* last_node,
 }
 
 /**
- * @brief determines all paths in a tree
- * @param last_node a node in the tree at which a path must end
- * @param paths vector on which the determined paths will be written
- * @note complexity: O(n³) in both time and space, where n is the number of
+ * @brief Determines all paths in a tree.
+ * @param last_node A node in the tree at which a path must end.
+ * @param paths The vector on which the determined paths will be written.
+ * @note Complexity: O(n³) in both time and space, where n is the number of
  *       tree nodes (consider the case in which the tree is a single path
  *       node_1 -> node_2 -> ... -> node_n, with node_1 being the root node;
  *       in this case, the work done for node_k [including memory allocation]
- *       is O(k²))
+ *       is O(k²)).
  */
 void get_all_tree_paths(const tree_node* last_node,
                         std::vector< path >& paths)
@@ -108,9 +108,9 @@ void get_all_tree_paths(const tree_node* last_node,
 }
 
 /**
- * @brief generates a random binary tree with n nodes and returns them as a
- *        vector of nodes, with the first element being the tree's root node
- * @note complexity: O(n) in both time and space (on average)
+ * @brief Generates a random binary tree with n nodes and returns them as a
+ *        vector of nodes, with the first element being the tree's root node.
+ * @note Complexity: O(n) in both time and space (on average).
  */
 std::vector< tree_node* > random_tree(int n)
 {
@@ -163,8 +163,8 @@ std::vector< tree_node* > random_tree(int n)
 }
 
 /**
- * @brief computes the sum of the keys from all nodes in a path
- * @note complexity: O(k) in time, O(1) in space, where k is the path length
+ * @brief Computes the sum of the keys from all nodes in a path.
+ * @note Complexity: O(k) in time, O(1) in space, where k is the path length.
  */
 int path_sum(const path& nodes)
 {

@@ -23,10 +23,10 @@ struct tree_node
 };
 
 /**
- * @brief returns the length of the longest root-to-leaf path in a binary tree
- * @param root the root node of the tree
- * @note complexity: O(n) in both time and space because the recursion will not
- *       go deeper than n levels, where n is the total number of tree nodes
+ * @brief Returns the length of the longest root-to-leaf path in a binary tree.
+ * @param root The root node of the tree.
+ * @note Complexity: O(n) in both time and space because the recursion will not
+ *       go deeper than n levels, where n is the total number of tree nodes.
  */
 size_t longest_path_length(const tree_node* root)
 {
@@ -40,10 +40,10 @@ size_t longest_path_length(const tree_node* root)
 }
 
 /**
- * @brief returns the length of the shortest root-to-leaf path in a binary tree
- * @param root the root node of the tree
- * @note complexity: O(n) in both time and space because the recursion will not
- *       go deeper than n levels, where n is the total number of tree nodes
+ * @brief Returns the length of the shortest root-to-leaf path in a binary tree.
+ * @param root The root node of the tree.
+ * @note Complexity: O(n) in both time and space because the recursion will not
+ *       go deeper than n levels, where n is the total number of tree nodes.
  */
 
 size_t shortest_path_length(const tree_node* root)
@@ -58,10 +58,10 @@ size_t shortest_path_length(const tree_node* root)
 }
 
 /**
- * @brief returns true if a given binary tree is balanced, false otherwise
- * @param root the root node of the tree
- * @note complexity: O(n) in both time and space, where n is the total number
- *       of tree nodes
+ * @brief Returns true if a given binary tree is balanced, false otherwise.
+ * @param root The root node of the tree.
+ * @note Complexity: O(n) in both time and space, where n is the total number
+ *       of tree nodes.
  */
 bool is_balanced_tree(const tree_node* root)
 {
@@ -69,10 +69,10 @@ bool is_balanced_tree(const tree_node* root)
 }
 
 /**
- * @brief returns the number of nodes in a binary tree
- * @param root the root node of the tree
- * @note complexity: O(n) in both time and space because the recursion will not
- *       go deeper than n levels, where n is the total number of tree nodes
+ * @brief Returns the number of nodes in a binary tree.
+ * @param root The root node of the tree.
+ * @note Complexity: O(n) in both time and space because the recursion will not
+ *       go deeper than n levels, where n is the total number of tree nodes.
  */
 size_t num_nodes(const tree_node* root)
 {
@@ -85,9 +85,9 @@ size_t num_nodes(const tree_node* root)
 }
 
 /**
- * @brief generates a balanced binary tree with n nodes
- * @param n the number of tree nodes to generate
- * @note complexity: O(n²) in time, O(n) in space
+ * @brief Generates a balanced binary tree with n nodes.
+ * @param n The number of tree nodes to generate.
+ * @note Complexity: O(n²) in time, O(n) in space.
  */
 tree_node* balanced_binary_tree(size_t n)
 {

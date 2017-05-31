@@ -2,7 +2,7 @@
  * TASK: Construct a binary tree with minimal height from the values of a
  *       sorted array.
  *
- * NOTE: the tree constructed by the algorithm below is balanced but is not
+ * NOTE: The tree constructed by the algorithm below is balanced but is not
  *       always a binary search tree (e.g. when all values in the tree are
  *       equal); it is, however, "ordered" in the sense that for a given node,
  *       all keys on its left subtree are smaller than or equal to this node's
@@ -31,13 +31,13 @@ struct tree_node
 };
 
 /**
- * @brief builds a tree with minimum height with the values in a sorted array
- * @param begin iterator pointing to the first array element (bidirectional)
- * @param end iterator pointing to one past the last array element (bidirectional)
- * @return pointer to the tree's root node
- * @note complexity: O(n) in time, O(log(n)) in space, where n is the number of
+ * @brief Builds a tree with minimum height with the values in a sorted array.
+ * @param begin A bidirectional iterator pointing to the first array element.
+ * @param end A bidirectional iterator pointing to one past the last array element.
+ * @return A pointer to the tree's root node.
+ * @note Complexity: O(n) in time, O(log(n)) in space, where n is the number of
  *       elements in the array, because the recursion will not go deeper than
- *       O(log(n)) levels
+ *       O(log(n)) levels.
  */
 template< typename bidirectional_iterator >
 tree_node* build_min_height_tree(const bidirectional_iterator begin,
@@ -60,11 +60,11 @@ tree_node* build_min_height_tree(const bidirectional_iterator begin,
 }
 
 /**
- * @brief returns the length of the longest root-to-leaf path in a binary tree
- * @param root the root node of the tree
- * @note complexiy: O(n) in time, O(k) in space, where n is the number of tree
+ * @brief Returns the length of the longest root-to-leaf path in a binary tree.
+ * @param root The root node of the tree.
+ * @note Complexity: O(n) in time, O(k) in space, where n is the number of tree
  *       nodes and k is the tree height, because the recursion will not go
- *       deeper than k levels
+ *       deeper than k levels.
  */
 size_t tree_height(const tree_node* root)
 {
@@ -77,12 +77,12 @@ size_t tree_height(const tree_node* root)
 }
 
 /**
- * @brief returns true if the tree is "ordered", false otherwise, where "ordered"
+ * @brief Returns true if the tree is "ordered", false otherwise, where "ordered"
  *        is defined as in the note on top of this file.
- * @param root the root node of the tree
- * @note complexiy: O(n) in time, O(k) in space, where n is the number of tree
+ * @param root The root node of the tree.
+ * @note Complexity: O(n) in time, O(k) in space, where n is the number of tree
  *       nodes and k is the tree height, because the recursion will not go
- *       deeper than k levels
+ *       deeper than k levels.
  */
 bool is_ordered_tree(const tree_node* root,
                      const int min_allowed = std::numeric_limits< int >::min(),
@@ -104,12 +104,12 @@ bool is_ordered_tree(const tree_node* root,
 }
 
 /**
- * @brief returns the number of occurrences of a value in a binary tree
- * @param root the root node of the tree
- * @param x the value to search for
- * @note complexiy: O(n) in time, O(k) in space, where n is the number of tree
+ * @brief Returns the number of occurrences of a value in a binary tree.
+ * @param root The root node of the tree.
+ * @param x The value to search for.
+ * @note Complexity: O(n) in time, O(k) in space, where n is the number of tree
  *       nodes and k is the tree height, because the recursion will not go
- *       deeper than k levels
+ *       deeper than k levels.
  */
 size_t count(const tree_node* root, const int x)
 {
@@ -122,8 +122,8 @@ size_t count(const tree_node* root, const int x)
 }
 
 /**
- * @brief generates a sorted random vector of length n and values in [-n,n]
- * @note complexity: O(n*log(n)) in time, O(n) in space
+ * @brief Generates a sorted random vector of length n and values in [-n,n].
+ * @note Complexity: O(n*log(n)) in time, O(n) in space.
  */
 std::vector< int > sorted_random_vector(int n)
 {

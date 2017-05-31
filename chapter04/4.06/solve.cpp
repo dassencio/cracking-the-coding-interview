@@ -23,8 +23,8 @@ struct tree_node
 };
 
 /**
- * @brief finds the common ancestor of two nodes n1 and n2 on the same tree
- * @note complexity: O(tree height) in time, O(1) in space
+ * @brief Finds the common ancestor of two nodes n1 and n2 on the same tree.
+ * @note Complexity: O(tree height) in time, O(1) in space.
  */
 const tree_node* find_common_ancestor_1(const tree_node* n1, const tree_node* n2)
 {
@@ -88,9 +88,9 @@ const tree_node* find_common_ancestor_1(const tree_node* n1, const tree_node* n2
 }
 
 /**
- * @brief finds the common ancestor of two nodes n1 and n2 on the same tree
- *        using brute force
- * @note complexity: O((tree height)²) in time, O(1) in space
+ * @brief Finds the common ancestor of two nodes n1 and n2 on the same tree
+ *        using brute force.
+ * @note Complexity: O((tree height)²) in time, O(1) in space.
  */
 const tree_node* find_common_ancestor_2(const tree_node* n1, const tree_node* n2)
 {
@@ -117,9 +117,9 @@ const tree_node* find_common_ancestor_2(const tree_node* n1, const tree_node* n2
 }
 
 /**
- * @brief generates a random binary tree with n nodes and returns them as a
- *        vector of nodes, with the first element being the tree's root node
- * @note complexity: O(n) in both time and space (on average)
+ * @brief Generates a random binary tree with n nodes and returns them as a
+ *        vector of nodes, with the first element being the tree's root node.
+ * @note Complexity: O(n) in both time and space (on average).
  */
 std::vector< tree_node* > random_tree(const size_t n)
 {

@@ -23,12 +23,12 @@ struct tree_node
 };
 
 /**
- * @brief returns a pointer to a node in a binary search containing a given key
- *        or nullptr is no such node exists
- * @param root the root node of the tree
- * @param key the key to search for
- * @note complexity: O(n) in both time and space, where n is the number of tree
- *       nodes
+ * @brief Returns a pointer to a node in a binary search containing a given key
+ *        or nullptr is no such node exists.
+ * @param root The root node of the tree.
+ * @param key The key to search for.
+ * @note Complexity: O(n) in both time and space, where n is the number of tree
+ *       nodes.
  */
 const tree_node* find(const tree_node* root, const size_t key)
 {
@@ -41,11 +41,11 @@ const tree_node* find(const tree_node* root, const size_t key)
 }
 
 /**
- * @brief inserts a node with a given key into a binary search tree
- * @param root the root node of the tree
- * @param key the key to be inserted
- * @note complexity: O(n) in both time and space, where n is the number of tree
- *       nodes
+ * @brief Inserts a node with a given key into a binary search tree.
+ * @param root The root node of the tree.
+ * @param key The key to be inserted.
+ * @note Complexity: O(n) in both time and space, where n is the number of tree
+ *       nodes.
  */
 void insert(tree_node* root, const size_t key)
 {
@@ -74,9 +74,9 @@ void insert(tree_node* root, const size_t key)
 }
 
 /**
- * @brief returns a pointer to the in-order successor of a given node
- * @note complexity: O(n) in time, O(1) in space, where n is the number of tree
- *       nodes
+ * @brief Returns a pointer to the in-order successor of a given node.
+ * @note Complexity: O(n) in time, O(1) in space, where n is the number of tree
+ *       nodes.
  */
 const tree_node* successor(const tree_node* node)
 {
@@ -112,9 +112,9 @@ const tree_node* successor(const tree_node* node)
 }
 
 /**
- * @brief generates a random binary search tree with n nodes and returns a
- *        pointer to its root node (the node keys are 0, 1, ..., n-1)
- * @note complexity: O(n²) in time, O(n) in space
+ * @brief Generates a random binary search tree with n nodes and returns a
+ *        pointer to its root node (the node keys are 0, 1, ..., n-1).
+ * @note Complexity: O(n²) in time, O(n) in space.
  */
 const tree_node* random_binary_search_tree(const size_t n)
 {

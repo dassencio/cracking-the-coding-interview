@@ -26,14 +26,14 @@ struct tree_node
 };
 
 /**
- * @brief determines whether a tree T2 is a subtree of a tree T1, with both
- *        trees having the same root node
- * @param root1 the root node of T1
- * @param root2 the root node of T2
- * @return true if T2 is a subtree of T1, false otherwise
- * @note complexity: O(min(n1,n2)) in time and space, where n1 and n2 are the
+ * @brief Determines whether a tree T2 is a subtree of a tree T1, with both
+ *        trees having the same root node.
+ * @param root1 The root node of T1.
+ * @param root2 The root node of T2.
+ * @return true if T2 is a subtree of T1, false otherwise.
+ * @note Complexity: O(min(n1,n2)) in time and space, where n1 and n2 are the
  *       number of nodes in T1 and T2 respectively, because the recursion will
- *       not go deeper than O(min(n1,n2)) levels
+ *       not go deeper than O(min(n1,n2)) levels.
  */
 bool is_root_subtree(const tree_node* root1, const tree_node* root2)
 {
@@ -59,13 +59,13 @@ bool is_root_subtree(const tree_node* root1, const tree_node* root2)
 }
 
 /**
- * @brief determines whether a tree T2 is a subtree of a tree T1
- * @param root1 the root node of T1
- * @param root2 the root node of T2
- * @return true if T2 is a subtree of T1, false otherwise
- * @note complexity: O(n1*n2) in time and space, where n1 and n2 are the number
+ * @brief Determines whether a tree T2 is a subtree of a tree T1.
+ * @param root1 The root node of T1.
+ * @param root2 The root node of T2.
+ * @return true if T2 is a subtree of T1, false otherwise.
+ * @note Complexity: O(n1*n2) in time and space, where n1 and n2 are the number
  *       of nodes in T1 and T2 respectively, because the recursion will not go
- *       deeper than O(n1*n2) levels
+ *       deeper than O(n1*n2) levels.
  */
 bool is_subtree(const tree_node* root1, const tree_node* root2)
 {
@@ -81,9 +81,9 @@ bool is_subtree(const tree_node* root1, const tree_node* root2)
 }
 
 /**
- * @brief generates a random binary tree with n nodes and returns them as a
- *        vector of nodes, with the first element being the tree's root node
- * @note complexity: O(n) in both time and space (on average)
+ * @brief Generates a random binary tree with n nodes and returns them as a
+ *        vector of nodes, with the first element being the tree's root node.
+ * @note Complexity: O(n) in both time and space (on average).
  */
 std::vector< tree_node* > random_tree(int n)
 {

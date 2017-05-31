@@ -21,8 +21,8 @@ public:
 	}
 
 	/**
-	 * @brief creates a directed edge connecting node u to node v
-	 * @note complexity: O(1) in both time and space
+	 * @brief Creates a directed edge connecting node u to node v.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void create_edge(const size_t u, const size_t v)
 	{
@@ -30,8 +30,8 @@ public:
 	}
 
 	/**
-	 * @brief returns a list containing the nodes to which node u is connected
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns a list containing the nodes to which node u is connected.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	const std::list< size_t >& adjacency_list(const size_t u) const
 	{
@@ -43,10 +43,10 @@ private:
 };
 
 /**
- * @brief returns true if a path between nodes s and d exists, false
- *        otherwise (the existence of a path is determined using BFS)
- * @note complexity: O(m+n) in time, O(n) in space, where m and n are the
- *       number of edges and nodes on the graph respectively
+ * @brief Returns true if a path between nodes s and d exists, false
+ *        otherwise (the existence of a path is determined using BFS).
+ * @note Complexity: O(m+n) in time, O(n) in space, where m and n are the
+ *       number of edges and nodes on the graph respectively.
  */
 bool has_path_bfs(const directed_graph& G, const size_t s, const size_t d)
 {
@@ -110,12 +110,12 @@ bool __has_path_dfs(const directed_graph& G,
 }
 
 /**
- * @brief returns true if a path between nodes s and d exists, false
- *        otherwise (the existence of a path is determined using DFS)
- * @note complexity: O(m+n) in time, O(n) in space, where m and n are the
+ * @brief Returns true if a path between nodes s and d exists, false
+ *        otherwise (the existence of a path is determined using DFS).
+ * @note Complexity: O(m+n) in time, O(n) in space, where m and n are the
  *       number of edges and nodes on the graph respectively (the space
  *       complexity is O(n) because the recursion will not go deepder than
- *       n levels)
+ *       n levels).
  */
 bool has_path_dfs(const directed_graph& G, const size_t s, const size_t d)
 {
@@ -130,8 +130,8 @@ bool has_path_dfs(const directed_graph& G, const size_t s, const size_t d)
 }
 
 /**
- * @brief creates a random directed graph with n nodes and m edges
- * @note complexity: O(n+m) in both time and space
+ * @brief Creates a random directed graph with n nodes and m edges.
+ * @note Complexity: O(n+m) in both time and space.
  */
 directed_graph random_graph(const size_t n, size_t m)
 {
