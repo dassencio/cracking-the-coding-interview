@@ -10,9 +10,9 @@
 #include <cassert>
 
 /**
- * @brief given a 32-bit integer x, returns the integer resulting from swapping
- *        its even and odd bits using only bitwise operations
- * @note complexity: O(1) in both time and space
+ * @brief Given a 32-bit integer x, returns the integer resulting from swapping
+ *        its even and odd bits using only bitwise operations.
+ * @note Complexity: O(1) in both time and space.
  */
 uint32_t swap_bits(const uint32_t x)
 {

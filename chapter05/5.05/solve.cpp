@@ -11,8 +11,8 @@
 #include <cassert>
 
 /**
- * @brief returns the number of bits in x which differ from y
- * @note complexity: O(1) in both time and space
+ * @brief Returns the number of bits in x which differ from y.
+ * @note Complexity: O(1) in both time and space.
  */
 size_t num_different_bits_1(const uint32_t x, const uint32_t y)
 {
@@ -35,10 +35,10 @@ size_t num_different_bits_1(const uint32_t x, const uint32_t y)
 }
 
 /**
- * @brief returns the number of bits in x which differ from y using a bitset
- * @note complexity: O(1) in both time and space (but this solution is better
+ * @brief Returns the number of bits in x which differ from y using a bitset.
+ * @note Complexity: O(1) in both time and space (but this solution is better
  *       than the other one as it can use specialized machine instructions for
- *       counting the number of bits set on an integer value)
+ *       counting the number of bits set on an integer value).
  */
 size_t num_different_bits_2(const uint32_t x, const uint32_t y)
 {

@@ -18,11 +18,11 @@
 #include <cassert>
 
 /**
- * @brief returns the smallest integer which is larger than n but has the same
+ * @brief Returns the smallest integer which is larger than n but has the same
  *        number of bits set if such an integer exists, otherwise n itself is
- *        returned
- * @note complexity: O(1) in both time and space (technically O(num bits of n)
- *       if we did this for integers with arbitrary lengths)
+ *        returned.
+ * @note Complexity: O(1) in both time and space (technically O(num bits of n)
+ *       if we did this for integers with arbitrary lengths).
  */
 uint16_t smallest_larger_int_same_num_bits_1(uint16_t n)
 {
@@ -75,11 +75,11 @@ uint16_t smallest_larger_int_same_num_bits_1(uint16_t n)
 }
 
 /**
- * @brief returns the largest integer which is smaller than n but has the same
+ * @brief Returns the largest integer which is smaller than n but has the same
  *        number of bits set if such an integer exists, otherwise n itself is
- *        returned
- * @note complexity: O(1) in both time and space (technically O(num bits of n)
- *       if we did this for integers with arbitrary lengths)
+ *        returned.
+ * @note Complexity: O(1) in both time and space (technically O(num bits of n)
+ *       if we did this for integers with arbitrary lengths).
  */
 uint16_t largest_smaller_int_same_num_bits_1(uint16_t n)
 {
@@ -132,9 +132,9 @@ uint16_t largest_smaller_int_same_num_bits_1(uint16_t n)
 }
 
 /**
- * @brief returns the number of bits set in n
- * @note complexity: O(1) in both time and space (technically O(num bits of n)
- *       if we did this for integers with arbitrary lengths)
+ * @brief Returns the number of bits set in n.
+ * @note Complexity: O(1) in both time and space (technically O(num bits of n)
+ *       if we did this for integers with arbitrary lengths).
  */
 uint16_t get_num_bits_set(uint16_t n)
 {
@@ -150,11 +150,11 @@ uint16_t get_num_bits_set(uint16_t n)
 }
 
 /**
- * @brief returns the smallest integer which is larger than n but has the same
+ * @brief Returns the smallest integer which is larger than n but has the same
  *        number of bits set if such an integer exists, otherwise n itself is
- *        returned (brute force is used)
-* @note complexity: O(1) in both time and space (technically O(2^(num bits of n))
- *       if we did this for integers with arbitrary lengths)
+ *        returned (brute force is used).
+ * @note Complexity: O(1) in both time and space (technically O(2^(num bits of n))
+ *       if we did this for integers with arbitrary lengths).
  */
 uint16_t smallest_larger_int_same_num_bits_2(const uint16_t n)
 {
@@ -174,11 +174,11 @@ uint16_t smallest_larger_int_same_num_bits_2(const uint16_t n)
 }
 
 /**
- * @brief returns the largest integer which is smaller than n but has the same
+ * @brief Returns the largest integer which is smaller than n but has the same
  *        number of bits set if such an integer exists, otherwise n itself is
- *        returned (brute force is used)
-* @note complexity: O(1) in both time and space (technically O(2^(num bits of n))
- *       if we did this for integers with arbitrary lengths)
+ *        returned (brute force is used).
+ * @note Complexity: O(1) in both time and space (technically O(2^(num bits of n))
+ *       if we did this for integers with arbitrary lengths).
  */
 uint16_t largest_smaller_int_same_num_bits_2(const uint16_t n)
 {
@@ -198,8 +198,8 @@ uint16_t largest_smaller_int_same_num_bits_2(const uint16_t n)
 }
 
 /**
- * @brief generates a random unsigned 16-bit integer with n bits set
- * @note complexity: O(1) in both time and space
+ * @brief Generates a random unsigned 16-bit integer with n bits set.
+ * @note Complexity: O(1) in both time and space.
  */
 uint16_t random_number(uint16_t n)
 {

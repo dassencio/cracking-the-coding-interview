@@ -10,12 +10,12 @@
 #include <cassert>
 
 /**
- * @brief converts a string holding a nonnegative number in the decimal
- *        representation to a string holding its binary representation
- * @note complexity: O(1) in both time and space since the generated string
- *       will never exceed 64 characters in total (including the dot character)
- * @note this function will not yield accurate results for very large (e.g.
- *       > 1e10) or very small (e.g. < 1e-10) numbers
+ * @brief Converts a string holding a nonnegative number in the decimal
+ *        representation to a string holding its binary representation.
+ * @note Complexity: O(1) in both time and space since the generated string
+ *       will never exceed 64 characters in total (including the dot character).
+ * @note This function will not yield accurate results for very large (e.g.
+ *       > 1e10) or very small (e.g. < 1e-10) numbers.
  */
 std::string to_binary_string(const std::string& dec_str)
 {
@@ -69,8 +69,8 @@ std::string to_binary_string(const std::string& dec_str)
 }
 
 /**
- * @brief computes the decimal value of a number represented as a binary string
- * @note complexity: O(n) in time, O(1) in space, where n is the string length
+ * @brief Computes the decimal value of a number represented as a binary string.
+ * @note Complexity: O(n) in time, O(1) in space, where n is the string length.
  */
 double to_decimal_number(const std::string& bin_str)
 {
@@ -109,11 +109,10 @@ double to_decimal_number(const std::string& bin_str)
 }
 
 /**
- * @brief generates a random decimal string with n digits
- *        (as an example, if n = 3 and if d represents a digit in [0,9], the
- *        output string will have one of these formats: "ddd.", "dd.d", "d.dd"
- *        or ".ddd")
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random decimal string with n digits (as an example, if
+ *        n = 3 and if d represents a digit in [0,9], the output string will
+ *        have one of these formats: "ddd.", "dd.d", "d.dd" or ".ddd").
+ * @note Complexity: O(n) in both time and space.
  */
 std::string random_decimal_string(const size_t n)
 {

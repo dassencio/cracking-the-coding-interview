@@ -40,9 +40,9 @@ private:
 };
 
 /**
- * @brief finds the integer value missing on a binary array containing n unique
- *        values in [0,n] using xor operations
- * @note complexity: O(n) in time, O(1) in space
+ * @brief Finds the integer value missing on a binary array containing n unique
+ *        values in [0,n] using xor operations.
+ * @note Complexity: O(n) in time, O(1) in space.
  */
 uint32_t find_missing_integer_1(const binary_array& v)
 {
@@ -77,10 +77,10 @@ uint32_t find_missing_integer_1(const binary_array& v)
 }
 
 /**
- * @brief finds the integer value missing on a binary array containing n unique
+ * @brief Finds the integer value missing on a binary array containing n unique
  *        values in [0,n] by manually building these values bit by bit and then
- *        marking the ones seen
- * @note complexity: O(n) in both time and space
+ *        marking the ones seen.
+ * @note Complexity: O(n) in both time and space.
  */
 uint32_t find_missing_integer_2(const binary_array& v)
 {
@@ -115,9 +115,9 @@ uint32_t find_missing_integer_2(const binary_array& v)
 }
 
 /**
- * @brief returns a random vector containing n unique integer values in [0,n],
- *        with the single missing value from [0,n] being chosen randomly
- * @note complexity: O(n) in both time and space
+ * @brief Returns a random vector containing n unique integer values in [0,n],
+ *        with the single missing value from [0,n] being chosen randomly.
+ * @note Complexity: O(n) in both time and space.
  */
 binary_array random_vector(const uint32_t n)
 {

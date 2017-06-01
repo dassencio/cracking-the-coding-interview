@@ -16,8 +16,8 @@
 #include <cassert>
 
 /**
- * @brief returns true if the bits [m_0,...,m_(j-i)] of M are equal to the bits
- *        [n_i,...,n_j] of N, false otherwise
+ * @brief Returns true if the bits [m_0,...,m_(j-i)] of M are equal to the bits
+ *        [n_i,...,n_j] of N, false otherwise.
  */
 bool is_substring(const uint32_t N,
                   const uint32_t M,
