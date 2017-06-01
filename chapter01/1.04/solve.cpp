@@ -5,10 +5,10 @@
  *
  */
 
+#include <algorithm> /* std::sort, std::shuffle */
+#include <cassert>
 #include <iostream>
 #include <string>
-#include <algorithm>	/* std::sort, std::shuffle */
-#include <cassert>
 
 /**
  * @brief Solution using sorting.
@@ -20,10 +20,10 @@
  */
 bool is_anagram_1(std::string str1, std::string str2)
 {
-	std::sort(str1.begin(), str1.end());
-	std::sort(str2.begin(), str2.end());
+    std::sort(str1.begin(), str1.end());
+    std::sort(str2.begin(), str2.end());
 
-	return (str1 == str2);
+    return (str1 == str2);
 }
 
 /**
@@ -36,38 +36,38 @@ bool is_anagram_1(std::string str1, std::string str2)
  */
 bool is_anagram_2(const std::string& str1, const std::string& str2)
 {
-	if (str1.size() != str2.size())
-	{
-		return false;
-	}
+    if (str1.size() != str2.size())
+    {
+        return false;
+    }
 
-	size_t chars_count[128]{};
+    size_t chars_count[128]{};
 
-	for (size_t i = 0; i < str1.size(); ++i)
-	{
-		++chars_count[static_cast< int >(str1[i])];
-	}
+    for (size_t i = 0; i < str1.size(); ++i)
+    {
+        ++chars_count[static_cast<int>(str1[i])];
+    }
 
-	for (size_t i = 0; i < str2.size(); ++i)
-	{
-		/* if we're finding a new character or if str2 has more of
-		 * a given character than str1 */
-		if (chars_count[static_cast< int >(str2[i])] == 0)
-		{
-			return false;
-		}
-		--chars_count[static_cast< int >(str2[i])];
-	}
+    for (size_t i = 0; i < str2.size(); ++i)
+    {
+        /* if we're finding a new character or if str2 has more of
+         * a given character than str1 */
+        if (chars_count[static_cast<int>(str2[i])] == 0)
+        {
+            return false;
+        }
+        --chars_count[static_cast<int>(str2[i])];
+    }
 
-	for (auto n : chars_count)
-	{
-		if (n != 0)
-		{
-			return false;
-		}
-	}
+    for (auto n : chars_count)
+    {
+        if (n != 0)
+        {
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }
 
 /**
@@ -76,44 +76,44 @@ bool is_anagram_2(const std::string& str1, const std::string& str2)
  */
 std::string random_string(const size_t n)
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< char > distribution(0,127);
+    std::uniform_int_distribution<char> distribution(0, 127);
 
-	std::string str;
+    std::string str;
 
-	while (str.size() < n)
-	{
-		str.push_back(distribution(generator));
-	}
+    while (str.size() < n)
+    {
+        str.push_back(distribution(generator));
+    }
 
-	return str;
+    return str;
 }
 
 int main()
 {
-	std::random_device device;
-	std::mt19937 generator(device());
+    std::random_device device;
+    std::mt19937 generator(device());
 
-	for (size_t n = 0; n <= 100; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			std::string str1 = random_string(n);
-			std::string str2 = random_string(n);
+    for (size_t n = 0; n <= 100; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            std::string str1 = random_string(n);
+            std::string str2 = random_string(n);
 
-			assert(is_anagram_1(str1, str2) == is_anagram_2(str1, str2));
+            assert(is_anagram_1(str1, str2) == is_anagram_2(str1, str2));
 
-			std::string str1_shuf = str1;
-			std::shuffle(str1_shuf.begin(), str1_shuf.end(), generator);
+            std::string str1_shuf = str1;
+            std::shuffle(str1_shuf.begin(), str1_shuf.end(), generator);
 
-			assert(is_anagram_1(str1, str1_shuf) == true);
-			assert(is_anagram_2(str1, str1_shuf) == true);
-		}
+            assert(is_anagram_1(str1, str1_shuf) == true);
+            assert(is_anagram_2(str1, str1_shuf) == true);
+        }
 
-		std::cout << "passed random tests for strings of length " << n << std::endl;
-	}
+        std::cout << "passed random tests for strings of length " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

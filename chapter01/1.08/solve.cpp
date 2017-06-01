@@ -6,10 +6,10 @@
  *       using std::find) at most once.
  */
 
-#include <iostream>
-#include <iomanip>
-#include <algorithm>	/* std::rotate */
+#include <algorithm> /* std::rotate */
 #include <cassert>
+#include <iomanip>
+#include <iostream>
 
 /**
  * @brief Solution which checks if str2 appears in (str1 + str1).
@@ -19,12 +19,12 @@
  */
 bool is_rotation_1(const std::string& str1, const std::string& str2)
 {
-	if (str1.size() != str2.size())
-	{
-		return false;
-	}
+    if (str1.size() != str2.size())
+    {
+        return false;
+    }
 
-	return (str1 + str1).find(str2) != std::string::npos;
+    return (str1 + str1).find(str2) != std::string::npos;
 }
 
 /**
@@ -35,21 +35,21 @@ bool is_rotation_1(const std::string& str1, const std::string& str2)
  */
 bool is_rotation_2(std::string str1, const std::string& str2)
 {
-	if (str1.size() != str2.size())
-	{
-		return false;
-	}
+    if (str1.size() != str2.size())
+    {
+        return false;
+    }
 
-	bool result = (str1 == str2);
+    bool result = (str1 == str2);
 
-	for (size_t j = 0; j+1 < str1.size() && result == false; ++j)
-	{
-		std::rotate(str1.begin(), str1.begin()+1, str1.end());
+    for (size_t j = 0; j + 1 < str1.size() && result == false; ++j)
+    {
+        std::rotate(str1.begin(), str1.begin() + 1, str1.end());
 
-		result = (str1 == str2);
-	}
+        result = (str1 == str2);
+    }
 
-	return result;
+    return result;
 }
 
 /**
@@ -58,44 +58,44 @@ bool is_rotation_2(std::string str1, const std::string& str2)
  */
 std::string random_string(const size_t n)
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< char > distribution('a','c');
+    std::uniform_int_distribution<char> distribution('a', 'c');
 
-	std::string str;
+    std::string str;
 
-	while (str.size() < n)
-	{
-		str.push_back(distribution(generator));
-	}
+    while (str.size() < n)
+    {
+        str.push_back(distribution(generator));
+    }
 
-	return str;
+    return str;
 }
 
 int main()
 {
-	for (size_t n = 0; n <= 20; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			std::string str1 = random_string(n);
-			std::string str2 = random_string(n);
+    for (size_t n = 0; n <= 20; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            std::string str1 = random_string(n);
+            std::string str2 = random_string(n);
 
-			assert(is_rotation_1(str1, str2) == is_rotation_2(str1, str2));
+            assert(is_rotation_1(str1, str2) == is_rotation_2(str1, str2));
 
-			for (size_t j = 0; j < n; ++j)
-			{
-				std::string str1_rot = str1;
-				std::rotate(str1_rot.begin(), str1_rot.begin()+j, str1_rot.end());
+            for (size_t j = 0; j < n; ++j)
+            {
+                std::string str1_rot = str1;
+                std::rotate(str1_rot.begin(), str1_rot.begin() + j, str1_rot.end());
 
-				assert(is_rotation_1(str1, str1_rot) == true);
-				assert(is_rotation_2(str1, str1_rot) == true);
-			}
-		}
+                assert(is_rotation_1(str1, str1_rot) == true);
+                assert(is_rotation_2(str1, str1_rot) == true);
+            }
+        }
 
-		std::cout << "passed random tests for strings of length " << n << std::endl;
-	}
+        std::cout << "passed random tests for strings of length " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

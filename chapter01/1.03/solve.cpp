@@ -4,11 +4,11 @@
  *       a copy of it). As an example: "abcadbce" is changed into "abcde".
  */
 
-#include <iostream>
-#include <string>
 #include <bitset>
-#include <random>	/* std::uniform_int_distribution */
 #include <cassert>
+#include <iostream>
+#include <random> /* std::uniform_int_distribution */
+#include <string>
 
 /**
  * @brief Solution without using an additional buffer.
@@ -17,42 +17,42 @@
  */
 std::string& remove_duplicates_1(std::string& str)
 {
-	if (str.size() <= 1)
-	{
-		return str;
-	}
+    if (str.size() <= 1)
+    {
+        return str;
+    }
 
-	/* next writing position (the first character is skipped) */
-	size_t i = 1;
+    /* next writing position (the first character is skipped) */
+    size_t i = 1;
 
-	/* invariant: str[0..i) has no duplicate characters */
-	for (size_t j = 1; j < str.size(); ++j)
-	{
-		size_t k = 0;
+    /* invariant: str[0..i) has no duplicate characters */
+    for (size_t j = 1; j < str.size(); ++j)
+    {
+        size_t k = 0;
 
-		while (k < i)
-		{
-			/* if str[j] is a duplicate character */
-			if (str[k] == str[j])
-			{
-				break;
-			}
-			++k;
-		}
+        while (k < i)
+        {
+            /* if str[j] is a duplicate character */
+            if (str[k] == str[j])
+            {
+                break;
+            }
+            ++k;
+        }
 
-		/* if str[j] is a character not seen so far */
-		if (k == i)
-		{
-			str[i] = str[j];
-			++i;
-		}
-	}
+        /* if str[j] is a character not seen so far */
+        if (k == i)
+        {
+            str[i] = str[j];
+            ++i;
+        }
+    }
 
-	/* all characters in str[i..str.size()) are duplicates, discard them */
-	str.resize(i);
-	str.shrink_to_fit();
+    /* all characters in str[i..str.size()) are duplicates, discard them */
+    str.resize(i);
+    str.shrink_to_fit();
 
-	return str;
+    return str;
 }
 
 /**
@@ -63,35 +63,35 @@ std::string& remove_duplicates_1(std::string& str)
  */
 std::string& remove_duplicates_2(std::string& str)
 {
-	if (str.size() <= 1)
-	{
-		return str;
-	}
+    if (str.size() <= 1)
+    {
+        return str;
+    }
 
-	std::bitset< 128 > chars_seen{};
+    std::bitset<128> chars_seen{};
 
-	/* next writing position (the first character is skipped) */
-	size_t i = 1;
+    /* next writing position (the first character is skipped) */
+    size_t i = 1;
 
-	/* the first character is marked as seen and skipped */
-	chars_seen[str[0]] = true;
+    /* the first character is marked as seen and skipped */
+    chars_seen[str[0]] = true;
 
-	for (size_t j = 1; j < str.size(); ++j)
-	{
-		if (chars_seen[str[j]] == false)
-		{
-			chars_seen[str[j]] = true;
+    for (size_t j = 1; j < str.size(); ++j)
+    {
+        if (chars_seen[str[j]] == false)
+        {
+            chars_seen[str[j]] = true;
 
-			str[i] = str[j];
-			++i;
-		}
-	}
+            str[i] = str[j];
+            ++i;
+        }
+    }
 
-	/* all characters in str[i..str.size()) are duplicates, discard them */
-	str.resize(i);
-	str.shrink_to_fit();
+    /* all characters in str[i..str.size()) are duplicates, discard them */
+    str.resize(i);
+    str.shrink_to_fit();
 
-	return str;
+    return str;
 }
 
 /**
@@ -100,38 +100,38 @@ std::string& remove_duplicates_2(std::string& str)
  */
 std::string random_string(const size_t n)
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< char > distribution(0,127);
+    std::uniform_int_distribution<char> distribution(0, 127);
 
-	std::string str;
+    std::string str;
 
-	while (str.size() < n)
-	{
-		str.push_back(distribution(generator));
-	}
+    while (str.size() < n)
+    {
+        str.push_back(distribution(generator));
+    }
 
-	return str;
+    return str;
 }
 
 int main()
 {
-	for (size_t n = 0; n <= 100; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			std::string str = random_string(n);
-			std::string str_copy(str);
+    for (size_t n = 0; n <= 100; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            std::string str = random_string(n);
+            std::string str_copy(str);
 
-			remove_duplicates_1(str);
-			remove_duplicates_2(str_copy);
+            remove_duplicates_1(str);
+            remove_duplicates_2(str_copy);
 
-			assert(str == str_copy);
-		}
+            assert(str == str_copy);
+        }
 
-		std::cout << "passed random tests for strings of length " << n << std::endl;
-	}
+        std::cout << "passed random tests for strings of length " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

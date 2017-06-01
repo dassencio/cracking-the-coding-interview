@@ -4,10 +4,10 @@
  *       problem without using any additional data structures (such as a buffer).
  */
 
+#include <algorithm> /* std::sort */
+#include <cassert>
 #include <iostream>
 #include <string>
-#include <algorithm>	/* std::sort */
-#include <cassert>
 
 /**
  * @brief Solution using a bitmask to mark the seen characters.
@@ -17,19 +17,19 @@
  */
 bool has_duplicates_1(const std::string& str)
 {
-	unsigned int chars_seen = 0;
+    unsigned int chars_seen = 0;
 
-	for (const char c : str)
-	{
-		/* if the character c has already been seen */
-		if (chars_seen & (1 << (c - 'a')))
-		{
-			return true;
-		}
-		chars_seen |= 1 << (c - 'a');
-	}
+    for (const char c : str)
+    {
+        /* if the character c has already been seen */
+        if (chars_seen & (1 << (c - 'a')))
+        {
+            return true;
+        }
+        chars_seen |= 1 << (c - 'a');
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -42,18 +42,18 @@ bool has_duplicates_1(const std::string& str)
  */
 bool has_duplicates_2(std::string str)
 {
-	std::sort(str.begin(), str.end());
+    std::sort(str.begin(), str.end());
 
-	/* detect duplicate characters */
-	for (size_t i = 0; i+1 < str.size(); ++i)
-	{
-		if (str[i] == str[i+1])
-		{
-			return true;
-		}
-	}
+    /* detect duplicate characters */
+    for (size_t i = 0; i + 1 < str.size(); ++i)
+    {
+        if (str[i] == str[i + 1])
+        {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -63,18 +63,18 @@ bool has_duplicates_2(std::string str)
  */
 bool has_duplicates_3(const std::string& str)
 {
-	 for (size_t i = 0; i < str.size(); ++i)
-	 {
-		 for (size_t j = i+1; j < str.size(); ++j)
-		 {
-			 if (str[i] == str[j])
-			 {
-				 return true;
-			 }
-		 }
-	 }
+    for (size_t i = 0; i < str.size(); ++i)
+    {
+        for (size_t j = i + 1; j < str.size(); ++j)
+        {
+            if (str[i] == str[j])
+            {
+                return true;
+            }
+        }
+    }
 
-	 return false;
+    return false;
 }
 
 /**
@@ -83,37 +83,37 @@ bool has_duplicates_3(const std::string& str)
  */
 std::string random_string(const size_t n)
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< char > distribution('a','z');
+    std::uniform_int_distribution<char> distribution('a', 'z');
 
-	std::string str;
+    std::string str;
 
-	while (str.size() < n)
-	{
-		str.push_back(distribution(generator));
-	}
+    while (str.size() < n)
+    {
+        str.push_back(distribution(generator));
+    }
 
-	return str;
+    return str;
 }
 
 int main()
 {
-	for (size_t n = 0; n <= 100; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			std::string str = random_string(n);
+    for (size_t n = 0; n <= 100; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            std::string str = random_string(n);
 
-			bool result = has_duplicates_3(str);
+            bool result = has_duplicates_3(str);
 
-			assert(has_duplicates_1(str) == result);
-			assert(has_duplicates_2(str) == result);
-		}
+            assert(has_duplicates_1(str) == result);
+            assert(has_duplicates_2(str) == result);
+        }
 
-		std::cout << "passed random tests for strings of length " << n << std::endl;
-	}
+        std::cout << "passed random tests for strings of length " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

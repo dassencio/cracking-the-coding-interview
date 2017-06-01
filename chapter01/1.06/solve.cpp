@@ -5,60 +5,60 @@
  *       matrix).
  */
 
-#include <vector>
-#include <iostream>
-#include <iomanip>
-#include <random>	/* std::uniform_int_distribution */
 #include <cassert>
+#include <iomanip>
+#include <iostream>
+#include <random> /* std::uniform_int_distribution */
+#include <vector>
 
 /* a simple matrix class */
 class square_matrix
 {
 public:
-	square_matrix(const size_t n): n_(n), values_(n*n)
-	{
-		/* nothing needs to be done here */
-	}
+    square_matrix(const size_t n) : n_(n), values_(n * n)
+    {
+        /* nothing needs to be done here */
+    }
 
-	int& operator()(const size_t i, const size_t j)
-	{
-		assert(i < n_ && j < n_);
-		return values_[n_*i + j];
-	}
+    int& operator()(const size_t i, const size_t j)
+    {
+        assert(i < n_ && j < n_);
+        return values_[n_ * i + j];
+    }
 
-	int operator()(const size_t i, const size_t j) const
-	{
-		assert(i < n_ && j < n_);
-		return values_[n_*i + j];
-	}
+    int operator()(const size_t i, const size_t j) const
+    {
+        assert(i < n_ && j < n_);
+        return values_[n_ * i + j];
+    }
 
-	size_t size() const
-	{
-		return n_;
-	}
+    size_t size() const
+    {
+        return n_;
+    }
 
-	bool operator==(const square_matrix& B) const
-	{
-		return values_ == B.values_;
-	}
+    bool operator==(const square_matrix& B) const
+    {
+        return values_ == B.values_;
+    }
 
-	std::ostream& print(std::ostream& stream = std::cout) const
-	{
-		for (size_t i = 0; i < n_; ++i)
-		{
-			for (size_t j = 0; j < n_; ++j)
-			{
-				stream << std::setw(5) << (*this)(i,j);
-			}
-			stream << std::endl;
-		}
+    std::ostream& print(std::ostream& stream = std::cout) const
+    {
+        for (size_t i = 0; i < n_; ++i)
+        {
+            for (size_t j = 0; j < n_; ++j)
+            {
+                stream << std::setw(5) << (*this)(i, j);
+            }
+            stream << std::endl;
+        }
 
-		return stream;
-	}
+        return stream;
+    }
 
 private:
-	size_t n_ = 0;
-	std::vector< int > values_;
+    size_t n_ = 0;
+    std::vector<int> values_;
 };
 
 /**
@@ -68,20 +68,20 @@ private:
  */
 square_matrix rotate_square_matrix_1(const square_matrix& A)
 {
-	size_t n = A.size();
+    size_t n = A.size();
 
-	square_matrix A_rot(n);
+    square_matrix A_rot(n);
 
-	for (size_t i = 0; i < n; ++i)
-	{
-		for (size_t j = 0; j < n; ++j)
-		{
-			/* (i,j) --> (n-1-j,i) */
-			A_rot(n-1-j,i) = A(i,j);
-		}
-	}
+    for (size_t i = 0; i < n; ++i)
+    {
+        for (size_t j = 0; j < n; ++j)
+        {
+            /* (i,j) --> (n-1-j,i) */
+            A_rot(n - 1 - j, i) = A(i, j);
+        }
+    }
 
-	return A_rot;
+    return A_rot;
 }
 
 /**
@@ -91,30 +91,30 @@ square_matrix rotate_square_matrix_1(const square_matrix& A)
  */
 square_matrix& rotate_square_matrix_2(square_matrix& A)
 {
-	size_t n = A.size();
+    size_t n = A.size();
 
-	for (size_t i = 0; i < n/2; ++i)
-	{
-		for (size_t j = i; j < n-1-i; ++j)
-		{
-			/* (i,j) --> (n-1-j,i) */
-			int a1 = A(n-1-j,i);
-			A(n-1-j,i) = A(i,j);
+    for (size_t i = 0; i < n / 2; ++i)
+    {
+        for (size_t j = i; j < n - 1 - i; ++j)
+        {
+            /* (i,j) --> (n-1-j,i) */
+            int a1 = A(n - 1 - j, i);
+            A(n - 1 - j, i) = A(i, j);
 
-			/* (n-1-j,i) --> (n-1-i,n-1-j) */
-			int a2 = A(n-1-i,n-1-j);
-			A(n-1-i,n-1-j) = a1;
+            /* (n-1-j,i) --> (n-1-i,n-1-j) */
+            int a2 = A(n - 1 - i, n - 1 - j);
+            A(n - 1 - i, n - 1 - j) = a1;
 
-			/* (n-1-i,n-1-j) --> (j,n-1-i) */
-			int a3 = A(j,n-1-i);
-			A(j,n-1-i) = a2;
+            /* (n-1-i,n-1-j) --> (j,n-1-i) */
+            int a3 = A(j, n - 1 - i);
+            A(j, n - 1 - i) = a2;
 
-			/* (j,n-1-i) --> (i,j) */
-			A(i,j) = a3;
-		}
-	}
+            /* (j,n-1-i) --> (i,j) */
+            A(i, j) = a3;
+        }
+    }
 
-	return A;
+    return A;
 }
 
 /**
@@ -123,39 +123,39 @@ square_matrix& rotate_square_matrix_2(square_matrix& A)
  */
 square_matrix random_matrix(const size_t n)
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< int > distribution(0,1000);
+    std::uniform_int_distribution<int> distribution(0, 1000);
 
-	square_matrix A(n);
+    square_matrix A(n);
 
-	for (size_t i = 0; i < n; ++i)
-	{
-		for (size_t j = 0; j < n; ++j)
-		{
-			A(i,j) = distribution(generator);
-		}
-	}
+    for (size_t i = 0; i < n; ++i)
+    {
+        for (size_t j = 0; j < n; ++j)
+        {
+            A(i, j) = distribution(generator);
+        }
+    }
 
-	return A;
+    return A;
 }
 
 int main()
 {
-	for (size_t n = 0; n <= 50; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			square_matrix A = random_matrix(n);
+    for (size_t n = 0; n <= 50; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            square_matrix A = random_matrix(n);
 
-			square_matrix A_rot = rotate_square_matrix_1(A);
-			rotate_square_matrix_2(A);
+            square_matrix A_rot = rotate_square_matrix_1(A);
+            rotate_square_matrix_2(A);
 
-			assert(A == A_rot);
-		}
-		std::cout << "passed random tests for matrices of size " << n << std::endl;
-	}
+            assert(A == A_rot);
+        }
+        std::cout << "passed random tests for matrices of size " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
