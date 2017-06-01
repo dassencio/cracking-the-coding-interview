@@ -10,24 +10,24 @@
  *       node's key.
  */
 
-#include <vector>
-#include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+#include <vector>
 
 /* a binary tree is represented here by its root node */
 struct tree_node
 {
-	int key;
+    int key;
 
-	tree_node* left  = nullptr;
-	tree_node* right = nullptr;
+    tree_node* left = nullptr;
+    tree_node* right = nullptr;
 
-	~tree_node()
-	{
-		delete left;
-		delete right;
-	}
+    ~tree_node()
+    {
+        delete left;
+        delete right;
+    }
 };
 
 /**
@@ -39,24 +39,24 @@ struct tree_node
  *       elements in the array, because the recursion will not go deeper than
  *       O(log(n)) levels.
  */
-template< typename bidirectional_iterator >
+template<typename bidirectional_iterator>
 tree_node* build_min_height_tree(const bidirectional_iterator begin,
                                  const bidirectional_iterator end)
 {
-	if (begin == end)
-	{
-		return nullptr;
-	}
+    if (begin == end)
+    {
+        return nullptr;
+    }
 
-	const bidirectional_iterator middle = begin + std::distance(begin,end)/2;
+    const bidirectional_iterator middle = begin + std::distance(begin, end) / 2;
 
-	tree_node* node = new tree_node;
+    tree_node* node = new tree_node;
 
-	node->key = *middle;
-	node->left = build_min_height_tree(begin, middle);
-	node->right = build_min_height_tree(middle+1, end);
+    node->key = *middle;
+    node->left = build_min_height_tree(begin, middle);
+    node->right = build_min_height_tree(middle + 1, end);
 
-	return node;
+    return node;
 }
 
 /**
@@ -68,12 +68,12 @@ tree_node* build_min_height_tree(const bidirectional_iterator begin,
  */
 size_t tree_height(const tree_node* root)
 {
-	if (root == nullptr)
-	{
-		return 0;
-	}
+    if (root == nullptr)
+    {
+        return 0;
+    }
 
-	return 1 + std::max(tree_height(root->left), tree_height(root->right));
+    return 1 + std::max(tree_height(root->left), tree_height(root->right));
 }
 
 /**
@@ -85,22 +85,22 @@ size_t tree_height(const tree_node* root)
  *       deeper than k levels.
  */
 bool is_ordered_tree(const tree_node* root,
-                     const int min_allowed = std::numeric_limits< int >::min(),
-                     const int max_allowed = std::numeric_limits< int >::max())
+                     const int min_allowed = std::numeric_limits<int>::min(),
+                     const int max_allowed = std::numeric_limits<int>::max())
 {
-	if (root == nullptr)
-	{
-		return true;
-	}
+    if (root == nullptr)
+    {
+        return true;
+    }
 
-	/* root->key must be within [min_allowed, max_allowed] */
-	if (root->key < min_allowed || root->key > max_allowed)
-	{
-		return false;
-	}
+    /* root->key must be within [min_allowed, max_allowed] */
+    if (root->key < min_allowed || root->key > max_allowed)
+    {
+        return false;
+    }
 
-	return is_ordered_tree(root->left, min_allowed, root->key) &&
-	       is_ordered_tree(root->right, root->key, max_allowed);
+    return is_ordered_tree(root->left, min_allowed, root->key) &&
+           is_ordered_tree(root->right, root->key, max_allowed);
 }
 
 /**
@@ -113,75 +113,75 @@ bool is_ordered_tree(const tree_node* root,
  */
 size_t count(const tree_node* root, const int x)
 {
-	if (root == nullptr)
-	{
-		return 0;
-	}
+    if (root == nullptr)
+    {
+        return 0;
+    }
 
-	return (root->key == x) + count(root->left, x) + count(root->right, x);
+    return (root->key == x) + count(root->left, x) + count(root->right, x);
 }
 
 /**
  * @brief Generates a sorted random vector of length n and values in [-n,n].
  * @note Complexity: O(n*log(n)) in time, O(n) in space.
  */
-std::vector< int > sorted_random_vector(int n)
+std::vector<int> sorted_random_vector(int n)
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< int > distribution(-n,n);
+    std::uniform_int_distribution<int> distribution(-n, n);
 
-	std::vector< int > values;
+    std::vector<int> values;
 
-	while (n > 0)
-	{
-		values.push_back(distribution(generator));
-		--n;
-	}
+    while (n > 0)
+    {
+        values.push_back(distribution(generator));
+        --n;
+    }
 
-	std::sort(values.begin(), values.end());
+    std::sort(values.begin(), values.end());
 
-	return values;
+    return values;
 }
 
 int main()
 {
-	for (int n = 0; n <= 100; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			std::vector< int > values = sorted_random_vector(n);
+    for (int n = 0; n <= 100; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            std::vector<int> values = sorted_random_vector(n);
 
-			tree_node* root = build_min_height_tree(values.begin(), values.end());
+            tree_node* root = build_min_height_tree(values.begin(), values.end());
 
-			/*
-			 * a minimum-height tree has height floor(log2(n))+1, where n is the
-			 * number of elements in the tree; the only exception happens for an
-			 * empty tree, in which case its height is zero
-			 */
-			if (n == 0)
-			{
-				assert(tree_height(root) == 0);
-			}
-			else
-			{
-				assert(tree_height(root) == static_cast< size_t >(std::log2(n)) + 1);
-			}
+            /*
+             * a minimum-height tree has height floor(log2(n))+1, where n is the
+             * number of elements in the tree; the only exception happens for an
+             * empty tree, in which case its height is zero
+             */
+            if (n == 0)
+            {
+                assert(tree_height(root) == 0);
+            }
+            else
+            {
+                assert(tree_height(root) == static_cast<size_t>(std::log2(n)) + 1);
+            }
 
-			assert(is_ordered_tree(root));
+            assert(is_ordered_tree(root));
 
-			for (const int x : values)
-			{
-				size_t occurrences = std::count(values.begin(), values.end(), x);
-				assert(count(root, x) == occurrences);
-			}
+            for (const int x : values)
+            {
+                size_t occurrences = std::count(values.begin(), values.end(), x);
+                assert(count(root, x) == occurrences);
+            }
 
-			delete root;
-		}
+            delete root;
+        }
 
-		std::cout << "passed random tests for trees of size " << n << std::endl;
-	}
+        std::cout << "passed random tests for trees of size " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

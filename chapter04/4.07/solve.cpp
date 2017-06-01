@@ -4,25 +4,25 @@
  *       nodes). Determine if T2 is a subtree of T1.
  */
 
-#include <vector>
-#include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+#include <vector>
 
 /* a binary tree is represented here by its root node */
 struct tree_node
 {
-	int key;
+    int key;
 
-	tree_node* left   = nullptr;
-	tree_node* right  = nullptr;
-	tree_node* parent = nullptr;
+    tree_node* left = nullptr;
+    tree_node* right = nullptr;
+    tree_node* parent = nullptr;
 
-	~tree_node()
-	{
-		delete left;
-		delete right;
-	}
+    ~tree_node()
+    {
+        delete left;
+        delete right;
+    }
 };
 
 /**
@@ -37,25 +37,25 @@ struct tree_node
  */
 bool is_root_subtree(const tree_node* root1, const tree_node* root2)
 {
-	/* if T2 is empty, it is a subtree of T1 */
-	if (root2 == nullptr)
-	{
-		return true;
-	}
+    /* if T2 is empty, it is a subtree of T1 */
+    if (root2 == nullptr)
+    {
+        return true;
+    }
 
-	/* T2 is not empty, so if T1 is empty, T2 cannot be a subtree of T1 */
-	if (root1 == nullptr)
-	{
-		return false;
-	}
+    /* T2 is not empty, so if T1 is empty, T2 cannot be a subtree of T1 */
+    if (root1 == nullptr)
+    {
+        return false;
+    }
 
-	if (root1->key == root2->key)
-	{
-		return is_root_subtree(root1->left, root2->left) &&
-		       is_root_subtree(root1->right, root2->right);
-	}
+    if (root1->key == root2->key)
+    {
+        return is_root_subtree(root1->left, root2->left) &&
+               is_root_subtree(root1->right, root2->right);
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -69,15 +69,14 @@ bool is_root_subtree(const tree_node* root1, const tree_node* root2)
  */
 bool is_subtree(const tree_node* root1, const tree_node* root2)
 {
-	/* if T1 is empty, T2 can only be a subtree T1 if it is also empty */
-	if (root1 == nullptr)
-	{
-		return (root2 == nullptr);
-	}
+    /* if T1 is empty, T2 can only be a subtree T1 if it is also empty */
+    if (root1 == nullptr)
+    {
+        return (root2 == nullptr);
+    }
 
-	return is_root_subtree(root1, root2) ||
-	       is_subtree(root1->left, root2) ||
-	       is_subtree(root1->right, root2);
+    return is_root_subtree(root1, root2) || is_subtree(root1->left, root2) ||
+           is_subtree(root1->right, root2);
 }
 
 /**
@@ -85,85 +84,85 @@ bool is_subtree(const tree_node* root1, const tree_node* root2)
  *        vector of nodes, with the first element being the tree's root node.
  * @note Complexity: O(n) in both time and space (on average).
  */
-std::vector< tree_node* > random_tree(int n)
+std::vector<tree_node*> random_tree(int n)
 {
-	if (n == 0)
-	{
-		return {};
-	}
+    if (n == 0)
+    {
+        return {};
+    }
 
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< int > key_chooser(-n,n);
-	std::bernoulli_distribution left_or_right(0.5);
+    std::uniform_int_distribution<int> key_chooser(-n, n);
+    std::bernoulli_distribution left_or_right(0.5);
 
-	/* the first generated node is the root */
-	tree_node* root = new tree_node;
-	root->key = key_chooser(generator);
-	std::vector< tree_node* > nodes = { root };
-	--n;
+    /* the first generated node is the root */
+    tree_node* root = new tree_node;
+    root->key = key_chooser(generator);
+    std::vector<tree_node*> nodes = {root};
+    --n;
 
-	while (n > 0)
-	{
-		std::uniform_int_distribution< size_t > node_chooser(0, nodes.size()-1);
+    while (n > 0)
+    {
+        std::uniform_int_distribution<size_t> node_chooser(0, nodes.size() - 1);
 
-		size_t index = node_chooser(generator);
-		bool side = left_or_right(generator);
+        size_t index = node_chooser(generator);
+        bool side = left_or_right(generator);
 
-		/* side = true/false if the new node must be a left/right child */
-		if (side == true && nodes[index]->left == nullptr)
-		{
-			tree_node* new_node = new tree_node;
-			new_node->key = key_chooser(generator);
-			nodes[index]->left = new_node;
-			new_node->parent = nodes[index];
-			nodes.push_back(new_node);
-			--n;
-		}
-		else if (side == false && nodes[index]->right == nullptr)
-		{
-			tree_node* new_node = new tree_node;
-			new_node->key = key_chooser(generator);
-			nodes[index]->right = new_node;
-			new_node->parent = nodes[index];
-			nodes.push_back(new_node);
-			--n;
-		}
-	}
+        /* side = true/false if the new node must be a left/right child */
+        if (side == true && nodes[index]->left == nullptr)
+        {
+            tree_node* new_node = new tree_node;
+            new_node->key = key_chooser(generator);
+            nodes[index]->left = new_node;
+            new_node->parent = nodes[index];
+            nodes.push_back(new_node);
+            --n;
+        }
+        else if (side == false && nodes[index]->right == nullptr)
+        {
+            tree_node* new_node = new tree_node;
+            new_node->key = key_chooser(generator);
+            nodes[index]->right = new_node;
+            new_node->parent = nodes[index];
+            nodes.push_back(new_node);
+            --n;
+        }
+    }
 
-	return nodes;
+    return nodes;
 }
 
 int main()
 {
-	for (int n = 0; n <= 50; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			std::vector< tree_node* > tree_nodes = random_tree(n);
+    for (int n = 0; n <= 50; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            std::vector<tree_node*> tree_nodes = random_tree(n);
 
-			const tree_node* root = (n > 0) ? tree_nodes.front() : nullptr;
+            const tree_node* root = (n > 0) ? tree_nodes.front() : nullptr;
 
-			for (const tree_node* current : tree_nodes)
-			{
-				assert(is_subtree(root, current) == true);
+            for (const tree_node* current : tree_nodes)
+            {
+                assert(is_subtree(root, current) == true);
 
-				if (current != root)
-				{
-					assert(is_subtree(current, root) == false);
-				}
+                if (current != root)
+                {
+                    assert(is_subtree(current, root) == false);
+                }
 
-				tree_node* not_in_tree = new tree_node;
-				not_in_tree->key = std::numeric_limits< int >::max();
-				assert(is_subtree(root, not_in_tree) == false);
+                tree_node* not_in_tree = new tree_node;
+                not_in_tree->key = std::numeric_limits<int>::max();
+                assert(is_subtree(root, not_in_tree) == false);
 
-				delete not_in_tree;
-			}
+                delete not_in_tree;
+            }
 
-			delete root;
-		}
+            delete root;
+        }
 
-		std::cout << "passed random tests for trees of size " << n << std::endl;
-	}
+        std::cout << "passed random tests for trees of size " << n << std::endl;
+    }
 }

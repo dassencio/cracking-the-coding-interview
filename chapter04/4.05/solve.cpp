@@ -3,23 +3,23 @@
  *       successor of this node.
  */
 
-#include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 /* a binary search tree is represented here by its root node */
 struct tree_node
 {
-	size_t key;
-	tree_node* left;
-	tree_node* right;
-	tree_node* parent;
+    size_t key;
+    tree_node* left;
+    tree_node* right;
+    tree_node* parent;
 
-	~tree_node()
-	{
-		delete left;
-		delete right;
-	}
+    ~tree_node()
+    {
+        delete left;
+        delete right;
+    }
 };
 
 /**
@@ -32,12 +32,12 @@ struct tree_node
  */
 const tree_node* find(const tree_node* root, const size_t key)
 {
-	if (root == nullptr || key == root->key)
-	{
-		return root;
-	}
+    if (root == nullptr || key == root->key)
+    {
+        return root;
+    }
 
-	return (key < root->key) ? find(root->left, key) : find(root->right, key);
+    return (key < root->key) ? find(root->left, key) : find(root->right, key);
 }
 
 /**
@@ -49,28 +49,28 @@ const tree_node* find(const tree_node* root, const size_t key)
  */
 void insert(tree_node* root, const size_t key)
 {
-	if (key < root->key)
-	{
-		if (root->left == nullptr)
-		{
-			root->left = new tree_node{key, nullptr, nullptr, root};
-		}
-		else
-		{
-			insert(root->left, key);
-		}
-	}
-	else if (key > root->key)
-	{
-		if (root->right == nullptr)
-		{
-			root->right = new tree_node{key, nullptr, nullptr, root};
-		}
-		else
-		{
-			insert(root->right, key);
-		}
-	}
+    if (key < root->key)
+    {
+        if (root->left == nullptr)
+        {
+            root->left = new tree_node{key, nullptr, nullptr, root};
+        }
+        else
+        {
+            insert(root->left, key);
+        }
+    }
+    else if (key > root->key)
+    {
+        if (root->right == nullptr)
+        {
+            root->right = new tree_node{key, nullptr, nullptr, root};
+        }
+        else
+        {
+            insert(root->right, key);
+        }
+    }
 }
 
 /**
@@ -80,35 +80,35 @@ void insert(tree_node* root, const size_t key)
  */
 const tree_node* successor(const tree_node* node)
 {
-	/*
-	 * if node has a right subtree, its successor is the leftmost node
-	 * of that subtree; if node has no right subtree, its successor can
-	 * only be one of its ancestors
-	 */
-	if (node->right != nullptr)
-	{
-		const tree_node* current = node->right;
+    /*
+     * if node has a right subtree, its successor is the leftmost node
+     * of that subtree; if node has no right subtree, its successor can
+     * only be one of its ancestors
+     */
+    if (node->right != nullptr)
+    {
+        const tree_node* current = node->right;
 
-		while (current->left != nullptr)
-		{
-			current = current->left;
-		}
+        while (current->left != nullptr)
+        {
+            current = current->left;
+        }
 
-		return current;
-	}
-	else
-	{
-		const tree_node* current = node->parent;
+        return current;
+    }
+    else
+    {
+        const tree_node* current = node->parent;
 
-		while (current != nullptr && current->key < node->key)
-		{
-			current = current->parent;
-		}
+        while (current != nullptr && current->key < node->key)
+        {
+            current = current->parent;
+        }
 
-		return current;
-	}
+        return current;
+    }
 
-	return nullptr;
+    return nullptr;
 }
 
 /**
@@ -118,62 +118,62 @@ const tree_node* successor(const tree_node* node)
  */
 const tree_node* random_binary_search_tree(const size_t n)
 {
-	if (n == 0)
-	{
-		return nullptr;
-	}
+    if (n == 0)
+    {
+        return nullptr;
+    }
 
-	std::vector< size_t > keys;
+    std::vector<size_t> keys;
 
-	for (size_t i = 0; i < n; ++i)
-	{
-		keys.push_back(i);
-	}
+    for (size_t i = 0; i < n; ++i)
+    {
+        keys.push_back(i);
+    }
 
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::shuffle(keys.begin(), keys.end(), generator);
+    std::shuffle(keys.begin(), keys.end(), generator);
 
-	/* start with the root node */
-	tree_node* root = new tree_node{keys[0], nullptr, nullptr, nullptr};
+    /* start with the root node */
+    tree_node* root = new tree_node{keys[0], nullptr, nullptr, nullptr};
 
-	for (size_t i = 1; i < n; ++i)
-	{
-		insert(root, keys[i]);
-	}
+    for (size_t i = 1; i < n; ++i)
+    {
+        insert(root, keys[i]);
+    }
 
-	return root;
+    return root;
 }
 
 int main()
 {
-	for (size_t n = 0; n <= 100; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			const tree_node* root = random_binary_search_tree(n);
+    for (size_t n = 0; n <= 100; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            const tree_node* root = random_binary_search_tree(n);
 
-			for (size_t key = 0; key < n; ++key)
-			{
-				const tree_node* node = find(root, key);
-				assert(node != nullptr && node->key == key);
+            for (size_t key = 0; key < n; ++key)
+            {
+                const tree_node* node = find(root, key);
+                assert(node != nullptr && node->key == key);
 
-				if (key == n-1)
-				{
-					assert(successor(node) == nullptr);
-				}
-				else
-				{
-					assert(successor(node)->key == key+1);
-				}
-			}
+                if (key == n - 1)
+                {
+                    assert(successor(node) == nullptr);
+                }
+                else
+                {
+                    assert(successor(node)->key == key + 1);
+                }
+            }
 
-			delete root;
-		}
+            delete root;
+        }
 
-		std::cout << "passed random tests for trees of size " << n << std::endl;
-	}
+        std::cout << "passed random tests for trees of size " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

@@ -7,29 +7,29 @@
  *       node to one of its children nodes).
  */
 
-#include <list>
-#include <vector>
-#include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+#include <list>
+#include <vector>
 
 /* a binary tree is represented here by its root node */
 struct tree_node
 {
-	int key;
+    int key;
 
-	tree_node* left   = nullptr;
-	tree_node* right  = nullptr;
-	tree_node* parent = nullptr;
+    tree_node* left = nullptr;
+    tree_node* right = nullptr;
+    tree_node* parent = nullptr;
 
-	~tree_node()
-	{
-		delete left;
-		delete right;
-	}
+    ~tree_node()
+    {
+        delete left;
+        delete right;
+    }
 };
 
-using path = std::list< const tree_node* >;
+using path = std::list<const tree_node*>;
 
 /**
  * @brief Determines all tree paths which sum to a given value.
@@ -44,35 +44,33 @@ using path = std::list< const tree_node* >;
  *       wanted to print the paths which sum to total, the complexity would
  *       be only O(n²) in time and O(n) in space.
  */
-void get_paths_which_sum_to(const tree_node* last_node,
-                            const int total,
-                            std::vector< path >& paths)
+void get_paths_which_sum_to(const tree_node* last_node, const int total, std::vector<path>& paths)
 {
-	if (last_node == nullptr)
-	{
-		return;
-	}
+    if (last_node == nullptr)
+    {
+        return;
+    }
 
-	int sum_so_far = 0;
+    int sum_so_far = 0;
 
-	path current_path;
-	const tree_node* current = last_node;
+    path current_path;
+    const tree_node* current = last_node;
 
-	while (current != nullptr)
-	{
-		sum_so_far += current->key;
-		current_path.push_front(current);
+    while (current != nullptr)
+    {
+        sum_so_far += current->key;
+        current_path.push_front(current);
 
-		if (sum_so_far == total)
-		{
-			paths.push_back(current_path);
-		}
+        if (sum_so_far == total)
+        {
+            paths.push_back(current_path);
+        }
 
-		current = current->parent;
-	}
+        current = current->parent;
+    }
 
-	get_paths_which_sum_to(last_node->left, total, paths);
-	get_paths_which_sum_to(last_node->right, total, paths);
+    get_paths_which_sum_to(last_node->left, total, paths);
+    get_paths_which_sum_to(last_node->right, total, paths);
 }
 
 /**
@@ -85,26 +83,25 @@ void get_paths_which_sum_to(const tree_node* last_node,
  *       in this case, the work done for node_k [including memory allocation]
  *       is O(k²)).
  */
-void get_all_tree_paths(const tree_node* last_node,
-                        std::vector< path >& paths)
+void get_all_tree_paths(const tree_node* last_node, std::vector<path>& paths)
 {
-	if (last_node == nullptr)
-	{
-		return;
-	}
+    if (last_node == nullptr)
+    {
+        return;
+    }
 
-	path current_path;
-	const tree_node* current = last_node;
+    path current_path;
+    const tree_node* current = last_node;
 
-	while (current != nullptr)
-	{
-		current_path.push_front(current);
-		paths.push_back(current_path);
-		current = current->parent;
-	}
+    while (current != nullptr)
+    {
+        current_path.push_front(current);
+        paths.push_back(current_path);
+        current = current->parent;
+    }
 
-	get_all_tree_paths(last_node->left, paths);
-	get_all_tree_paths(last_node->right, paths);
+    get_all_tree_paths(last_node->left, paths);
+    get_all_tree_paths(last_node->right, paths);
 }
 
 /**
@@ -112,54 +109,54 @@ void get_all_tree_paths(const tree_node* last_node,
  *        vector of nodes, with the first element being the tree's root node.
  * @note Complexity: O(n) in both time and space (on average).
  */
-std::vector< tree_node* > random_tree(int n)
+std::vector<tree_node*> random_tree(int n)
 {
-	if (n == 0)
-	{
-		return {};
-	}
+    if (n == 0)
+    {
+        return {};
+    }
 
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< int > key_chooser(-n,n);
-	std::bernoulli_distribution left_or_right(0.5);
+    std::uniform_int_distribution<int> key_chooser(-n, n);
+    std::bernoulli_distribution left_or_right(0.5);
 
-	/* the first generated node is the root */
-	tree_node* root = new tree_node;
-	root->key = key_chooser(generator);
-	std::vector< tree_node* > nodes = { root };
-	--n;
+    /* the first generated node is the root */
+    tree_node* root = new tree_node;
+    root->key = key_chooser(generator);
+    std::vector<tree_node*> nodes = {root};
+    --n;
 
-	while (n > 0)
-	{
-		std::uniform_int_distribution< size_t > node_chooser(0, nodes.size()-1);
+    while (n > 0)
+    {
+        std::uniform_int_distribution<size_t> node_chooser(0, nodes.size() - 1);
 
-		size_t index = node_chooser(generator);
-		bool side = left_or_right(generator);
+        size_t index = node_chooser(generator);
+        bool side = left_or_right(generator);
 
-		/* side = true/false if the new node must be a left/right child */
-		if (side == true && nodes[index]->left == nullptr)
-		{
-			tree_node* new_node = new tree_node;
-			new_node->key = key_chooser(generator);
-			nodes[index]->left = new_node;
-			new_node->parent = nodes[index];
-			nodes.push_back(new_node);
-			--n;
-		}
-		else if (side == false && nodes[index]->right == nullptr)
-		{
-			tree_node* new_node = new tree_node;
-			new_node->key = key_chooser(generator);
-			nodes[index]->right = new_node;
-			new_node->parent = nodes[index];
-			nodes.push_back(new_node);
-			--n;
-		}
-	}
+        /* side = true/false if the new node must be a left/right child */
+        if (side == true && nodes[index]->left == nullptr)
+        {
+            tree_node* new_node = new tree_node;
+            new_node->key = key_chooser(generator);
+            nodes[index]->left = new_node;
+            new_node->parent = nodes[index];
+            nodes.push_back(new_node);
+            --n;
+        }
+        else if (side == false && nodes[index]->right == nullptr)
+        {
+            tree_node* new_node = new tree_node;
+            new_node->key = key_chooser(generator);
+            nodes[index]->right = new_node;
+            new_node->parent = nodes[index];
+            nodes.push_back(new_node);
+            --n;
+        }
+    }
 
-	return nodes;
+    return nodes;
 }
 
 /**
@@ -168,55 +165,55 @@ std::vector< tree_node* > random_tree(int n)
  */
 int path_sum(const path& nodes)
 {
-	int total = 0;
+    int total = 0;
 
-	for (const tree_node* node : nodes)
-	{
-		total += node->key;
-	}
+    for (const tree_node* node : nodes)
+    {
+        total += node->key;
+    }
 
-	return total;
+    return total;
 }
 
 int main()
 {
-	for (int n = 0; n <= 20; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			std::vector< tree_node* > tree_nodes = random_tree(n);
+    for (int n = 0; n <= 20; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            std::vector<tree_node*> tree_nodes = random_tree(n);
 
-			int sum_positives = 0;
-			int sum_negatives = 0;
+            int sum_positives = 0;
+            int sum_negatives = 0;
 
-			for (const tree_node* node : tree_nodes)
-			{
-				sum_positives += (node->key > 0) ? node->key : 0;
-				sum_negatives += (node->key < 0) ? node->key : 0;
-			}
+            for (const tree_node* node : tree_nodes)
+            {
+                sum_positives += (node->key > 0) ? node->key : 0;
+                sum_negatives += (node->key < 0) ? node->key : 0;
+            }
 
-			const tree_node* root = (n > 0) ? tree_nodes.front() : nullptr;
+            const tree_node* root = (n > 0) ? tree_nodes.front() : nullptr;
 
-			std::vector< path > all_paths;
-			get_all_tree_paths(root, all_paths);
+            std::vector<path> all_paths;
+            get_all_tree_paths(root, all_paths);
 
-			for (int total = sum_negatives; total <= sum_positives; ++total)
-			{
-				std::vector< path > sum_paths;
-				get_paths_which_sum_to(root, total, sum_paths);
+            for (int total = sum_negatives; total <= sum_positives; ++total)
+            {
+                std::vector<path> sum_paths;
+                get_paths_which_sum_to(root, total, sum_paths);
 
-				for (const path& p : all_paths)
-				{
-					if (path_sum(p) == total)
-					{
-						assert(std::find(sum_paths.begin(), sum_paths.end(), p) != sum_paths.end());
-					}
-				}
-			}
+                for (const path& p : all_paths)
+                {
+                    if (path_sum(p) == total)
+                    {
+                        assert(std::find(sum_paths.begin(), sum_paths.end(), p) != sum_paths.end());
+                    }
+                }
+            }
 
-			delete root;
-		}
+            delete root;
+        }
 
-		std::cout << "passed random tests for trees of size " << n << std::endl;
-	}
+        std::cout << "passed random tests for trees of size " << n << std::endl;
+    }
 }
