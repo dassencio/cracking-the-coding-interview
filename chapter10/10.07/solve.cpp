@@ -10,8 +10,8 @@
 #include <cassert>
 
 /**
- * @brief finds the k-th number of type (3^a)*(5^b)*(7^c) using brute force
- * @note complexity: O(k²) in time, O(k) in space
+ * @brief Finds the k-th number of type (3^a)*(5^b)*(7^c) using brute force.
+ * @note Complexity: O(k²) in time, O(k) in space.
  */
 uint64_t find_number_1(const size_t k)
 {
@@ -45,10 +45,10 @@ uint64_t find_number_1(const size_t k)
 }
 
 /**
- * @brief finds the k-th number of type (3^a)*(5^b)*(7^c) using three queues,
+ * @brief Finds the k-th number of type (3^a)*(5^b)*(7^c) using three queues,
  *        each one containing numbers which must still be multiplied by 3, 5
- *        and 7 respectively at each iteration
- * @note complexity: O(k) in both time and space
+ *        and 7 respectively at each iteration.
+ * @note Complexity: O(k) in both time and space.
  */
 uint64_t find_number_2(size_t k)
 {
@@ -114,9 +114,9 @@ uint64_t find_number_2(size_t k)
 }
 
 /**
- * @brief returns true if n is an integer whose prime factors are only 3, 5
- *        and 7, false otherwise
- * @note complexity: O(log(n)) in time, O(1) in space
+ * @brief Returns true if n is an integer whose prime factors are only 3, 5
+ *        and 7, false otherwise.
+ * @note Complexity: O(log(n)) in time, O(1) in space.
  */
 bool is_valid(uint64_t n)
 {

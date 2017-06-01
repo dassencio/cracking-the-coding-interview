@@ -15,8 +15,8 @@ struct point
 };
 
 /**
- * @brief given two points A and B, returns (A-B)
- * @note complexity: O(1) in both time and space
+ * @brief Given two points A and B, returns (A-B).
+ * @note Complexity: O(1) in both time and space.
  */
 point operator-(const point& A, const point& B)
 {
@@ -24,8 +24,8 @@ point operator-(const point& A, const point& B)
 }
 
 /**
- * @brief computes the dot product of two 2-vectors A and B
- * @note complexity: O(1) in both time and space
+ * @brief Computes the dot product of two 2-vectors A and B.
+ * @note Complexity: O(1) in both time and space.
  */
 double operator*(const point& A, const point& B)
 {
@@ -33,8 +33,8 @@ double operator*(const point& A, const point& B)
 }
 
 /**
- * @brief computes the distance between the origin (0,0) and a point A
- * @note complexity: O(1) in both time and space
+ * @brief Computes the distance between the origin (0,0) and a point A.
+ * @note Complexity: O(1) in both time and space.
  */
 double norm(const point& A)
 {
@@ -42,8 +42,8 @@ double norm(const point& A)
 }
 
 /**
- * @brief returns true if two points A and B are equal, false otherwise
- * @note complexity: O(1) in both time and space
+ * @brief Returns true if two points A and B are equal, false otherwise.
+ * @note Complexity: O(1) in both time and space.
  */
 bool operator==(const point& A, const point& B)
 {
@@ -51,8 +51,8 @@ bool operator==(const point& A, const point& B)
 }
 
 /**
- * @brief returns true if two points A and B are distinct, false otherwise
- * @note complexity: O(1) in both time and space
+ * @brief Returns true if two points A and B are distinct, false otherwise.
+ * @note Complexity: O(1) in both time and space.
  */
 bool operator!=(const point& A, const point& B)
 {
@@ -69,9 +69,9 @@ public:
 	}
 
 	/**
-	 * @brief computes the sine of the angle measured from the positive x
-	 *        axis to the line in the counterclockwise direction
-	 * @note complexity: O(1) in both time and space
+	 * @brief Computes the sine of the angle measured from the positive x
+	 *        axis to the line in the counterclockwise direction.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	double sine() const
 	{
@@ -91,8 +91,8 @@ public:
 	}
 
 	/**
-	 * @brief computes the x-intercept value of the line
-	 * @note complexity: O(1) in both time and space
+	 * @brief Computes the x-intercept value of the line.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	double x_intercept() const
 	{
@@ -107,8 +107,8 @@ public:
 	}
 
 	/**
-	 * @brief computes the y-intercept value of the line
-	 * @note complexity: O(1) in both time and space
+	 * @brief Computes the y-intercept value of the line.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	double y_intercept() const
 	{
@@ -123,8 +123,8 @@ public:
 	}
 
 	/**
-	 * @brief returns true if the line crosses a point C, false otherwise
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns true if the line crosses a point C, false otherwise.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	bool crosses(const point& C) const
 	{
@@ -155,8 +155,8 @@ private:
 };
 
 /**
- * @brief returns true if r and s are the same line, false otherwise
- * @note complexity: O(1) in both time and space
+ * @brief Returns true if r and s are the same line, false otherwise.
+ * @note Complexity: O(1) in both time and space.
  */
 bool operator==(const line& r, const line& s)
 {
@@ -164,8 +164,8 @@ bool operator==(const line& r, const line& s)
 }
 
 /**
- * @brief returns true if r and s are distinct lines, false otherwise
- * @note complexity: O(1) in both time and space
+ * @brief Returns true if r and s are distinct lines, false otherwise.
+ * @note Complexity: O(1) in both time and space.
  */
 bool operator!=(const line& r, const line& s)
 {

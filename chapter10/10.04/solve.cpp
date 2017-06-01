@@ -10,8 +10,8 @@
 #include <cassert>
 
 /**
- * @brief computes -a using only additions (-a = a + (-2)*a)
- * @note complexity: O(|a|) in time, O(1) in space
+ * @brief Computes -a using only additions (-a = a + (-2)*a).
+ * @note Complexity: O(|a|) in time, O(1) in space.
  */
 int negative(int a)
 {
@@ -38,8 +38,8 @@ int negative(int a)
 }
 
 /**
- * @brief computes |a| using only additions
- * @note complexity: O(|a|) in time, O(1) in space
+ * @brief Computes |a| using only additions.
+ * @note Complexity: O(|a|) in time, O(1) in space.
  */
 int magnitude(const int a)
 {
@@ -47,8 +47,8 @@ int magnitude(const int a)
 }
 
 /**
- * @brief computes a*b using only additions
- * @note complexity: O(|a|) in time, O(1) in space
+ * @brief Computes a*b using only additions.
+ * @note Complexity: O(|a|) in time, O(1) in space.
  */
 int multiply(const int a, const int b)
 {
@@ -64,8 +64,8 @@ int multiply(const int a, const int b)
 }
 
 /**
- * @brief computes (a-b) using only additions
- * @note complexity: O(|b|) in time, O(1) in space
+ * @brief Computes (a-b) using only additions.
+ * @note Complexity: O(|b|) in time, O(1) in space.
  */
 int subtract(const int a, const int b)
 {
@@ -73,8 +73,8 @@ int subtract(const int a, const int b)
 }
 
 /**
- * @brief computes a/b using only additions
- * @note complexity: O(max(|a|,|b|)) in time, O(1) in space
+ * @brief Computes a/b using only additions.
+ * @note Complexity: O(max(|a|,|b|)) in time, O(1) in space.
  */
 int divide(const int a, const int b)
 {

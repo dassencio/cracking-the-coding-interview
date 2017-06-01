@@ -11,9 +11,9 @@
 #include <cassert>
 
 /**
- * @brief generates a random graph with n nodes and returns a pointer to the
- *        first generated node (a root node)
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random graph with n nodes and returns a pointer to the
+ *        first generated node (a root node).
+ * @note Complexity: O(n) in both time and space.
  */
 node* random_graph(const size_t n)
 {

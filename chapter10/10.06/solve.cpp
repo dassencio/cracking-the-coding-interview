@@ -11,10 +11,10 @@
 #include <algorithm>
 
 /**
- * @brief returns a vector with all lines which connect each pair of points
- *        on an array with n distinct points
- * @note complexity: O(n²) in both time and space since there are n*(n-1)/2
- *       possible distinct pairs of points
+ * @brief Returns a vector with all lines which connect each pair of points
+ *        on an array with n distinct points.
+ * @note Complexity: O(n²) in both time and space since there are n*(n-1)/2
+ *       possible distinct pairs of points.
  */
 std::vector< line > build_all_lines(const std::vector< point >& points)
 {
@@ -32,11 +32,11 @@ std::vector< line > build_all_lines(const std::vector< point >& points)
 }
 
 /**
- * @brief determines the line which crosses the largest number of points using
+ * @brief Determines the line which crosses the largest number of points using
  *        brute-force (build all possible lines and then determine which one
- *        of them crosses the largest number of points by mere counting)
- * @note complexity: O(n³) in time, O(n²) in space, where n is the number of
- *       points
+ *        of them crosses the largest number of points by mere counting).
+ * @note Complexity: O(n³) in time, O(n²) in space, where n is the number of
+ *       points.
  */
 line line_crosses_most_points_1(const std::vector< point >& points)
 {
@@ -73,10 +73,10 @@ line line_crosses_most_points_1(const std::vector< point >& points)
 }
 
 /**
- * @brief comparison function which orders lines by x-intercept values, then by
+ * @brief Comparison function which orders lines by x-intercept values, then by
  *        y-intercept values and finally by the sines of the angles they make
- *        with the positive x axis
- * @note complexity: O(1) in both time and space
+ *        with the positive x axis.
+ * @note Complexity: O(1) in both time and space.
  */
 bool line_compare(const line& r, const line& s)
 {
@@ -102,10 +102,10 @@ bool line_compare(const line& r, const line& s)
 }
 
 /**
- * @brief determines the line which crosses the largest number of points using
+ * @brief Determines the line which crosses the largest number of points using
  *        sorting (build all possible lines, sort them and then determine which
- *        one of them occurs the most in the sorted array of lines)
- * @note complexity: O(n²*log(n)) in time, O(n²) in space
+ *        one of them occurs the most in the sorted array of lines).
+ * @note Complexity: O(n²*log(n)) in time, O(n²) in space.
  */
 line line_crosses_most_points_2(const std::vector< point >& points)
 {
@@ -157,9 +157,9 @@ line line_crosses_most_points_2(const std::vector< point >& points)
 }
 
 /**
- * @brief returns an array with n distinct random points with coordinates (i,j),
- *        where i and j are integer values in [0,9]
- * @note this method works only for n <= 100, otherwise it will never finish
+ * @brief Returns an array with n distinct random points with coordinates (i,j),
+ *        where i and j are integer values in [0,9].
+ * @note This method works only for n <= 100, otherwise it will never finish.
  */
 std::vector< point > random_points(const size_t n)
 {

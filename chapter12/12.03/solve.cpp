@@ -14,9 +14,9 @@
 #include <cassert>
 
 /**
- * @brief finds a missing integer among the n given integers using a histogram
- * @note complexity: O(n) in time, O(1) in space
- * @note this function uses, in total, less than 300kB of memory
+ * @brief Finds a missing integer among the n given integers using a histogram.
+ * @note Complexity: O(n) in time, O(1) in space.
+ * @note This function uses, in total, less than 300kB of memory.
  */
 int get_absent_int(const std::vector< uint32_t >& values)
 {

@@ -14,13 +14,13 @@
 #include <cassert>
 
 /**
- * @brief returns a bitset indicating which numbers in an array of size n are
- *        duplicates, where the array numbers are in the range [0,32000)
- * @note complexity: O(n) in time, O(1) in space
- * @note this function uses, in total, 4002 bytes of memory to detect
+ * @brief Returns a bitset indicating which numbers in an array of size n are
+ *        duplicates, where the array numbers are in the range [0,32000).
+ * @note Complexity: O(n) in time, O(1) in space.
+ * @note This function uses, in total, 4002 bytes of memory to detect
  *       duplicates, but since we are returning a bitset with 32000 bits, it
  *       uses 8002 bytes in total (this would not be the case if we merely
- *       printed the duplicate values)
+ *       printed the duplicate values).
  */
 std::bitset< 32000 > get_duplicates(const std::vector< uint16_t >& values)
 {
@@ -43,8 +43,8 @@ std::bitset< 32000 > get_duplicates(const std::vector< uint16_t >& values)
 }
 
 /**
- * @brief returns a random vector containing n integer values in [0,32000)
- * @note complexity: O(n) in both time and space
+ * @brief Returns a random vector containing n integer values in [0,32000).
+ * @note Complexity: O(n) in both time and space.
  */
 std::vector< uint16_t > random_vector(const size_t n)
 {

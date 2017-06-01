@@ -16,10 +16,10 @@ public:
 	}
 
 	/**
-	 * @brief destructor: deletes the entire subgraph reachable from this
-	 *        node and the node itself
-	 * @note complexity: O(m+n) in time, O(n) in space, where m and n are
-	 *       the number of edges and vertices in the graph respectively
+	 * @brief Destructor: deletes the entire subgraph reachable from this
+	 *        node and the node itself.
+	 * @note Complexity: O(m+n) in time, O(n) in space, where m and n are
+	 *       the number of edges and vertices in the graph respectively.
 	 */
 	~node()
 	{
@@ -43,8 +43,8 @@ public:
 	}
 
 	/**
-	 * @brief creates a directed edge connecting this and other
-	 * @note complexity: O(1) in both time and space
+	 * @brief Creates a directed edge connecting this and other.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void connect(node* other)
 	{
@@ -52,10 +52,10 @@ public:
 	}
 
 	/**
-	 * @brief clones the graph and returns a pointer to the node which is
-	 *        the copy of this one on the generated graph
-	 * @note complexity: O(m+n) in both time and space, where m and n are
-	 *       the number of edges and vertices in the graph respectively
+	 * @brief Clones the graph and returns a pointer to the node which is
+	 *        the copy of this one on the generated graph.
+	 * @note Complexity: O(m+n) in both time and space, where m and n are
+	 *       the number of edges and vertices in the graph respectively.
 	 */
 	node* clone() const
 	{
@@ -67,9 +67,9 @@ public:
 
 private:
 	/**
-	 * @brief returns the set of all graph nodes reachable from this node
-	 * @note complexity: O(m+n) in time, O(n) in space, where m and n are
-	 *       the number of edges and vertices in the graph respectively
+	 * @brief Returns the set of all graph nodes reachable from this node.
+	 * @note Complexity: O(m+n) in time, O(n) in space, where m and n are
+	 *       the number of edges and vertices in the graph respectively.
 	 */
 	std::unordered_set< node* > get_reachable_nodes() const
 	{
@@ -176,11 +176,10 @@ bool __equal(const node* n1,
 }
 
 /**
- * @brief returns true if two graphs are equal to each other, false otherwise
- * @note complexity: O(m+n) in both time and space, where m = min(m1,m2) and
- *                   n = min(n1,n2), with m1/m2 and n1/n2 being the number of
- *                   of edges and vertices in the first and second graphs
- *                   respectively
+ * @brief Returns true if two graphs are equal to each other, false otherwise.
+ * @note Complexity: O(m+n) in both time and space, where m = min(m1,m2) and
+ *       n = min(n1,n2), with m1/m2 and n1/n2 being the number of of edges and
+ *       vertices in the first and second graphs respectively.
  */
 bool equal(const node* n1, const node* n2)
 {
