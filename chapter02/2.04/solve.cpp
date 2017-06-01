@@ -8,16 +8,16 @@
  *       215 + 58 = 273 is represented as {5,1,2} + {8,5} = {3,7,2}.
  */
 
-#include <list>
-#include <iostream>
-#include <random>	/* std::uniform_int_distribution */
 #include <cassert>
+#include <iostream>
+#include <list>
+#include <random> /* std::uniform_int_distribution */
 
 /* a decimal digit (value on range [0,9]) */
 using digit = uint8_t;
 
 /* a number represented as a list of decimal digits (in reverse order) */
-using number = std::list< digit >;
+using number = std::list<digit>;
 
 /**
  * @brief Returns the sum of two numbers stored as linked lists.
@@ -29,45 +29,45 @@ using number = std::list< digit >;
  */
 number add_numbers(const number& a, const number& b)
 {
-	number sum;
+    number sum;
 
-	auto a_it = a.begin();
-	auto b_it = b.begin();
+    auto a_it = a.begin();
+    auto b_it = b.begin();
 
-	digit carry = 0;
+    digit carry = 0;
 
-	while (a_it != a.end() && b_it != b.end())
-	{
-		sum.push_back(((*a_it + *b_it) % 10) + carry);
-		carry = (*a_it + *b_it) / 10;
+    while (a_it != a.end() && b_it != b.end())
+    {
+        sum.push_back(((*a_it + *b_it) % 10) + carry);
+        carry = (*a_it + *b_it) / 10;
 
-		++a_it;
-		++b_it;
-	}
+        ++a_it;
+        ++b_it;
+    }
 
-	/* if a and b have the same number of digits but we have a carry */
-	if (a_it == a.end() && b_it == b.end() && carry > 0)
-	{
-		sum.push_back(carry);
-	}
+    /* if a and b have the same number of digits but we have a carry */
+    if (a_it == a.end() && b_it == b.end() && carry > 0)
+    {
+        sum.push_back(carry);
+    }
 
-	/* this loop runs if b has less digits than a */
-	while (a_it != a.end())
-	{
-		sum.push_back(*a_it + carry);
-		++a_it;
-		carry = 0;
-	}
+    /* this loop runs if b has less digits than a */
+    while (a_it != a.end())
+    {
+        sum.push_back(*a_it + carry);
+        ++a_it;
+        carry = 0;
+    }
 
-	/* this loop runs if a has less digits than b */
-	while (b_it != b.end())
-	{
-		sum.push_back(*b_it + carry);
-		++b_it;
-		carry = 0;
-	}
+    /* this loop runs if a has less digits than b */
+    while (b_it != b.end())
+    {
+        sum.push_back(*b_it + carry);
+        ++b_it;
+        carry = 0;
+    }
 
-	return sum;
+    return sum;
 }
 
 /**
@@ -77,16 +77,16 @@ number add_numbers(const number& a, const number& b)
  */
 uint64_t to_integer(const number& a)
 {
-	uint64_t na = 0;
-	uint64_t factor = 1;
+    uint64_t na = 0;
+    uint64_t factor = 1;
 
-	for (const digit& d : a)
-	{
-		na += factor * d;
-		factor *= 10;
-	}
+    for (const digit& d : a)
+    {
+        na += factor * d;
+        factor *= 10;
+    }
 
-	return na;
+    return na;
 }
 
 /**
@@ -94,44 +94,44 @@ uint64_t to_integer(const number& a)
  */
 number to_list(uint64_t n)
 {
-	number a;
+    number a;
 
-	while (n > 0)
-	{
-		a.push_back(n % 10);
-		n /= 10;
-	}
+    while (n > 0)
+    {
+        a.push_back(n % 10);
+        n /= 10;
+    }
 
-	return a;
+    return a;
 }
 
 int main()
 {
-	std::random_device device;
-	std::mt19937 generator(device());
+    std::random_device device;
+    std::mt19937 generator(device());
 
-	for (uint64_t n = 1; n <= 1000000000000; n *= 10)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			std::uniform_int_distribution< uint64_t > distribution(0,n);
+    for (uint64_t n = 1; n <= 1000000000000; n *= 10)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            std::uniform_int_distribution<uint64_t> distribution(0, n);
 
-			uint64_t na = distribution(generator);
-			uint64_t nb = distribution(generator);
+            uint64_t na = distribution(generator);
+            uint64_t nb = distribution(generator);
 
-			number a = to_list(na);
-			number b = to_list(nb);
+            number a = to_list(na);
+            number b = to_list(nb);
 
-			assert(to_integer(a) == na);
-			assert(to_integer(b) == nb);
+            assert(to_integer(a) == na);
+            assert(to_integer(b) == nb);
 
-			number sum = add_numbers(a,b);
+            number sum = add_numbers(a, b);
 
-			assert(to_integer(a) + to_integer(b) == to_integer(sum));
-		}
+            assert(to_integer(a) + to_integer(b) == to_integer(sum));
+        }
 
-		std::cout << "passed random tests for numbers up to " << n << std::endl;
-	}
+        std::cout << "passed random tests for numbers up to " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
