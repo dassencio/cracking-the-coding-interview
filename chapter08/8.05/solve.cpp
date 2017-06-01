@@ -61,11 +61,11 @@ std::vector< std::string > __generate_parentheses(const size_t open,
 }
 
 /**
- * @brief generates an array with all valid parentheses strings containing
- *        n pairs of parentheses
- * @note complexity: O((2n)!/(n!*(n-1)!)) in both time and space since
+ * @brief Generates an array with all valid parentheses strings containing
+ *        n pairs of parentheses.
+ * @note Complexity: O((2n)!/(n!*(n-1)!)) in both time and space since
  *       the number of possible strings generated with n '('s and n ')'s is
- *       (2n)!/(n!*n!) and each generated string has length n
+ *       (2n)!/(n!*n!) and each generated string has length n.
  */
 std::vector< std::string > generate_parentheses(const size_t n)
 {
@@ -78,8 +78,9 @@ std::vector< std::string > generate_parentheses(const size_t n)
 }
 
 /**
- * @brief returns true if a string is a valid parentheses string, false otherwise
- * @note complexity: O(m), where m is the string length
+ * @brief Returns true if a string is a valid parentheses string, false
+ *        otherwise.
+ * @note Complexity: O(m), where m is the string length.
  */
 bool is_valid_string(const std::string& str)
 {

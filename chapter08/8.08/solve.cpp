@@ -19,9 +19,9 @@ using position = std::array< uint64_t,2 >;
 using queen_setup = std::list< position >;
 
 /**
- * @brief generates a unique bitmask corresponding to position (i,j) on the
- *        chess board: (i,j) --> 8*i + j
- * @note complexity: O(1) in both time and space
+ * @brief Generates a unique bitmask corresponding to position (i,j) on the
+ *        chess board: (i,j) --> 8*i + j.
+ * @note Complexity: O(1) in both time and space.
  */
 uint64_t position_mask(const uint64_t i, const uint64_t j)
 {
@@ -30,8 +30,8 @@ uint64_t position_mask(const uint64_t i, const uint64_t j)
 }
 
 /**
- * @brief returns true if a queen can be placed at (i,j), false otherwise
- * @note complexity: O(1) in both time and space
+ * @brief Returns true if a queen can be placed at (i,j), false otherwise.
+ * @note Complexity: O(1) in both time and space.
  */
 bool is_blocked(const uint64_t blocked, const uint64_t i, const uint64_t j)
 {
@@ -39,11 +39,11 @@ bool is_blocked(const uint64_t blocked, const uint64_t i, const uint64_t j)
 }
 
 /**
- * @brief returns an updated 'blocked' bitmask if a queen is placed at (i,j),
+ * @brief Returns an updated 'blocked' bitmask if a queen is placed at (i,j),
  *        i.e., a bitmask which marks the row, column and diagonals passing
  *        through (i,j) as "blocked" (no queen can be placed there) on top of
- *        its previous status
- * @note complexity: O(1) in both time and space
+ *        its previous status.
+ * @note Complexity: O(1) in both time and space.
  */
 uint64_t place_queen(uint64_t blocked, const uint64_t i, const uint64_t j)
 {
@@ -75,15 +75,15 @@ uint64_t place_queen(uint64_t blocked, const uint64_t i, const uint64_t j)
 }
 
 /**
- * @brief returns a vector with all valid solutions to the eight queens problem
- * @param blocked a bitmask representing the positions where a queen cannot be
- *        placed
- * @param j the current column where we are trying to place a queen (this index
+ * @brief Returns a vector with all valid solutions to the eight queens problem.
+ * @param blocked A bitmask representing the positions where a queen cannot be
+ *        placed.
+ * @param j The current column where we are trying to place a queen (this index
  *        is equivalent to how many queens we have added so far to the chess
  *        board because each column must contain exactly one queen, otherwise
  *        some column would have to contain at least two queens, but this is not
- *        valid according to the rules of the game)
- * @note complexity: O(1) in both time and space
+ *        valid according to the rules of the game).
+ * @note Complexity: O(1) in both time and space.
  */
 std::list< queen_setup > eight_queens(const uint64_t blocked = 0, const uint64_t j = 0)
 {
@@ -123,9 +123,9 @@ std::list< queen_setup > eight_queens(const uint64_t blocked = 0, const uint64_t
 }
 
 /**
- * @brief returns true if setup is a valid solution to the eight queens problem,
- *        false otherwise
- * @note complexity: O(1) in both time and space
+ * @brief Returns true if setup is a valid solution to the eight queens problem,
+ *        false otherwise.
+ * @note Complexity: O(1) in both time and space.
  */
 bool is_valid_solution(const queen_setup& setup)
 {

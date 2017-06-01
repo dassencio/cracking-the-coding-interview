@@ -9,14 +9,14 @@
 #include <cassert>
 
 /**
- * @brief computes all possible permutations of an input string
- * @param str an input string
- * @param i index such that permutations will be built only for the substring
- *        str[i..n), where n is the length of str
- * @return an array holding all permutations of str[i..n)
- * @note complexity: O((n-i+1)!) in both time and space because each permutation
+ * @brief Computes all possible permutations of an input string.
+ * @param str An input string.
+ * @param i An index such that permutations will be built only for the substring
+ *        str[i..n), where n is the length of str.
+ * @return An array holding all permutations of str[i..n).
+ * @note Complexity: O((n-i+1)!) in both time and space because each permutation
  *       is itself a string of length n-i and there are (n-i)! permutations in
- *       total for str[i..n)
+ *       total for str[i..n).
  */
 std::vector< std::string > compute_permutations(const std::string& str, size_t i = 0)
 {
@@ -47,7 +47,7 @@ std::vector< std::string > compute_permutations(const std::string& str, size_t i
 }
 
 /**
- * @brief returns n!
+ * @brief Returns n!.
  */
 size_t factorial(const size_t n)
 {
@@ -55,8 +55,8 @@ size_t factorial(const size_t n)
 }
 
 /**
- * @brief generates a string containing the first n letters of the alphabet
- *        or the entire alphabet if n > 26
+ * @brief Generates a string containing the first n letters of the alphabet
+ *        or the entire alphabet if n > 26.
  */
 std::string alphabet(const size_t n)
 {

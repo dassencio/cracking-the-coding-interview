@@ -106,10 +106,10 @@ void __paint_fill_1(image& I,
 }
 
 /**
- * @brief paints the color region to which the pixel (i,j) on an image I belongs
- *        with a new color using recursive flood fill (depth-first search)
- * @note complexity: O(m*n) in both time and space, where m and n are the image
- *       width and height respectively
+ * @brief Paints the color region to which the pixel (i,j) on an image I belongs
+ *        with a new color using recursive flood fill (depth-first search).
+ * @note Complexity: O(m*n) in both time and space, where m and n are the image
+ *       width and height respectively.
  */
 void paint_fill_1(image& I,
                   const size_t i,
@@ -194,10 +194,10 @@ void __paint_fill_2(image& I,
 }
 
 /**
- * @brief paints the color region to which the pixel (i,j) on an image I belongs
- *        with a new color using iterative flood fill (breadth-first search)
- * @note complexity: O(m*n) in both time and space, where m and n are the image
- *       width and height respectively
+ * @brief Paints the color region to which the pixel (i,j) on an image I belongs
+ *        with a new color using iterative flood fill (breadth-first search).
+ * @note Complexity: O(m*n) in both time and space, where m and n are the image
+ *       width and height respectively.
  */
 void paint_fill_2(image& I,
                   const size_t i,
@@ -214,8 +214,8 @@ void paint_fill_2(image& I,
 }
 
 /**
- * @brief generates a random color
- * @note complexity: O(1) in both time and space
+ * @brief Generates a random color.
+ * @note Complexity: O(1) in both time and space.
  */
 color random_color()
 {
@@ -228,8 +228,8 @@ color random_color()
 }
 
 /**
- * @brief generates a random image with width m and height n
- * @note complexity: O(m*n) in both time and space
+ * @brief Generates a random image with width m and height n.
+ * @note Complexity: O(m*n) in both time and space.
  */
 image random_image(const size_t m, const size_t n)
 {

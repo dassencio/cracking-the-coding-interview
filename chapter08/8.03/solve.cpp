@@ -10,13 +10,13 @@
 using subsets = std::vector< std::vector< size_t > >;
 
 /**
- * @brief computes all subsets of a set recursively
- * @param values an array containing the values in the set
- * @param i index such that subsets will be built only from elements of values
- *        with indices in [i,n), where n is the number of elements in the set
- * @return an array holding all subsets of the given set (with indices >= i)
- * @note complexity: O(n*2^n) in both time and space, because the total number
- *       of subsets is 2^n and each subset has size O(n)
+ * @brief Computes all subsets of a set recursively.
+ * @param values An array containing the values in the set.
+ * @param i An index such that subsets will be built only from elements of values
+ *        with indices in [i,n), where n is the number of elements in the set.
+ * @return An array holding all subsets of the given set (with indices >= i).
+ * @note Complexity: O(n*2^n) in both time and space, because the total number
+ *       of subsets is 2^n and each subset has size O(n).
  */
 subsets all_subsets_1(const std::vector< size_t >& values, const size_t i = 0)
 {
@@ -46,12 +46,12 @@ subsets all_subsets_1(const std::vector< size_t >& values, const size_t i = 0)
 }
 
 /**
- * @brief computes all subsets of a set iteratively
- * @param values an array containing the values in the set
- * @return an array holding all subsets of the given set
- * @note complexity: O(n*2^n) in both time and space, where n is the number of
+ * @brief Computes all subsets of a set iteratively.
+ * @param values An array containing the values in the set.
+ * @return An array holding all subsets of the given set.
+ * @note Complexity: O(n*2^n) in both time and space, where n is the number of
  *       elements in the set, because the total number of subsets is 2^n and
- *       each subset has size O(n)
+ *       each subset has size O(n).
  */
 subsets all_subsets_2(const std::vector< size_t >& values)
 {
@@ -81,9 +81,9 @@ subsets all_subsets_2(const std::vector< size_t >& values)
 }
 
 /**
- * @brief returns true if two set of subsets are equal, false otherwise
- * @note complexity: O(2^n*n*log(n)) in time, O(1) in space, where n is the
- *       number of elements in the original set from which U and V were built
+ * @brief Returns true if two set of subsets are equal, false otherwise.
+ * @note Complexity: O(2^n*n*log(n)) in time, O(1) in space, where n is the
+ *       number of elements in the original set from which U and V were built.
  */
 bool sets_are_equal(subsets U, subsets V)
 {

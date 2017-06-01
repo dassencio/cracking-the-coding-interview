@@ -37,14 +37,14 @@ using path = std::list< position >;
 using obstacles = std::vector< std::vector< bool > >;
 
 /**
- * @brief computes all valid paths from position (x,y) to position (0,0) on a
- *        grid given a set of obstacles
- * @param x the index of the grid column where the robot is initially located
- * @param y the index of the grid row where the robot is initially located
- * @param O a matrix representing the state of each grid cell (obstacle/free)
- * @return a list containing all valid paths from (x,y) to (0,0)
- * @note complexity: O((x+y+1)! / (x!*y!) in both time and space because each
- *       computed path has length x+y+1
+ * @brief Computes all valid paths from position (x,y) to position (0,0) on a
+ *        grid given a set of obstacles.
+ * @param x The index of the grid column where the robot is initially located.
+ * @param y The index of the grid row where the robot is initially located.
+ * @param O A matrix representing the state of each grid cell (obstacle/free).
+ * @return A list containing all valid paths from (x,y) to (0,0).
+ * @note Complexity: O((x+y+1)! / (x!*y!) in both time and space because each
+ *       computed path has length x+y+1.
  */
 std::list< path > compute_all_paths(const size_t x,
                                     const size_t y,
@@ -80,12 +80,12 @@ std::list< path > compute_all_paths(const size_t x,
 }
 
 /**
- * @brief returns true if a given path is valid on a grid which may contain
- *        obstacles, false otherwise
- * @param p a path (list of positions on the grid)
- * @param n the grid size
- * @param O a matrix representing the state of each grid cell (obstacle/free)
- * @note complexity: O(n) in time, O(1) in space
+ * @brief Returns true if a given path is valid on a grid which may contain
+ *        obstacles, false otherwise.
+ * @param p A path (list of positions on the grid).
+ * @param n The grid size.
+ * @param O A matrix representing the state of each grid cell (obstacle/free).
+ * @note Complexity: O(n) in time, O(1) in space.
  */
 bool is_valid_path(const path& p, const size_t n, const obstacles& O)
 {
@@ -138,7 +138,7 @@ bool is_valid_path(const path& p, const size_t n, const obstacles& O)
 }
 
 /**
- * @brief returns n!
+ * @brief Returns n!.
  */
 size_t factorial(const size_t n)
 {
@@ -146,8 +146,8 @@ size_t factorial(const size_t n)
 }
 
 /**
- * @brief returns the number of valid paths for a grid of size n×n when no
- *        obstacles are present (i.e., all cells are free)
+ * @brief Returns the number of valid paths for a grid of size n×n when no
+ *        obstacles are present (i.e., all cells are free).
  */
 size_t num_valid_paths_no_obstacles(const size_t n)
 {
@@ -155,11 +155,11 @@ size_t num_valid_paths_no_obstacles(const size_t n)
 }
 
 /**
- * @brief generates an obstacle matrix representing k randomly placed obstacles
- *        on an n×n grid, where the top-left cell is always free
- * @param n the grid size
- * @param k the number of obstacles to place on the grid
- * @note complexity: O(n²) in time, O(n²) in space if k = O(n)
+ * @brief Generates an obstacle matrix representing k randomly placed obstacles
+ *        on an n×n grid, where the top-left cell is always free.
+ * @param n The grid size.
+ * @param k The number of obstacles to place on the grid.
+ * @note Complexity: O(n²) in time, O(n²) in space if k = O(n).
  */
 obstacles random_obstacles(const size_t n, size_t k)
 {

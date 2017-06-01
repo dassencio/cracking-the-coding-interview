@@ -18,9 +18,9 @@
 using coin_sequence = std::vector< int >;
 
 /**
- * @brief returns an array containing all possible sequences of 1 cent, 5 cent,
+ * @brief Returns an array containing all possible sequences of 1 cent, 5 cent,
  *        10 cent and 25 cent coins which add to n, with each such sequence
- *        stored as an array of coin values
+ *        stored as an array of coin values.
  */
 std::vector< coin_sequence > represent_cents(const int n,
                                              const size_t coin_index = 0)
