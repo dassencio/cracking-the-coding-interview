@@ -5,9 +5,9 @@
  */
 
 #include <bitset>
+#include <cassert>
 #include <iostream>
 #include <random>
-#include <cassert>
 
 /**
  * @brief Given a 32-bit integer x, returns the integer resulting from swapping
@@ -16,36 +16,35 @@
  */
 uint32_t swap_bits(const uint32_t x)
 {
-	uint32_t even_mask = 0b01010101010101010101010101010101;
-	uint32_t odd_mask  = 0b10101010101010101010101010101010;
+    uint32_t even_mask = 0b01010101010101010101010101010101;
+    uint32_t odd_mask = 0b10101010101010101010101010101010;
 
-	return ((x & even_mask) << 1U) | ((x & odd_mask) >> 1U);
+    return ((x & even_mask) << 1U) | ((x & odd_mask) >> 1U);
 }
 
 int main()
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< uint32_t > distribution;
+    std::uniform_int_distribution<uint32_t> distribution;
 
-	for (int i = 0; i < 1000000; ++i)
-	{
-		uint32_t x = distribution(generator);
-		uint32_t y = swap_bits(x);
+    for (int i = 0; i < 1000000; ++i)
+    {
+        uint32_t x = distribution(generator);
+        uint32_t y = swap_bits(x);
 
-		std::bitset< 32 > x_bits(x);
-		std::bitset< 32 > y_bits(y);
+        std::bitset<32> x_bits(x);
+        std::bitset<32> y_bits(y);
 
-		for (uint32_t i = 0; i < 32; i += 2)
-		{
-			assert(x_bits[i] == y_bits[i+1]);
-			assert(y_bits[i] == x_bits[i+1]);
-		}
-	}
+        for (uint32_t i = 0; i < 32; i += 2)
+        {
+            assert(x_bits[i] == y_bits[i + 1]);
+            assert(y_bits[i] == x_bits[i + 1]);
+        }
+    }
 
-	std::cout << "passed random tests" << std::endl;
+    std::cout << "passed random tests" << std::endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
-

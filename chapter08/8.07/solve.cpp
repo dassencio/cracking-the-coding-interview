@@ -9,73 +9,74 @@
  *       (2 × 1 cent) + (1 × 10 cent)
  */
 
-#include <array>
-#include <vector>
-#include <iostream>
 #include <algorithm>
+#include <array>
 #include <cassert>
+#include <iostream>
+#include <vector>
 
-using coin_sequence = std::vector< int >;
+using coin_sequence = std::vector<int>;
 
 /**
  * @brief Returns an array containing all possible sequences of 1 cent, 5 cent,
  *        10 cent and 25 cent coins which add to n, with each such sequence
  *        stored as an array of coin values.
  */
-std::vector< coin_sequence > represent_cents(const int n,
-                                             const size_t coin_index = 0)
+std::vector<coin_sequence> represent_cents(const int n,
+                                           const size_t coin_index = 0)
 {
-	static const std::array< int,4 > valid_coins = { 1, 5, 10, 25 };
+    static const std::array<int, 4> valid_coins = {1, 5, 10, 25};
 
-	/* if we have not reached a valid solution */
-	if (coin_index == valid_coins.size())
-	{
-		return {};
-	}
+    /* if we have not reached a valid solution */
+    if (coin_index == valid_coins.size())
+    {
+        return {};
+    }
 
-	/* base case: no coins needed to represent n */
-	if (n == 0)
-	{
-		return { {} };
-	}
+    /* base case: no coins needed to represent n */
+    if (n == 0)
+    {
+        return {{}};
+    }
 
-	std::vector< coin_sequence > seqs;
+    std::vector<coin_sequence> seqs;
 
-	const int coin = valid_coins[coin_index];
+    const int coin = valid_coins[coin_index];
 
-	/*
-	 * try to fit in as many of 'coin' as possible and solve the problem
-	 * recursively for each possibility
-	 */
-	for (int k = 0; k*coin <= n; ++k)
-	{
-		std::vector< coin_sequence > __seqs = represent_cents(n - k*coin, coin_index+1);
+    /*
+     * try to fit in as many of 'coin' as possible and solve the problem
+     * recursively for each possibility
+     */
+    for (int k = 0; k * coin <= n; ++k)
+    {
+        std::vector<coin_sequence> __seqs =
+            represent_cents(n - k * coin, coin_index + 1);
 
-		/* insert 'coin' k times on each sequence of __seqs */
-		for (coin_sequence& seq : __seqs)
-		{
-			std::fill_n(std::back_inserter(seq), k, coin);
-		}
+        /* insert 'coin' k times on each sequence of __seqs */
+        for (coin_sequence& seq : __seqs)
+        {
+            std::fill_n(std::back_inserter(seq), k, coin);
+        }
 
-		std::move(__seqs.begin(), __seqs.end(), std::back_inserter(seqs));
-	}
+        std::move(__seqs.begin(), __seqs.end(), std::back_inserter(seqs));
+    }
 
-	return seqs;
+    return seqs;
 }
 
 int main()
 {
-	for (int n = 0; n <= 100; ++n)
-	{
-		std::vector< coin_sequence > seqs = represent_cents(n);
+    for (int n = 0; n <= 100; ++n)
+    {
+        std::vector<coin_sequence> seqs = represent_cents(n);
 
-		for (const coin_sequence& seq : seqs)
-		{
-			assert(std::accumulate(seq.begin(), seq.end(), 0) == n);
-		}
+        for (const coin_sequence& seq : seqs)
+        {
+            assert(std::accumulate(seq.begin(), seq.end(), 0) == n);
+        }
 
-		std::cout << "passed test for " << n << " cents" << std::endl;
-	}
+        std::cout << "passed test for " << n << " cents" << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

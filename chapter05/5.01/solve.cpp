@@ -10,10 +10,10 @@
  *       because M is not assumed to have length (j-i).
  */
 
-#include <bitset>
-#include <iostream>
 #include <algorithm>
+#include <bitset>
 #include <cassert>
+#include <iostream>
 
 /**
  * @brief Returns true if the bits [m_0,...,m_(j-i)] of M are equal to the bits
@@ -24,58 +24,59 @@ bool is_substring(const uint32_t N,
                   const uint8_t i,
                   const uint8_t j)
 {
-	std::bitset< 32 > N_bits(N);
-	std::bitset< 32 > M_bits(M);
+    std::bitset<32> N_bits(N);
+    std::bitset<32> M_bits(M);
 
-	for (uint8_t k = i; k <= j; ++k)
-	{
-		if (N_bits[k] != M_bits[k-i])
-		{
-			return false;
-		}
-	}
+    for (uint8_t k = i; k <= j; ++k)
+    {
+        if (N_bits[k] != M_bits[k - i])
+        {
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }
 
 int main()
 {
-	std::random_device device;
-	std::mt19937 generator(device());
+    std::random_device device;
+    std::mt19937 generator(device());
 
-	std::uniform_int_distribution< uint32_t > distribution;
+    std::uniform_int_distribution<uint32_t> distribution;
 
-	for (uint8_t i = 0; i <= 31; ++i)
-	{
-		for (uint8_t j = i; j <= 31; ++j)
-		{
-			for (int k = 0; k < 1000; ++k)
-			{
-				uint32_t N = distribution(generator);
-				uint32_t M = distribution(generator);
+    for (uint8_t i = 0; i <= 31; ++i)
+    {
+        for (uint8_t j = i; j <= 31; ++j)
+        {
+            for (int k = 0; k < 1000; ++k)
+            {
+                uint32_t N = distribution(generator);
+                uint32_t M = distribution(generator);
 
-				/*
-				 * create a mask with only the bits [0,...,j-i]
-				 * equal to 1 (j-i+1 == 32 happens only if i = 0
-				 * and j = 31, in which case we are effectively
-				 * copying all bits from M to N)
-				 */
-				uint32_t mask = (j-i+1 < 32) ? ((1 << (j-i+1)) - 1) : ~0;
+                /*
+                 * create a mask with only the bits [0,...,j-i]
+                 * equal to 1 (j-i+1 == 32 happens only if i = 0
+                 * and j = 31, in which case we are effectively
+                 * copying all bits from M to N)
+                 */
+                uint32_t mask =
+                    (j - i + 1 < 32) ? ((1 << (j - i + 1)) - 1) : ~0;
 
-				/*
-				 * make the bits [n_i,...,n_j] of N equal to the
-				 * bits [m_0,...,m_(j-i)] of M
-				 */
-				N = (N & ~(mask << i)) + ((M & mask) << i);
+                /*
+                 * make the bits [n_i,...,n_j] of N equal to the
+                 * bits [m_0,...,m_(j-i)] of M
+                 */
+                N = (N & ~(mask << i)) + ((M & mask) << i);
 
-				assert(is_substring(N,M,i,j) == true);
-			}
+                assert(is_substring(N, M, i, j) == true);
+            }
 
-			std::cout << "passed random tests for (i,j) = "
-				  << static_cast< int >(i) << ","
-				  << static_cast< int >(j) << std::endl;
-		}
-	}
+            std::cout << "passed random tests for (i,j) = "
+                      << static_cast<int>(i) << "," << static_cast<int>(j)
+                      << std::endl;
+        }
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

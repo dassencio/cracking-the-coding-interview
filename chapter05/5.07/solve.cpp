@@ -5,12 +5,12 @@
  *       can only access values in the array one bit at a time, i.e., given
  *       i in [0,n) and j in [0,31], your only "read" operation is "read the
  *       j-th bit of the i-th array value".
-*/
+ */
 
-#include <vector>
-#include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+#include <vector>
 
 /*
  * a representation of an array of 32-bit integers such that we can only access
@@ -20,23 +20,24 @@
 class binary_array
 {
 public:
-	void push_back(const uint32_t x)
-	{
-		values.push_back(x);
-	}
+    void push_back(const uint32_t x)
+    {
+        values.push_back(x);
+    }
 
-	bool get_bit(const uint32_t i, const uint32_t j) const
-	{
-		assert(j < 32);
-		return values[i] & (1U << j);
-	}
+    bool get_bit(const uint32_t i, const uint32_t j) const
+    {
+        assert(j < 32);
+        return values[i] & (1U << j);
+    }
 
-	uint32_t size() const
-	{
-		return values.size();
-	}
+    uint32_t size() const
+    {
+        return values.size();
+    }
+
 private:
-	std::vector< uint32_t > values;
+    std::vector<uint32_t> values;
 };
 
 /**
@@ -46,34 +47,34 @@ private:
  */
 uint32_t find_missing_integer_1(const binary_array& v)
 {
-	uint32_t missing = 0;
+    uint32_t missing = 0;
 
-	/*
-	 * set missing to the result of xoring every single integer value on
-	 * v; compute the xor operations bit by bit
-	 */
-	for (uint32_t j = 0; j < 32; ++j)
-	{
-		bool bit = false;
+    /*
+     * set missing to the result of xoring every single integer value on
+     * v; compute the xor operations bit by bit
+     */
+    for (uint32_t j = 0; j < 32; ++j)
+    {
+        bool bit = false;
 
-		for (uint32_t i = 0; i < v.size(); ++i)
-		{
-			bit ^= v.get_bit(i,j);
-		}
+        for (uint32_t i = 0; i < v.size(); ++i)
+        {
+            bit ^= v.get_bit(i, j);
+        }
 
-		missing |= bit << j;
-	}
+        missing |= bit << j;
+    }
 
-	/*
-	 * now xor missing with all values in [0,n]; the result will be the
-	 * single missing integer in this range
-	 */
-	for (uint32_t x = 0; x < v.size()+1; ++x)
-	{
-		missing ^= x;
-	}
+    /*
+     * now xor missing with all values in [0,n]; the result will be the
+     * single missing integer in this range
+     */
+    for (uint32_t x = 0; x < v.size() + 1; ++x)
+    {
+        missing ^= x;
+    }
 
-	return missing;
+    return missing;
 }
 
 /**
@@ -84,34 +85,34 @@ uint32_t find_missing_integer_1(const binary_array& v)
  */
 uint32_t find_missing_integer_2(const binary_array& v)
 {
-	std::vector< bool > seen(v.size()+1, false);
+    std::vector<bool> seen(v.size() + 1, false);
 
-	/*
-	 * build the integer values in v one by one and then mark the ones
-	 * which are seen
-	 */
-	for (uint32_t i = 0; i < v.size(); ++i)
-	{
-		uint32_t x = 0;
+    /*
+     * build the integer values in v one by one and then mark the ones
+     * which are seen
+     */
+    for (uint32_t i = 0; i < v.size(); ++i)
+    {
+        uint32_t x = 0;
 
-		for (uint32_t j = 0; j < 32; ++j)
-		{
-			x |= v.get_bit(i,j) << j;
-		}
+        for (uint32_t j = 0; j < 32; ++j)
+        {
+            x |= v.get_bit(i, j) << j;
+        }
 
-		seen[x] = true;
-	}
+        seen[x] = true;
+    }
 
-	/* now go through 'seen' to figure out which value is missing */
-	for (uint32_t x = 0; x < v.size()+1; ++x)
-	{
-		if (seen[x] == false)
-		{
-			return x;
-		}
-	}
+    /* now go through 'seen' to figure out which value is missing */
+    for (uint32_t x = 0; x < v.size() + 1; ++x)
+    {
+        if (seen[x] == false)
+        {
+            return x;
+        }
+    }
 
-	throw std::logic_error("no value missing");
+    throw std::logic_error("no value missing");
 }
 
 /**
@@ -121,50 +122,50 @@ uint32_t find_missing_integer_2(const binary_array& v)
  */
 binary_array random_vector(const uint32_t n)
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::uniform_int_distribution< uint32_t > distribution(0,n);
+    std::uniform_int_distribution<uint32_t> distribution(0, n);
 
-	/* select the missing value */
-	uint32_t missing = distribution(generator);
+    /* select the missing value */
+    uint32_t missing = distribution(generator);
 
-	std::vector< uint32_t > values;
+    std::vector<uint32_t> values;
 
-	for (uint32_t x = 0; x <= n; ++x)
-	{
-		if (x != missing)
-		{
-			values.push_back(x);
-		}
-	}
+    for (uint32_t x = 0; x <= n; ++x)
+    {
+        if (x != missing)
+        {
+            values.push_back(x);
+        }
+    }
 
-	std::shuffle(values.begin(), values.end(), generator);
+    std::shuffle(values.begin(), values.end(), generator);
 
-	binary_array v;
+    binary_array v;
 
-	for (const uint32_t x : values)
-	{
-		v.push_back(x);
-	}
+    for (const uint32_t x : values)
+    {
+        v.push_back(x);
+    }
 
-	return v;
+    return v;
 }
 
 int main()
 {
-	for (uint32_t n = 1; n <= 100; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			binary_array v = random_vector(n);
+    for (uint32_t n = 1; n <= 100; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            binary_array v = random_vector(n);
 
-			assert(find_missing_integer_1(v) == find_missing_integer_2(v));
-		}
+            assert(find_missing_integer_1(v) == find_missing_integer_2(v));
+        }
 
-		std::cout << "passed random tests for arrays of size " << n << std::endl;
-	}
+        std::cout << "passed random tests for arrays of size " << n
+                  << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
-

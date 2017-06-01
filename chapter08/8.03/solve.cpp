@@ -2,47 +2,48 @@
  * TASK: Determine all subsets of a given set.
  */
 
-#include <vector>
-#include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+#include <vector>
 
-using subsets = std::vector< std::vector< size_t > >;
+using subsets = std::vector<std::vector<size_t> >;
 
 /**
  * @brief Computes all subsets of a set recursively.
  * @param values An array containing the values in the set.
- * @param i An index such that subsets will be built only from elements of values
- *        with indices in [i,n), where n is the number of elements in the set.
+ * @param i An index such that subsets will be built only from elements of
+ *        values with indices in [i,n), where n is the number of elements in the
+ *        set.
  * @return An array holding all subsets of the given set (with indices >= i).
  * @note Complexity: O(n*2^n) in both time and space, because the total number
  *       of subsets is 2^n and each subset has size O(n).
  */
-subsets all_subsets_1(const std::vector< size_t >& values, const size_t i = 0)
+subsets all_subsets_1(const std::vector<size_t>& values, const size_t i = 0)
 {
-	/* base case: we are one past the last element of the input set */
-	if (i == values.size())
-	{
-		/* the empty set is also a valid subset */
-		return { {} };
-	}
+    /* base case: we are one past the last element of the input set */
+    if (i == values.size())
+    {
+        /* the empty set is also a valid subset */
+        return {{}};
+    }
 
-	subsets sets = all_subsets_1(values, i+1);
+    subsets sets = all_subsets_1(values, i + 1);
 
-	subsets __sets = sets;
+    subsets __sets = sets;
 
-	/*
-	 * go over each set obtained so far and generate a copy which also
-	 * contains values[i]
-	 */
-	for (std::vector< size_t >& s : __sets)
-	{
-		s.push_back(values[i]);
-	}
+    /*
+     * go over each set obtained so far and generate a copy which also
+     * contains values[i]
+     */
+    for (std::vector<size_t>& s : __sets)
+    {
+        s.push_back(values[i]);
+    }
 
-	std::move(__sets.begin(), __sets.end(), std::back_inserter(sets));
+    std::move(__sets.begin(), __sets.end(), std::back_inserter(sets));
 
-	return sets;
+    return sets;
 }
 
 /**
@@ -53,31 +54,31 @@ subsets all_subsets_1(const std::vector< size_t >& values, const size_t i = 0)
  *       elements in the set, because the total number of subsets is 2^n and
  *       each subset has size O(n).
  */
-subsets all_subsets_2(const std::vector< size_t >& values)
+subsets all_subsets_2(const std::vector<size_t>& values)
 {
-	size_t i = 0;
+    size_t i = 0;
 
-	subsets sets = { {} };
+    subsets sets = {{}};
 
-	while (i < values.size())
-	{
-		subsets __sets = sets;
+    while (i < values.size())
+    {
+        subsets __sets = sets;
 
-		/*
-		 * go over each set obtained so far and generate a copy which
-		 * also contains values[i]
-		 */
-		for (std::vector< size_t >& S : __sets)
-		{
-			S.push_back(values[i]);
-		}
+        /*
+         * go over each set obtained so far and generate a copy which
+         * also contains values[i]
+         */
+        for (std::vector<size_t>& S : __sets)
+        {
+            S.push_back(values[i]);
+        }
 
-		std::move(__sets.begin(), __sets.end(), std::back_inserter(sets));
+        std::move(__sets.begin(), __sets.end(), std::back_inserter(sets));
 
-		++i;
-	}
+        ++i;
+    }
 
-	return sets;
+    return sets;
 }
 
 /**
@@ -87,43 +88,43 @@ subsets all_subsets_2(const std::vector< size_t >& values)
  */
 bool sets_are_equal(subsets U, subsets V)
 {
-	for (std::vector< size_t >& u : U)
-	{
-		std::sort(u.begin(), u.end());
-	}
+    for (std::vector<size_t>& u : U)
+    {
+        std::sort(u.begin(), u.end());
+    }
 
-	for (std::vector< size_t >& v : V)
-	{
-		std::sort(v.begin(), v.end());
-	}
+    for (std::vector<size_t>& v : V)
+    {
+        std::sort(v.begin(), v.end());
+    }
 
-	std::sort(U.begin(), U.end());
-	std::sort(V.begin(), V.end());
+    std::sort(U.begin(), U.end());
+    std::sort(V.begin(), V.end());
 
-	return U == V;
+    return U == V;
 }
 
 int main()
 {
-	for (size_t n = 0; n <= 15; ++n)
-	{
-		std::vector< size_t > values;
+    for (size_t n = 0; n <= 15; ++n)
+    {
+        std::vector<size_t> values;
 
-		for (size_t i = 0; i < n; ++i)
-		{
-			values.push_back(i);
-		}
+        for (size_t i = 0; i < n; ++i)
+        {
+            values.push_back(i);
+        }
 
-		subsets U = all_subsets_1(values);
-		subsets V = all_subsets_2(values);
+        subsets U = all_subsets_1(values);
+        subsets V = all_subsets_2(values);
 
-		assert(U.size() == std::pow(2,n));
-		assert(V.size() == std::pow(2,n));
+        assert(U.size() == std::pow(2, n));
+        assert(V.size() == std::pow(2, n));
 
-		assert(sets_are_equal(U,V) == true);
+        assert(sets_are_equal(U, V) == true);
 
-		std::cout << "passed test for set with size " << n << std::endl;
-	}
+        std::cout << "passed test for set with size " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

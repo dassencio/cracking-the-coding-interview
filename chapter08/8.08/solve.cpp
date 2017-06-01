@@ -5,18 +5,18 @@
  */
 
 #include <array>
-#include <list>
-#include <iostream>
 #include <cassert>
+#include <iostream>
+#include <list>
 
 /*
  * a position (i,j) represents a (row,column) position on the chess board, with
  * (0,0) being the bottom-left square
  */
-using position = std::array< uint64_t,2 >;
+using position = std::array<uint64_t, 2>;
 
 /* a "queen setup" defines the positions of all (eight) queens */
-using queen_setup = std::list< position >;
+using queen_setup = std::list<position>;
 
 /**
  * @brief Generates a unique bitmask corresponding to position (i,j) on the
@@ -25,8 +25,8 @@ using queen_setup = std::list< position >;
  */
 uint64_t position_mask(const uint64_t i, const uint64_t j)
 {
-	assert(i < 8 && j < 8);
-	return uint64_t(1) << (uint64_t(8)*i + j);
+    assert(i < 8 && j < 8);
+    return uint64_t(1) << (uint64_t(8) * i + j);
 }
 
 /**
@@ -35,7 +35,7 @@ uint64_t position_mask(const uint64_t i, const uint64_t j)
  */
 bool is_blocked(const uint64_t blocked, const uint64_t i, const uint64_t j)
 {
-	return (blocked & position_mask(i,j)) != 0;
+    return (blocked & position_mask(i, j)) != 0;
 }
 
 /**
@@ -47,31 +47,31 @@ bool is_blocked(const uint64_t blocked, const uint64_t i, const uint64_t j)
  */
 uint64_t place_queen(uint64_t blocked, const uint64_t i, const uint64_t j)
 {
-	/* block the i-th row and the j-th column */
-	for (uint64_t k = 0; k < 8; ++k)
-	{
-		/* row, column */
-		blocked |= position_mask(i,k);
-		blocked |= position_mask(k,j);
-	}
+    /* block the i-th row and the j-th column */
+    for (uint64_t k = 0; k < 8; ++k)
+    {
+        /* row, column */
+        blocked |= position_mask(i, k);
+        blocked |= position_mask(k, j);
+    }
 
-	/* block the diagonals going over (i,j) */
-	for (uint64_t k = 1; k < 8; ++k)
-	{
-		/* diagonal towards top and right */
-		blocked |= (i+k < 8 && j+k < 8) ? position_mask(i+k, j+k) : 0;
+    /* block the diagonals going over (i,j) */
+    for (uint64_t k = 1; k < 8; ++k)
+    {
+        /* diagonal towards top and right */
+        blocked |= (i + k < 8 && j + k < 8) ? position_mask(i + k, j + k) : 0;
 
-		/* diagonal towards top and left */
-		blocked |= (i+k < 8 && j >= k)  ? position_mask(i+k, j-k) : 0;
+        /* diagonal towards top and left */
+        blocked |= (i + k < 8 && j >= k) ? position_mask(i + k, j - k) : 0;
 
-		/* diagonal towards bottom and left */
-		blocked |= (i >= k && j >= k)   ? position_mask(i-k, j-k) : 0;
+        /* diagonal towards bottom and left */
+        blocked |= (i >= k && j >= k) ? position_mask(i - k, j - k) : 0;
 
-		/* diagonal towards bottom and right */
-		blocked |= (i >= k && j+k < 8)  ? position_mask(i-k, j+k) : 0;
-	}
+        /* diagonal towards bottom and right */
+        blocked |= (i >= k && j + k < 8) ? position_mask(i - k, j + k) : 0;
+    }
 
-	return blocked;
+    return blocked;
 }
 
 /**
@@ -85,41 +85,42 @@ uint64_t place_queen(uint64_t blocked, const uint64_t i, const uint64_t j)
  *        valid according to the rules of the game).
  * @note Complexity: O(1) in both time and space.
  */
-std::list< queen_setup > eight_queens(const uint64_t blocked = 0, const uint64_t j = 0)
+std::list<queen_setup> eight_queens(const uint64_t blocked = 0,
+                                    const uint64_t j = 0)
 {
-	/* base case: no more queens to place on the chess board */
-	if (j == 8)
-	{
-		return { {} };
-	}
+    /* base case: no more queens to place on the chess board */
+    if (j == 8)
+    {
+        return {{}};
+    }
 
-	std::list< queen_setup > setups;
+    std::list<queen_setup> setups;
 
-	/*
-	 * we are on the j-th column; try placing a queen on each row i
-	 * such that (i,j) is unblocked and then proceed recursively
-	 */
-	for (uint64_t i = 0; i < 8; ++i)
-	{
-		/* if we can place a queen at (i,j) */
-		if (is_blocked(blocked, i, j) == false)
-		{
-			uint64_t new_blocked = place_queen(blocked, i, j);
+    /*
+     * we are on the j-th column; try placing a queen on each row i
+     * such that (i,j) is unblocked and then proceed recursively
+     */
+    for (uint64_t i = 0; i < 8; ++i)
+    {
+        /* if we can place a queen at (i,j) */
+        if (is_blocked(blocked, i, j) == false)
+        {
+            uint64_t new_blocked = place_queen(blocked, i, j);
 
-			/* solve the problem recursively on columns [j+1..8) */
-			std::list< queen_setup > __setups = eight_queens(new_blocked, j+1);
+            /* solve the problem recursively on columns [j+1..8) */
+            std::list<queen_setup> __setups = eight_queens(new_blocked, j + 1);
 
-			/* place the queen at (i,j) for each sub-problem solution */
-			for (queen_setup& setup : __setups)
-			{
-				setup.push_front(position{i,j});
-			}
+            /* place the queen at (i,j) for each sub-problem solution */
+            for (queen_setup& setup : __setups)
+            {
+                setup.push_front(position{i, j});
+            }
 
-			setups.splice(setups.end(), __setups);
-		}
-	}
+            setups.splice(setups.end(), __setups);
+        }
+    }
 
-	return setups;
+    return setups;
 }
 
 /**
@@ -129,35 +130,35 @@ std::list< queen_setup > eight_queens(const uint64_t blocked = 0, const uint64_t
  */
 bool is_valid_solution(const queen_setup& setup)
 {
-	uint64_t blocked = 0;
+    uint64_t blocked = 0;
 
-	for (const position& p : setup)
-	{
-		if (is_blocked(blocked, p[0], p[1]) == true)
-		{
-			return false;
-		}
+    for (const position& p : setup)
+    {
+        if (is_blocked(blocked, p[0], p[1]) == true)
+        {
+            return false;
+        }
 
-		blocked = place_queen(blocked, p[0], p[1]);
-	}
+        blocked = place_queen(blocked, p[0], p[1]);
+    }
 
-	return (setup.size() == 8);
+    return (setup.size() == 8);
 }
 
 int main()
 {
-	std::list< queen_setup > setups = eight_queens();
+    std::list<queen_setup> setups = eight_queens();
 
-	for (const queen_setup& setup : setups)
-	{
-		for (const position& p : setup)
-		{
-			std::cout << "(" << p[0] << "," << p[1] << ") ";
-		}
-		std::cout << std::endl;
+    for (const queen_setup& setup : setups)
+    {
+        for (const position& p : setup)
+        {
+            std::cout << "(" << p[0] << "," << p[1] << ") ";
+        }
+        std::cout << std::endl;
 
-		assert(is_valid_solution(setup));
-	}
+        assert(is_valid_solution(setup));
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
