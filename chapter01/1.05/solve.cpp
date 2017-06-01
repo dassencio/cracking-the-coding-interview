@@ -100,7 +100,8 @@ int main()
             assert(str1 == str2);
         }
 
-        std::cout << "passed random tests for strings of length " << n << std::endl;
+        std::cout << "passed random tests for strings of length " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

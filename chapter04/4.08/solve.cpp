@@ -35,7 +35,8 @@ using path = std::list<const tree_node*>;
  * @brief Determines all tree paths which sum to a given value.
  * @param last_node A node in the tree at which a path must end.
  * @param total The value to which a tree path must sum.
- * @param paths The vector on which the paths which sum to total will be written.
+ * @param paths The vector on which the paths which sum to total will be
+ *        written.
  * @note Complexity: O(n³) in both time and space, where n is the number of
  *       tree nodes (consider the case in which the tree is a single path
  *       node_1 -> node_2 -> ... -> node_n, with node_1 being the root node;
@@ -44,7 +45,9 @@ using path = std::list<const tree_node*>;
  *       wanted to print the paths which sum to total, the complexity would
  *       be only O(n²) in time and O(n) in space.
  */
-void get_paths_which_sum_to(const tree_node* last_node, const int total, std::vector<path>& paths)
+void get_paths_which_sum_to(const tree_node* last_node,
+                            const int total,
+                            std::vector<path>& paths)
 {
     if (last_node == nullptr)
     {
@@ -206,7 +209,9 @@ int main()
                 {
                     if (path_sum(p) == total)
                     {
-                        assert(std::find(sum_paths.begin(), sum_paths.end(), p) != sum_paths.end());
+                        assert(std::find(sum_paths.begin(),
+                                         sum_paths.end(),
+                                         p) != sum_paths.end());
                     }
                 }
             }

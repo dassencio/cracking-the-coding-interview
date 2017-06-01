@@ -1,7 +1,8 @@
 /*
  * TASK: Given a string, determine if each of its characters is unique, i.e.,
  *       whether the string has duplicate characters or not. Try solving this
- *       problem without using any additional data structures (such as a buffer).
+ *       problem without using any additional data structures (such as a
+ *       buffer).
  */
 
 #include <algorithm> /* std::sort */
@@ -112,7 +113,8 @@ int main()
             assert(has_duplicates_2(str) == result);
         }
 
-        std::cout << "passed random tests for strings of length " << n << std::endl;
+        std::cout << "passed random tests for strings of length " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

@@ -12,7 +12,8 @@
 
 /**
  * @brief Solution without using an additional buffer.
- * @return A reference to the input string with all duplicate characters removed.
+ * @return A reference to the input string with all duplicate characters
+ *         removed.
  * @note Complexity: O(n²) in time, O(1) in space, where n is the string length.
  */
 std::string& remove_duplicates_1(std::string& str)
@@ -58,7 +59,8 @@ std::string& remove_duplicates_1(std::string& str)
 /**
  * @brief Solution using a bitmask to track seen characters (the input
  *        string is allowed to contain any valid ASCII characters).
- * @return A reference to the input string with all duplicate characters removed.
+ * @return A reference to the input string with all duplicate characters
+ *         removed.
  * @note Complexity: O(n) in time, O(1) in space, where n is the string length.
  */
 std::string& remove_duplicates_2(std::string& str)
@@ -130,7 +132,8 @@ int main()
             assert(str == str_copy);
         }
 
-        std::cout << "passed random tests for strings of length " << n << std::endl;
+        std::cout << "passed random tests for strings of length " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

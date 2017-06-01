@@ -76,7 +76,8 @@ int main()
             delete[] str;
         }
 
-        std::cout << "passed random tests for strings of length " << n << std::endl;
+        std::cout << "passed random tests for strings of length " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

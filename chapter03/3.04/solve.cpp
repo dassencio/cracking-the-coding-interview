@@ -21,7 +21,10 @@
  *       this function and the function itself requires O(1) space in memory.
  * @note The correctness of this method is easily proved by induction.
  */
-void solve(std::stack<size_t>& A, std::stack<size_t>& B, std::stack<size_t>& C, const size_t n)
+void solve(std::stack<size_t>& A,
+           std::stack<size_t>& B,
+           std::stack<size_t>& C,
+           const size_t n)
 {
     /* trivial problem: A has no disks which must be moved */
     if (n == 0)

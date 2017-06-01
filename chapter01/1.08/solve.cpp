@@ -87,14 +87,16 @@ int main()
             for (size_t j = 0; j < n; ++j)
             {
                 std::string str1_rot = str1;
-                std::rotate(str1_rot.begin(), str1_rot.begin() + j, str1_rot.end());
+                std::rotate(
+                    str1_rot.begin(), str1_rot.begin() + j, str1_rot.end());
 
                 assert(is_rotation_1(str1, str1_rot) == true);
                 assert(is_rotation_2(str1, str1_rot) == true);
             }
         }
 
-        std::cout << "passed random tests for strings of length " << n << std::endl;
+        std::cout << "passed random tests for strings of length " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

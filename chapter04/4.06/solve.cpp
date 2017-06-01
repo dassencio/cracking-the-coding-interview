@@ -26,7 +26,8 @@ struct tree_node
  * @brief Finds the common ancestor of two nodes n1 and n2 on the same tree.
  * @note Complexity: O(tree height) in time, O(1) in space.
  */
-const tree_node* find_common_ancestor_1(const tree_node* n1, const tree_node* n2)
+const tree_node* find_common_ancestor_1(const tree_node* n1,
+                                        const tree_node* n2)
 {
     const tree_node* __n1 = n1;
     const tree_node* __n2 = n2;
@@ -92,7 +93,8 @@ const tree_node* find_common_ancestor_1(const tree_node* n1, const tree_node* n2
  *        using brute force.
  * @note Complexity: O((tree height)²) in time, O(1) in space.
  */
-const tree_node* find_common_ancestor_2(const tree_node* n1, const tree_node* n2)
+const tree_node* find_common_ancestor_2(const tree_node* n1,
+                                        const tree_node* n2)
 {
     const tree_node* a1 = n1->parent;
 

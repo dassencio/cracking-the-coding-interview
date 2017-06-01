@@ -112,7 +112,8 @@ int main()
             assert(is_anagram_2(str1, str1_shuf) == true);
         }
 
-        std::cout << "passed random tests for strings of length " << n << std::endl;
+        std::cout << "passed random tests for strings of length " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

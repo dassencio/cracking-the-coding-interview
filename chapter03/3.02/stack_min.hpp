@@ -33,7 +33,8 @@ public:
      */
     void push(const T& value)
     {
-        node* new_node = new node{.value_ = value, .next_node_ = top_, .next_min_ = min_};
+        node* new_node =
+            new node{.value_ = value, .next_node_ = top_, .next_min_ = min_};
 
         /*
          * if this is the first node we are pushing onto the stack or

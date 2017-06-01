@@ -6,6 +6,5 @@ AllowShortFunctionsOnASingleLine: false
 BinPackArguments: false
 BinPackParameters: false
 BreakBeforeBraces: Allman
-ColumnLimit: 100
 IndentWidth: 4
 SpaceAfterTemplateKeyword: false

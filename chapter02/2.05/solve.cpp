@@ -193,7 +193,8 @@ int main()
             delete head;
         }
 
-        std::cout << "passed random tests for lists of length " << n << std::endl;
+        std::cout << "passed random tests for lists of length " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

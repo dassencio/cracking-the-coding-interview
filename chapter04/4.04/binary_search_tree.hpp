@@ -160,7 +160,8 @@ public:
                 else
                 {
                     Q.push(nullptr);
-                    level_list = node_lists.insert(node_lists.end(), std::list<T>{});
+                    level_list =
+                        node_lists.insert(node_lists.end(), std::list<T>{});
                 }
             }
             else
@@ -203,7 +204,8 @@ private:
         return 1 + std::max(height(current->left), height(current->right));
     }
 
-    std::vector<std::list<T> > level_node_list_dfs(const tree_node* current) const
+    std::vector<std::list<T> > level_node_list_dfs(
+        const tree_node* current) const
     {
         if (current == nullptr)
         {
@@ -223,15 +225,19 @@ private:
          * subtrees, then merge the results into a single vector of
          * (key) lists
          */
-        std::vector<std::list<T> > node_list_left = level_node_list_dfs(current->left);
-        std::vector<std::list<T> > node_list_right = level_node_list_dfs(current->right);
+        std::vector<std::list<T> > node_list_left =
+            level_node_list_dfs(current->left);
+        std::vector<std::list<T> > node_list_right =
+            level_node_list_dfs(current->right);
 
         auto it_left = node_list_left.begin();
         auto it_right = node_list_right.begin();
 
-        while (it_left != node_list_left.end() || it_right != node_list_right.end())
+        while (it_left != node_list_left.end() ||
+               it_right != node_list_right.end())
         {
-            auto level_list = node_lists.insert(node_lists.end(), std::list<T>{});
+            auto level_list =
+                node_lists.insert(node_lists.end(), std::list<T>{});
 
             /*
              * move all elements in the current level to the full level

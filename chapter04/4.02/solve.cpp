@@ -191,7 +191,8 @@ int main()
             }
         }
 
-        std::cout << "passed random tests for graphs of size " << n << std::endl;
+        std::cout << "passed random tests for graphs of size " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

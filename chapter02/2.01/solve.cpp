@@ -58,7 +58,8 @@ int main()
             assert(L2.remove_duplicates_2() == 0);
         }
 
-        std::cout << "passed random tests for lists of length " << n << std::endl;
+        std::cout << "passed random tests for lists of length " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

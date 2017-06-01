@@ -52,8 +52,10 @@ int main()
              * get the lists of nodes at each level using both BFS and
              * DFS, then compare the results from both methods
              */
-            std::vector<std::list<size_t> > lists_bfs = tree.level_node_list_bfs();
-            std::vector<std::list<size_t> > lists_dfs = tree.level_node_list_dfs();
+            std::vector<std::list<size_t> > lists_bfs =
+                tree.level_node_list_bfs();
+            std::vector<std::list<size_t> > lists_dfs =
+                tree.level_node_list_dfs();
 
             assert(lists_bfs == lists_dfs);
             assert(tree.height() == lists_bfs.size());
@@ -67,7 +69,8 @@ int main()
 
             for (const std::list<size_t>& level_keys : lists_bfs)
             {
-                bfs_keys.insert(bfs_keys.end(), level_keys.begin(), level_keys.end());
+                bfs_keys.insert(
+                    bfs_keys.end(), level_keys.begin(), level_keys.end());
             }
 
             std::sort(keys.begin(), keys.end());

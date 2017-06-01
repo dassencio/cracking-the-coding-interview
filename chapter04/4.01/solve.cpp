@@ -35,7 +35,8 @@ size_t longest_path_length(const tree_node* root)
         return 0;
     }
 
-    return 1 + std::max(longest_path_length(root->left), longest_path_length(root->right));
+    return 1 + std::max(longest_path_length(root->left),
+                        longest_path_length(root->right));
 }
 
 /**
@@ -52,7 +53,8 @@ size_t shortest_path_length(const tree_node* root)
         return 0;
     }
 
-    return 1 + std::min(shortest_path_length(root->left), shortest_path_length(root->right));
+    return 1 + std::min(shortest_path_length(root->left),
+                        shortest_path_length(root->right));
 }
 
 /**
@@ -103,9 +105,10 @@ tree_node* balanced_binary_tree(size_t n)
         nodes.push_back(new tree_node);
 
         /* find the first node which has an empty left/right child */
-        auto it = std::find_if(nodes.begin(), nodes.end(), [](const tree_node* node) {
-            return node->left == nullptr || node->right == nullptr;
-        });
+        auto it =
+            std::find_if(nodes.begin(), nodes.end(), [](const tree_node* node) {
+                return node->left == nullptr || node->right == nullptr;
+            });
 
         tree_node* node = *it;
 

@@ -33,7 +33,8 @@ struct tree_node
 /**
  * @brief Builds a tree with minimum height with the values in a sorted array.
  * @param begin A bidirectional iterator pointing to the first array element.
- * @param end A bidirectional iterator pointing to one past the last array element.
+ * @param end A bidirectional iterator pointing to one past the last array
+ *        element.
  * @return A pointer to the tree's root node.
  * @note Complexity: O(n) in time, O(log(n)) in space, where n is the number of
  *       elements in the array, because the recursion will not go deeper than
@@ -77,8 +78,8 @@ size_t tree_height(const tree_node* root)
 }
 
 /**
- * @brief Returns true if the tree is "ordered", false otherwise, where "ordered"
- *        is defined as in the note on top of this file.
+ * @brief Returns true if the tree is "ordered", false otherwise, where
+ *        "ordered" is defined as in the note on top of this file.
  * @param root The root node of the tree.
  * @note Complexity: O(n) in time, O(k) in space, where n is the number of tree
  *       nodes and k is the tree height, because the recursion will not go
@@ -153,7 +154,8 @@ int main()
         {
             std::vector<int> values = sorted_random_vector(n);
 
-            tree_node* root = build_min_height_tree(values.begin(), values.end());
+            tree_node* root =
+                build_min_height_tree(values.begin(), values.end());
 
             /*
              * a minimum-height tree has height floor(log2(n))+1, where n is the
@@ -166,14 +168,16 @@ int main()
             }
             else
             {
-                assert(tree_height(root) == static_cast<size_t>(std::log2(n)) + 1);
+                assert(tree_height(root) ==
+                       static_cast<size_t>(std::log2(n)) + 1);
             }
 
             assert(is_ordered_tree(root));
 
             for (const int x : values)
             {
-                size_t occurrences = std::count(values.begin(), values.end(), x);
+                size_t occurrences =
+                    std::count(values.begin(), values.end(), x);
                 assert(count(root, x) == occurrences);
             }
 

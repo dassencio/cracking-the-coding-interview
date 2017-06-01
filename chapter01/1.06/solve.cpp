@@ -86,7 +86,8 @@ square_matrix rotate_square_matrix_1(const square_matrix& A)
 
 /**
  * @brief Solution which rotates the matrix in place.
- * @return A reference to the input matrix (rotated 90 degrees counterclockwise).
+ * @return A reference to the input matrix (rotated 90 degrees
+ *         counterclockwise).
  * @note Complexity: O(n²) in time, O(1) in space, where n is the matrix size.
  */
 square_matrix& rotate_square_matrix_2(square_matrix& A)
@@ -154,7 +155,8 @@ int main()
 
             assert(A == A_rot);
         }
-        std::cout << "passed random tests for matrices of size " << n << std::endl;
+        std::cout << "passed random tests for matrices of size " << n
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;
