@@ -4,9 +4,9 @@
  *       Your solution must use stacks to represent each rod.
  */
 
-#include <stack>
-#include <iostream>
 #include <cassert>
+#include <iostream>
+#include <stack>
 
 /**
  * @brief Solves the Hanoi problem recursively.
@@ -21,71 +21,68 @@
  *       this function and the function itself requires O(1) space in memory.
  * @note The correctness of this method is easily proved by induction.
  */
-void solve(std::stack< size_t >& A,
-           std::stack< size_t >& B,
-           std::stack< size_t >& C,
-           const size_t n)
+void solve(std::stack<size_t>& A, std::stack<size_t>& B, std::stack<size_t>& C, const size_t n)
 {
-	/* trivial problem: A has no disks which must be moved */
-	if (n == 0)
-	{
-		return;
-	}
+    /* trivial problem: A has no disks which must be moved */
+    if (n == 0)
+    {
+        return;
+    }
 
-	/* base case: move a single disk from A to C */
-	if (n == 1)
-	{
-		C.push(A.top());
-		A.pop();
+    /* base case: move a single disk from A to C */
+    if (n == 1)
+    {
+        C.push(A.top());
+        A.pop();
 
-		return;
-	}
+        return;
+    }
 
-	/*
-	 * if A has n > 1 disks which must be moved to C, first move the top
-	 * n-1 disks to B, then move n-th disk from A to C, then solve this
-	 * new problem: move n-1 disks from B to C using A as helper
-	 */
+    /*
+     * if A has n > 1 disks which must be moved to C, first move the top
+     * n-1 disks to B, then move n-th disk from A to C, then solve this
+     * new problem: move n-1 disks from B to C using A as helper
+     */
 
-	/* first: move n-1 disks from A to B using C as helper */
-	solve(A, C, B, n-1);
+    /* first: move n-1 disks from A to B using C as helper */
+    solve(A, C, B, n - 1);
 
-	/* then: move A's n-th disk to C */
-	C.push(A.top());
-	A.pop();
+    /* then: move A's n-th disk to C */
+    C.push(A.top());
+    A.pop();
 
-	/* finally: move the n-1 disks placed on B to C using A as helper */
-	solve(B, A, C, n-1);
+    /* finally: move the n-1 disks placed on B to C using A as helper */
+    solve(B, A, C, n - 1);
 }
 
 int main()
 {
-	for (size_t n = 0; n <= 20; ++n)
-	{
-		std::stack< size_t > A, B, C;
+    for (size_t n = 0; n <= 20; ++n)
+    {
+        std::stack<size_t> A, B, C;
 
-		/* add n disks to A (labeled 0..n-1 from top to bottom) */
-		for (size_t i = 0; i < n; ++i)
-		{
-			A.push(n-i-1);
-		}
+        /* add n disks to A (labeled 0..n-1 from top to bottom) */
+        for (size_t i = 0; i < n; ++i)
+        {
+            A.push(n - i - 1);
+        }
 
-		solve(A, B, C, A.size());
+        solve(A, B, C, A.size());
 
-		/* make sure all disks from A were moved to C */
-		assert(A.size() == 0);
-		assert(B.size() == 0);
-		assert(C.size() == n);
+        /* make sure all disks from A were moved to C */
+        assert(A.size() == 0);
+        assert(B.size() == 0);
+        assert(C.size() == n);
 
-		/* make sure the order of the disks on C is valid */
-		for (size_t i = 0; i < n; ++i)
-		{
-			assert(C.top() == i);
-			C.pop();
-		}
+        /* make sure the order of the disks on C is valid */
+        for (size_t i = 0; i < n; ++i)
+        {
+            assert(C.top() == i);
+            C.pop();
+        }
 
-		std::cout << "passed test for tower of height " << n << std::endl;
-	}
+        std::cout << "passed test for tower of height " << n << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
