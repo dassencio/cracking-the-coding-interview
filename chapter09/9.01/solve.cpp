@@ -10,13 +10,13 @@
 #include <cassert>
 
 /**
- * @brief merges the values of two sorted arrays v1 and v2 on top of v1
- * @note complexity: O(n) in time, O(1) in space, where n = n1 + n2 is the sum
+ * @brief Merges the values of two sorted arrays v1 and v2 on top of v1.
+ * @note Complexity: O(n) in time, O(1) in space, where n = n1 + n2 is the sum
  *       of the lengths n1 and n2 of v1 and v2 respectively (the last n2
  *       elements of v1 are not merged as they are assumed to be merely buffer
- *       space for the merging with v2)
- * @note the trick used here is the fact that the values of v1 and v2 can be
- *       merged in descending order, i.e., we merge from right to left
+ *       space for the merging with v2).
+ * @note The trick used here is the fact that the values of v1 and v2 can be
+ *       merged in descending order, i.e., we merge from right to left.
  */
 void merge(std::vector< int >& v1, const std::vector< int >& v2)
 {
@@ -61,8 +61,8 @@ void merge(std::vector< int >& v1, const std::vector< int >& v2)
 }
 
 /**
- * @brief generates a sorted random vector of length n
- * @note complexity: O(n*log(n)) in time, O(n) in space
+ * @brief Generates a sorted random vector of length n.
+ * @note Complexity: O(n*log(n)) in time, O(n) in space.
  */
 std::vector< int > sorted_random_vector(const size_t n)
 {

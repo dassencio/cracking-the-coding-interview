@@ -49,9 +49,9 @@ private:
 };
 
 /**
- * @brief returns the position (i,j) of a value x on an m×n matrix A or (m,n) if
- *        x could not be found in A
- * @note complexity: O(m+n) in time, O(1) in space
+ * @brief Returns the position (i,j) of a value x on an m×n matrix A or (m,n) if
+ *        x could not be found in A.
+ * @note Complexity: O(m+n) in time, O(1) in space.
  */
 std::pair< size_t, size_t > find(const matrix& A, const int x)
 {

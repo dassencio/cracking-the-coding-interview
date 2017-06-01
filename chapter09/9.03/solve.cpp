@@ -8,7 +8,7 @@
  *       to the right), searching for the value 1 returns 3, searching for the
  *       value 10 returns 2 and searching for the value 5 returns 7.
  *
- * NOTE: the solution presented here assumes all array values are unique (the
+ * NOTE: The solution presented here assumes all array values are unique (the
  *       problem is not solved as stated if duplicate values are allowed).
  */
 
@@ -18,14 +18,14 @@
 #include <cassert>
 
 /**
- * @brief returns the position of a value x in a sorted-then-rotated array v or
- *       the size of v is x is not in v
- * @note complexity: O(log(n)) in time, O(1) in space
- * @note the algorithm is based on the fact that the rotated array has two
+ * @brief Returns the position of a value x in a sorted-then-rotated array v or
+ *        the size of v is x is not in v.
+ * @note Complexity: O(log(n)) in time, O(1) in space.
+ * @note The algorithm is based on the fact that the rotated array has two
  *       sections: the elements on the left section are strictly larger than
  *       the elements on the right section, and each section is internally
  *       sorted in ascending order (e.g. in { 8 9 10 1 2 3 4 5 6 7 }, the left
- *       section is { 8 9 10 } and the right section is { 1 2 3 4 5 6 7 })
+ *       section is { 8 9 10 } and the right section is { 1 2 3 4 5 6 7 }).
  */
 size_t binary_search(const std::vector< int >& v, const int x)
 {

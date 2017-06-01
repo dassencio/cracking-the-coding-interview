@@ -15,11 +15,11 @@
 #include <cassert>
 
 /**
- * @brief returns the position of a string str on an array of strings or the
- *        size of the array if str could not be found
- * @note complexity: O(n) in time, O(1) in space, where n is the number of
+ * @brief Returns the position of a string str on an array of strings or the
+ *        size of the array if str could not be found.
+ * @note Complexity: O(n) in time, O(1) in space, where n is the number of
  *       strings in the array (however, the complexity becomes O(log(n)) in
- *       time if the input array has no empty strings and str is not empty)
+ *       time if the input array has no empty strings and str is not empty).
  */
 size_t find(const std::vector< std::string >& strings, const std::string& str)
 {
@@ -91,9 +91,9 @@ size_t find(const std::vector< std::string >& strings, const std::string& str)
 }
 
 /**
- * @brief generates a random ASCII string of random length in [1,10] with
- *        characters in [a-z]
- * @note complexity: O(1) in both time and space
+ * @brief Generates a random ASCII string of random length in [1,10] with
+ *        characters in [a-z].
+ * @note Complexity: O(1) in both time and space.
  */
 std::string random_string()
 {
@@ -116,12 +116,12 @@ std::string random_string()
 }
 
 /**
- * @brief generates a sorted array of random strings such that, on average, 70%
+ * @brief Generates a sorted array of random strings such that, on average, 70%
  *        of the strings will be empty ("") and the other 30% will be nonempty;
  *        the array is sorted in the sense that its nonempty strings are ordered
- *        lexicographically, but the empty strings are placed randomly throughout
- *        the array
- * @note complexity: O(n) in both time and space
+ *        lexicographically, but the empty strings are placed randomly
+ *        throughout the array.
+ * @note Complexity: O(n) in both time and space.
  */
 std::vector< std::string > sorted_random_strings(const size_t n)
 {

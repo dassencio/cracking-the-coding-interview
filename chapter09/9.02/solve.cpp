@@ -11,13 +11,13 @@
 #include <cassert>
 
 /**
- * @brief compare function which yields the following string order: anagrams
+ * @brief Compare function which yields the following string order: anagrams
  *        are grouped together and ordered (as blocks) using the unique
  *        lexicographically sorted version of its strings, and anagram groups
  *        are themselves ordered internally using the lexicographical order of
- *        their strings
- * @note complexity: O(n*log(n)) in time, O(n) in space, where n is the length
- *       of the longest string
+ *        their strings.
+ * @note Complexity: O(n*log(n)) in time, O(n) in space, where n is the length
+ *       of the longest string.
  */
 bool anagram_compare(const std::string& s1, const std::string& s2)
 {
@@ -41,9 +41,10 @@ bool anagram_compare(const std::string& s1, const std::string& s2)
 }
 
 /**
- * @brief sorts an array of strings in a way which groups anagrams together
- * @note complexity: O(m*n*log(m)*log(n)) in time, O(n) in space, where m is the
- *       number of strings in the array and n is the length of its longest string
+ * @brief Sorts an array of strings in a way which groups anagrams together.
+ * @note Complexity: O(m*n*log(m)*log(n)) in time, O(n) in space, where m is
+ *       the number of strings in the array and n is the length of its longest
+ *       string.
  */
 void anagram_sort(std::vector< std::string >& strings)
 {

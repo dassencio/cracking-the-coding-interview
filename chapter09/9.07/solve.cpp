@@ -30,14 +30,14 @@ using group = std::vector< person >;
 using tower = std::deque< person >;
 
 /**
- * @brief determines the highest tower which can be formed for a group of people
- *        using recursion
- * @param people a group of people which can be used to form the tower
- * @param max_weight weight which the person at the base may not have or exceed
- * @param max_height height which the person at the base may not have or exceed
- * @note complexity: O(n!) in time, O(n²) in space, where n is the total number
+ * @brief Determines the highest tower which can be formed for a group of people
+ *        using recursion.
+ * @param people A group of people which can be used to form the tower.
+ * @param max_weight Weight which the person at the base may not have or exceed.
+ * @param max_height Height which the person at the base may not have or exceed.
+ * @note Complexity: O(n!) in time, O(n²) in space, where n is the total number
  *       of people available, because at each recursion level, groups of O(n)
- *       people are formed and the recursion does not go deeper than n levels
+ *       people are formed and the recursion does not go deeper than n levels.
  */
 tower highest_tower_1(const group& people,
                       const int max_weight = std::numeric_limits< int >::max(),
@@ -91,9 +91,9 @@ tower highest_tower_1(const group& people,
 }
 
 /**
- * @brief comparison function which orders an array of people by height and, for
- *        each group of people having the same height, orders them by weight
- * @note complexity: O(1) in both time and space
+ * @brief Comparison function which orders an array of people by height and, for
+ *        each group of people having the same height, orders them by weight.
+ * @note Complexity: O(1) in both time and space.
  */
 bool person_compare(const person& p1, const person& p2)
 {
@@ -106,9 +106,9 @@ bool person_compare(const person& p1, const person& p2)
 }
 
 /**
- * @brief determines the highest tower which can be formed for a group of people
- *        using dynamic programming
- * @note complexity: O(n²), where n is the total number of people available
+ * @brief Determines the highest tower which can be formed for a group of people
+ *        using dynamic programming.
+ * @note Complexity: O(n²), where n is the total number of people available.
  */
 tower highest_tower_2(group people)
 {
@@ -181,8 +181,8 @@ tower highest_tower_2(group people)
 }
 
 /**
- * @brief returns true if the tower of people is valid, false otherwise
- * @note complexity: O(m) in time, O(1) in space, where m is the tower height
+ * @brief Returns true if the tower of people is valid, false otherwise.
+ * @note Complexity: O(m) in time, O(1) in space, where m is the tower height.
  */
 bool is_valid_solution(const tower& solution)
 {
@@ -202,9 +202,9 @@ bool is_valid_solution(const tower& solution)
 }
 
 /**
- * @brief generates a random group of n people with heights in [100,200]cm and
- *        weights in [40,120]kg
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random group of n people with heights in [100,200]cm and
+ *        weights in [40,120]kg.
+ * @note Complexity: O(n) in both time and space.
  */
 group random_group(const size_t n)
 {
