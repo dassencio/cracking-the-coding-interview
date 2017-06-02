@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <vector>
 
-/* node of a directed graph */
+/** @brief A node of a directed graph. */
 class node
 {
 public:

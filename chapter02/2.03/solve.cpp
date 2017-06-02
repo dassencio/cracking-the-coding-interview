@@ -8,7 +8,7 @@
 #include <cassert>
 #include <iostream>
 
-/* a simple singly-linked list node */
+/** @brief A node of a singly-linked list. */
 class list_node
 {
 public:

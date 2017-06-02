@@ -5,10 +5,9 @@
 #include <cassert>
 #include <iostream>
 
-/*
- * this is a very simple smart pointer class implementation which is very
- * limited: it is not movable, does not implement comparison operators, reset
- * operations etc.
+/**
+ * @brief A very simple smart pointer class: no move operations, no comparison
+ *        operators, no reset operations etc.
  */
 template<typename T>
 class smart_ptr

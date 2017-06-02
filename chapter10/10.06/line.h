@@ -7,7 +7,7 @@
 
 static const double epsilon = 1.e-10;
 
-/* a point is represented as a pair of coordinates (x,y) */
+/** @brief A point represented as a pair of coordinates (x,y). */
 struct point
 {
     double x;
@@ -59,7 +59,7 @@ bool operator!=(const point& A, const point& B)
     return !(A == B);
 }
 
-/* a line is uniquely defined by a pair of _distinct_ points A and B */
+/** @brief A representation of a line through a pair of distinct points. */
 class line
 {
 public:

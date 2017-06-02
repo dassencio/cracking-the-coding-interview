@@ -9,7 +9,6 @@
 #include <random>
 #include <vector>
 
-/* a simple matrix class */
 class matrix
 {
 public:

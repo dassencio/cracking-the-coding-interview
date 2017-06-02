@@ -6,11 +6,10 @@
 #include <unordered_set>
 #include <vector>
 
-/* a simple binary search tree class */
 template<typename T>
 class binary_search_tree
 {
-    /* node as a private member structure (we don't need it to be public) */
+    /** @brief A node of a binary search tree. */
     struct tree_node
     {
         T key;

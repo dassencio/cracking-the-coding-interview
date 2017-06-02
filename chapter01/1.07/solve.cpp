@@ -9,7 +9,6 @@
 #include <random> /* std::uniform_int_distribution */
 #include <vector>
 
-/* a simple matrix class */
 class matrix
 {
 public:

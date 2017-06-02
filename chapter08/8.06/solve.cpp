@@ -20,7 +20,7 @@ enum color
     TOTAL_NUM_COLORS
 };
 
-/* a simple matrix-like class for representing pixels on an image */
+/** @brief A matrix-like class for representing pixels on an image. */
 template<typename T>
 class pixels
 {

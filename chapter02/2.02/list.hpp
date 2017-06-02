@@ -4,12 +4,12 @@
 #include <cassert>
 #include <cstddef>
 
-/* a simple list class */
+/** @brief A singly-linked list. */
 template<typename T>
 class list
 {
 private:
-    /* node as a private member structure (we don't need it to be public) */
+    /** @brief A node of a singly-linked list. */
     struct node
     {
         T value_;

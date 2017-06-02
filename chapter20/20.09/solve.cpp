@@ -12,9 +12,9 @@
 #include <vector>
 
 /**
- * class which processes one value in the sequence at a time; since it stores
- * all values read, it will require O(n) space by the time the n-th sequence
- * value is processed
+ * @brief A class which processes one value in the sequence at a time; since it
+ *        stores all values read, it will require O(n) space by the time the
+ *        n-th sequence value is processed.
  */
 class sequence_median
 {

@@ -12,10 +12,10 @@
 #include <iostream>
 #include <vector>
 
-/*
- * a representation of an array of 32-bit integers such that we can only access
- * a single bit of a given integer at a time, i.e., the j-th bit of the i-th
- * integer for some j in [0,31]
+/**
+ * @brief A representation of an array of 32-bit integers such that we can only
+ *        access a single bit of a given integer at a time, i.e., the j-th bit
+ *        of the i-th integer for some j in [0,31].
  */
 class binary_array
 {

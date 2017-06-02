@@ -11,7 +11,6 @@
 #include <random> /* std::uniform_int_distribution */
 #include <vector>
 
-/* a simple matrix class */
 class square_matrix
 {
 public:

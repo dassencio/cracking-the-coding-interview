@@ -11,7 +11,7 @@
 #include <random>
 #include <unordered_set>
 
-/* a simple singly-linked list class */
+/** @brief A node of a singly-linked list. */
 class list_node
 {
 public:

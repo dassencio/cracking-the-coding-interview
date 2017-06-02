@@ -13,15 +13,17 @@
 #include <vector>
 
 /**
- * basic suffix tree class for solving the "string search" problem; here the
- * string which generates the suffix tree is assumed to have length n
+ * @brief A basic suffix tree class for solving the "string search" problem;
+ *        here the string which generates the suffix tree is assumed to have
+ *        length n.
  */
 class suffix_tree
 {
     /**
-     * tree node: contains pointers to its children and all the locations at
-     * which the character sequence root...node appears on the original string
-     * (the root node itself represents the empty string "")
+     * @brief A tree node containing pointers to its children and all the
+     *        locations at which the character sequence root..node appears on
+     *        the original string (the root node itself represents the empty
+     *        string "").
      */
     struct node
     {

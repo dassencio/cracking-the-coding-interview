@@ -11,7 +11,6 @@
 #include <utility>
 #include <vector>
 
-/* a simple matrix class */
 class matrix
 {
 public:

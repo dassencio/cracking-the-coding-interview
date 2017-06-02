@@ -20,7 +20,7 @@
 #include <list>
 #include <vector>
 
-/* the (x,y) indices of a cell on the grid */
+/** @brief A grid cell represented as a pair of indices (x,y). */
 struct position
 {
     const size_t x;

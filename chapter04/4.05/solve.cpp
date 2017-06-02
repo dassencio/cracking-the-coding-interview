@@ -7,7 +7,7 @@
 #include <cassert>
 #include <iostream>
 
-/* a binary search tree is represented here by its root node */
+/** @brief A node of a binary search tree. */
 struct tree_node
 {
     size_t key;

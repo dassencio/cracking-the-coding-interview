@@ -11,7 +11,7 @@
 #include <unordered_set>
 #include <vector>
 
-/* a directed graph is represented here by its adjacency list */
+/** @brief A directed graph represented by its adjacency list. */
 class directed_graph
 {
 public:

@@ -9,7 +9,7 @@
 #include <random>
 #include <vector>
 
-/* a generic board class for storing data per cell */
+/** @brief A matrix-like class for representing a board. */
 template<typename T>
 class board
 {
@@ -40,9 +40,9 @@ private:
     std::vector<std::vector<T> > element;
 };
 
-/*
- * cass which defines a square by the position of its bottom left corner cell
- * as well as the edge length in number of cells
+/**
+ * @brief A square represented by the position of its bottom left corner cell
+ *        as well as the edge length in number of cells.
  */
 struct square
 {

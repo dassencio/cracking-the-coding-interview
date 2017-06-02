@@ -13,7 +13,7 @@
 #include <list>
 #include <vector>
 
-/* a binary tree is represented here by its root node */
+/** @brief A node of a binary tree. */
 struct tree_node
 {
     int key;

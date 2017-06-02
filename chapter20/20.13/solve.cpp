@@ -25,7 +25,7 @@ using char_bitset = std::bitset<256>;
 /* a set of (distinct) words */
 using word_set = std::unordered_set<std::string>;
 
-/* a dictionary class for storing words and extra useful information */
+/** @brief A dictionary class for storing words and extra useful information. */
 class dictionary
 {
 public:
@@ -108,10 +108,10 @@ private:
     std::vector<std::unordered_map<std::string, char_bitset> > next_chars_;
 };
 
-/*
- * a "rectangle of characters" class such that each undefined cell stores a
- * '\0' character; each cell is identified by a pair of indices (i,j), with
- * (0,0) being the index of the top-left rectangle cell)
+/**
+ * @brief A "rectangle of characters" such that each undefined cell stores a
+ *        '\0' character; each cell is identified by a pair of indices (i,j),
+ *        with (0,0) being the index of the top-left rectangle cell.
  */
 class rectangle
 {

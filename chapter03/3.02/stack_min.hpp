@@ -6,7 +6,7 @@
 template<typename T>
 class stack_min
 {
-    /* node as a private member structure (we don't need it to be public) */
+    /** @brief A node of the stack. */
     struct node
     {
         T value_;

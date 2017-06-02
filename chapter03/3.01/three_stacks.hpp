@@ -4,9 +4,9 @@
 #include <cassert>
 #include <cstddef>
 
-/*
- * implementation of three stacks stored as a single array of length 3n, with
- * each stack being allowed to store at most n elements
+/**
+ * @brief An implementation of three stacks stored as a single array of length
+ *        3n, with each stack being allowed to store at most n elements.
  */
 template<typename T>
 class three_stacks
