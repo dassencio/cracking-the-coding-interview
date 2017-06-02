@@ -9,14 +9,15 @@
 #include <cassert>
 
 /**
- * @brief returns an m×n matrix as a pointer to an array of pointers to elements
- * @note complexity: O(m*n) in both time and space
- * @note the structure of this matrix is as follows: we allocate space for all
+ * @brief Returns an m×n matrix as a pointer to an array of pointers to
+ *        elements.
+ * @note Complexity: O(m*n) in both time and space.
+ * @note The structure of this matrix is as follows: we allocate space for all
  *       elements and for all pointers to the first element at each row; the
  *       row pointers are then written at the first m*sizeof(int*) bytes of
  *       the memory block, and the elements are written right after the pointer
  *       to the last row, with elements for each row being stored as contiguous
- *       sequences
+ *       sequences.
  */
 int** my_2d_alloc(const int m, const int n)
 {

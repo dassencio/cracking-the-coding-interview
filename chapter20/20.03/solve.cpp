@@ -9,9 +9,9 @@
 #include <cassert>
 
 /**
- * @brief randomly select m elements from a vector with n >= m elements
- * @note complexity: O(n) in both time and space (but can be O(1) in space if
- *       the input vector can be modified)
+ * @brief Randomly select m elements from a vector with n >= m elements.
+ * @note Complexity: O(n) in both time and space (but can be O(1) in space if
+ *       the input vector can be modified).
  */
 std::vector< size_t > random_subset(std::vector< size_t > v, const size_t m)
 {

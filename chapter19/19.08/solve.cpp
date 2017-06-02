@@ -7,11 +7,11 @@
 #include <iostream>
 
 /**
- * @brief returns a map containing the number of occurrences of each unique
- *        word read from an input stream
- * @note complexity: O(n*m*log(n)) in time, O(n*m) in space, where n is the
+ * @brief Returns a map containing the number of occurrences of each unique
+ *        word read from an input stream.
+ * @note Complexity: O(n*m*log(n)) in time, O(n*m) in space, where n is the
  *       number of words in the input stream and m is the length of the longest
- *       word
+ *       word.
  */
 std::map< std::string, size_t > count_words(std::istream& stream)
 {

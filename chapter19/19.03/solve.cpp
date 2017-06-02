@@ -9,8 +9,8 @@
 #include <cassert>
 
 /**
- * @brief computes n!
- * @note complexity: O(n) in time, O(1) in space
+ * @brief Computes n!.
+ * @note Complexity: O(n) in time, O(1) in space.
  */
 uint64_t factorial(uint64_t n)
 {
@@ -26,11 +26,11 @@ uint64_t factorial(uint64_t n)
 }
 
 /**
- * @brief returns the number of trailing zeros in n!
- * @note complexity: for an arbitrary-precision integer type, O(n*log(n)) in
+ * @brief Returns the number of trailing zeros in n!.
+ * @note Complexity: for an arbitrary-precision integer type, O(n*log(n)) in
  *       time, O(1) in space since n! has O(log(n!)) decimal digits (this is
  *       easy to see for log10)  and log(n!) ~ n*log(n) for very large n (from
- *       Stirling's approximation)
+ *       Stirling's approximation).
  */
 uint64_t trailing_zeros_1(uint64_t n)
 {
@@ -47,13 +47,13 @@ uint64_t trailing_zeros_1(uint64_t n)
 }
 
 /**
- * @brief returns the number of trailing zeros in n!
- * @note complexity: for an arbitrary-precision integer type, O(n*log(n)) in
+ * @brief Returns the number of trailing zeros in n!.
+ * @note Complexity: for an arbitrary-precision integer type, O(n*log(n)) in
  *       time, O(1) in space since we divide O(n) integer values O(log(n)) times
  *       by 5 (but this method is still considerably faster than the other one
  *       since it does not involve multiplying very large numbers; also, since
  *       we do not compute n! here, we can actually use it for any 64-bit
- *       unsigned integer n)
+ *       unsigned integer n).
  */
 uint64_t trailing_zeros_2(uint64_t n)
 {

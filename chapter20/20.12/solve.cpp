@@ -48,8 +48,8 @@ private:
 };
 
 /**
- * @brief computes the sum of all elements in the submatrix M(i1:i2, j1:j2)
- * @note complexity: O((i2-i1)*(j2-j1)) in time, O(1) in space
+ * @brief Computes the sum of all elements in the submatrix M(i1:i2, j1:j2).
+ * @note Complexity: O((i2-i1)*(j2-j1)) in time, O(1) in space.
  */
 int matrix_sum(const matrix& M,
                const size_t i1,
@@ -71,8 +71,8 @@ int matrix_sum(const matrix& M,
 }
 
 /**
- * @brief computes the sum of all elements in an m×n matrix M
- * @note complexity: O(m*n) in time, O(1) in space
+ * @brief Computes the sum of all elements in an m×n matrix M.
+ * @note Complexity: O(m*n) in time, O(1) in space.
  */
 int matrix_sum(const matrix& M)
 {
@@ -85,9 +85,10 @@ int matrix_sum(const matrix& M)
 }
 
 /**
- * @brief computes the largest-sum submatrix of an n×n matrix M using brute force
- * @note complexity: O(n²) in space, O(n^6) in time (but could be O(1) in space
- *       if we did not build the solution manually)
+ * @brief Computes the largest-sum submatrix of an n×n matrix M using brute
+ *        force.
+ * @note Complexity: O(n²) in space, O(n^6) in time (but could be O(1) in space
+ *       if we did not build the solution manually).
  */
 matrix largest_sum_submatrix_1(const matrix& M)
 {
@@ -152,10 +153,10 @@ matrix largest_sum_submatrix_1(const matrix& M)
 }
 
 /**
- * @brief computes the largest-sum submatrix of an n×n matrix M using dynamic
- *        programming
- * @note complexity: O(n²) in space, O(n^4) in time (but could be O(1) in space
- *       if we did not build the solution manually)
+ * @brief Computes the largest-sum submatrix of an n×n matrix M using dynamic
+ *        programming.
+ * @note Complexity: O(n²) in space, O(n^4) in time (but could be O(1) in space
+ *       if we did not build the solution manually).
  */
 matrix largest_sum_submatrix_2(const matrix& M)
 {
@@ -244,8 +245,8 @@ matrix largest_sum_submatrix_2(const matrix& M)
 }
 
 /**
- * @brief generates a random n×n matrix
- * @note complexity: O(n²) in both time and space
+ * @brief Generates a random n×n matrix.
+ * @note Complexity: O(n²) in both time and space.
  */
 matrix random_matrix(const size_t n)
 {

@@ -10,8 +10,8 @@
 #include <cassert>
 
 /**
- * @brief shuffles a deck of n cards (shuffles an array with n integers)
- * @note complexity: O(n) in time, O(1) in space
+ * @brief Shuffles a deck of n cards (shuffles an array with n integers).
+ * @note Complexity: O(n) in time, O(1) in space.
  */
 std::vector< size_t > shuffle_deck(std::vector< size_t >& deck)
 {
@@ -36,8 +36,8 @@ std::vector< size_t > shuffle_deck(std::vector< size_t >& deck)
 }
 
 /**
- * @brief returns true if a deck of n cards cards is valid, false otherwise
- * @note complexity: O(n) in both time and space
+ * @brief Returns true if a deck of n cards cards is valid, false otherwise.
+ * @note Complexity: O(n) in both time and space.
  */
 bool is_valid_deck(const std::vector< size_t >& deck)
 {

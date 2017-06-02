@@ -30,9 +30,9 @@ class dictionary
 {
 public:
 	/**
-	 * @brief inserts a word into the dictionary
-	 * @note complexity: O(n²) in both time and space, where n is the length
-	 *       of the word
+	 * @brief Inserts a word into the dictionary.
+	 * @note Complexity: O(n²) in both time and space, where n is the length
+	 *       of the word.
 	 */
 	void insert(const std::string& word)
 	{
@@ -59,10 +59,10 @@ public:
 	}
 
 	/**
-	 * @brief given a word prefix, returns a bitmask indicating what are the
+	 * @brief Given a word prefix, returns a bitmask indicating what are the
 	 *        possible next characters if the prefix is assumed to be part
-	 *        of a word of length n present in the dictionary
-	 * @note complexity: O(n) in time, O(1) in space
+	 *        of a word of length n present in the dictionary.
+	 * @note Complexity: O(n) in time, O(1) in space.
 	 */
 	char_bitset valid_next_chars(const std::string& prefix,
 	                             const size_t n) const
@@ -78,10 +78,10 @@ public:
 	}
 
 	/**
-	 * @brief returns true if a given word is in the dictionary, false
-	 *        otherwise
-	 * @note complexity: O(n) in time, O(1) in space, where n is the length
-	 *       of the input word
+	 * @brief Returns true if a given word is in the dictionary, false
+	 *        otherwise.
+	 * @note Complexity: O(n) in time, O(1) in space, where n is the length
+	 *       of the input word.
 	 */
 	bool find(const std::string& word) const
 	{
@@ -89,8 +89,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the length of the longest word in the dictionary
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the length of the longest word in the dictionary.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t largest_word_length() const
 	{
@@ -125,9 +125,9 @@ public:
 	}
 
 	/**
-	 * @brief returns a reference to the character at the i-th row and j-th
-	 *        column (both are zero indexed)
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns a reference to the character at the i-th row and j-th
+	 *        column (both are zero indexed).
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	char& operator()(const size_t i, const size_t j)
 	{
@@ -137,9 +137,9 @@ public:
 	}
 
 	/**
-	 * @brief returns a copy of the character at the i-th row and j-th
-	 *        column (both are zero indexed)
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns a copy of the character at the i-th row and j-th
+	 *        column (both are zero indexed).
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	char operator()(const size_t i, const size_t j) const
 	{
@@ -149,9 +149,9 @@ public:
 	}
 
 	/**
-	 * @brief marks the cell at the i-th row and j-th column as "undefined"
-	 *        (i.e., sets it to '\0')
-	 * @note complexity: O(1) in both time and space
+	 * @brief Marks the cell at the i-th row and j-th column as "undefined"
+	 *        (i.e., sets it to '\0').
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	void reset(const size_t i, const size_t j)
 	{
@@ -159,9 +159,9 @@ public:
 	}
 
 	/**
-	 * @brief returns the leftmost contiguous sequence of defined characters
-	 *        at the i-th row
-	 * @note complexity: O(width) in both time and space
+	 * @brief Returns the leftmost contiguous sequence of defined characters
+	 *        at the i-th row.
+	 * @note Complexity: O(width) in both time and space.
 	 */
 	std::string subrow(const size_t i) const
 	{
@@ -178,9 +178,9 @@ public:
 	}
 
 	/**
-	 * @brief returns the topmost contiguous sequence of defined characters
-	 *        at the j-th column
-	 * @note complexity: O(height) in both time and space
+	 * @brief Returns the topmost contiguous sequence of defined characters
+	 *        at the j-th column.
+	 * @note Complexity: O(height) in both time and space.
 	 */
 	std::string subcolumn(const size_t j) const
 	{
@@ -197,8 +197,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the width of the rectangle
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the width of the rectangle.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t width() const
 	{
@@ -206,8 +206,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the height of the rectangle
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the height of the rectangle.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	size_t height() const
 	{
@@ -215,8 +215,8 @@ public:
 	}
 
 	/**
-	 * @brief returns true if the rectangle has area zero, false otherwise
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns true if the rectangle has area zero, false otherwise.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	bool empty() const
 	{
@@ -224,8 +224,8 @@ public:
 	}
 
 	/**
-	 * @brief prints the rectangle on a given output stream
-	 * @note complexity: O(width*height) in time, O(1) in space
+	 * @brief Prints the rectangle on a given output stream.
+	 * @note Complexity: O(width*height) in time, O(1) in space.
 	 */
 	std::ostream& print(std::ostream& os = std::cout) const
 	{
@@ -249,13 +249,13 @@ private:
 };
 
 /**
- * @brief recursive step on the backtracking implementation; at each call, all
+ * @brief Recursive step on the backtracking implementation; at each call, all
  *        cells rect(0:i, 0:j) except for rect(i,j) are assumed to be already
  *        defined; the rectangle is constructed first from left to right
  *        starting at the top-left cell, then top to bottom, so the topmost row
  *        is built first, then the second topmost row and so on until we reach
- *        the bottom-right cell
- * @return true if a valid rectangle could be built, false otherwise
+ *        the bottom-right cell.
+ * @return true if a valid rectangle could be built, false otherwise.
  */
 bool build_rectangle(rectangle& rect,
                      const dictionary& dict,
@@ -315,14 +315,14 @@ bool build_rectangle(rectangle& rect,
 }
 
 /**
- * @brief builds the largest rectangle of characters such that each of its rows
- *        and columns forms a word in a given dictionary
- * @note complexity: O(N²*d^N²) in time, O(N²) in space, where N is the
+ * @brief Builds the largest rectangle of characters such that each of its rows
+ *        and columns forms a word in a given dictionary.
+ * @note Complexity: O(N²*d^N²) in time, O(N²) in space, where N is the
  *       length of the longest word in the dictionary and d is the number of
  *       distinct characters from which the dictionary words are constructed
  *       (notice that d cannot exceed 255 in this implementation; also, this
  *       runtime asymptotic bound is very conservative and a solution will
- *       in general be obtained in much less time)
+ *       in general be obtained in much less time).
  */
 rectangle build_largest_word_rectangle(const dictionary& dict)
 {
@@ -373,9 +373,9 @@ rectangle build_largest_word_rectangle(const dictionary& dict)
 }
 
 /**
- * @brief returns true if the rectangle rows and columns form words in the given
- *        dictionary, false otherwise
- * @note complexity: O(width*height) in time, O(max(width,height)) in space
+ * @brief Returns true if the rectangle rows and columns form words in the given
+ *        dictionary, false otherwise.
+ * @note Complexity: O(width*height) in time, O(max(width,height)) in space.
  */
 bool is_valid_rectangle(const rectangle& rect, const dictionary& dict)
 {

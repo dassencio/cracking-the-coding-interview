@@ -8,9 +8,9 @@
 #include <cassert>
 
 /**
- * @brief adds two integers a and b without arithmetic operations
- * @note complexity: O(n) in both time and space, where n is the number of
- *       bits in the input numbers (here fixed, but could be arbitrary)
+ * @brief Adds two integers a and b without arithmetic operations.
+ * @note Complexity: O(n) in both time and space, where n is the number of
+ *       bits in the input numbers (here fixed, but could be arbitrary).
  */
 uint32_t add_1(uint32_t a, uint32_t b)
 {
@@ -45,11 +45,11 @@ uint32_t add_1(uint32_t a, uint32_t b)
 }
 
 /**
- * @brief adds two integers a and b without arithmetic operations
- * @note complexity: O(n) in time, O(n²) in space, where n is the number of
- *       bits in the input numbers (here fixed, but could be arbitrary)
- * @note the recursion is guaranteed to converge because carry_values always
- *       have an added zero bit at each recursion step
+ * @brief Adds two integers a and b without arithmetic operations.
+ * @note Complexity: O(n) in time, O(n²) in space, where n is the number of
+ *       bits in the input numbers (here fixed, but could be arbitrary).
+ * @note The recursion is guaranteed to converge because carry_values always
+ *       have an added zero bit at each recursion step.
  */
 uint32_t add_2(const uint32_t a, const uint32_t b)
 {

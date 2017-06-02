@@ -12,9 +12,10 @@
 const size_t infinity = std::numeric_limits< size_t >::max();
 
 /**
- * @brief computes the shortest distance between two words in an array of n words
- * @note complexity: O(n*k) in time, O(1) in space, where k is the length of
- *       the shortest string among word1 and word2
+ * @brief Computes the shortest distance between two words in an array of n
+ *        words.
+ * @note Complexity: O(n*k) in time, O(1) in space, where k is the length of
+ *       the shortest string among word1 and word2.
  */
 size_t shortest_distance_1(const std::vector< std::string >& words,
                            const std::string& word1,
@@ -53,9 +54,10 @@ size_t shortest_distance_1(const std::vector< std::string >& words,
 }
 
 /**
- * @brief computes the shortest distance between two words in an array of n words
- * @note complexity: O(n*k) in time, O(n) in space, where k is the length of
- *       the shortest string among word1 and word2
+ * @brief Computes the shortest distance between two words in an array of n
+ *        words.
+ * @note Complexity: O(n*k) in time, O(n) in space, where k is the length of
+ *       the shortest string among word1 and word2.
  */
 size_t shortest_distance_2(const std::vector< std::string >& words,
                            const std::string& word1,
@@ -99,9 +101,9 @@ size_t shortest_distance_2(const std::vector< std::string >& words,
 }
 
 /**
- * @brief generates a random ASCII string of random length in [1,10] with
- *        characters in [a-d]
- * @note complexity: O(1) in both time and space
+ * @brief Generates a random ASCII string of random length in [1,10] with
+ *        characters in [a-d].
+ * @note Complexity: O(1) in both time and space.
  */
 std::string random_string()
 {

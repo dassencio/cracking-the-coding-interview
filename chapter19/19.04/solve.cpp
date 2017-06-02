@@ -8,8 +8,8 @@
 #include <cassert>
 
 /**
- * @brief returns the largest of two numbers a and b
- * @note complexity: O(1) in both time and space
+ * @brief Returns the largest of two numbers a and b.
+ * @note Complexity: O(1) in both time and space.
  */
 int32_t max(const int32_t a, const int32_t b)
 {

@@ -12,11 +12,11 @@
 #include <cassert>
 
 /**
- * @brief determines the longest string in an array of strings v which is the
+ * @brief Determines the longest string in an array of strings v which is the
  *        concatenation of some pair of strings in v using brute force; if no
- *        such string exists, returns an empty string
- * @note complexity: O(n³*d) in time, O(d) in space, where n is the size of
- *       v and d is the length of its longest string
+ *        such string exists, returns an empty string.
+ * @note Complexity: O(n³*d) in time, O(d) in space, where n is the size of
+ *       v and d is the length of its longest string.
  */
 std::string longest_concatenated_string_1(const std::vector< std::string >& v)
 {
@@ -44,12 +44,12 @@ std::string longest_concatenated_string_1(const std::vector< std::string >& v)
 }
 
 /**
- * @brief determines the longest string in an array of strings v which is the
+ * @brief Determines the longest string in an array of strings v which is the
  *        concatenation of some pair of strings in v by first sorting v to
  *        optimize string searches; if no such string exists, returns an empty
- *        string
- * @note complexity: O(n*d*log(n)) in time, O(n*d) in space, where n is the size
- *       of v and d is the length of its longest string
+ *        string.
+ * @note Complexity: O(n*d*log(n)) in time, O(n*d) in space, where n is the size
+ *       of v and d is the length of its longest string.
  */
 std::string longest_concatenated_string_2(std::vector< std::string > v)
 {
@@ -93,9 +93,9 @@ std::string longest_concatenated_string_2(std::vector< std::string > v)
 }
 
 /**
- * @brief generates a vector of random ASCII strings of random length in [1,5]
- *        with characters in [a-c]
- * @note complexity: O(n) in both time and space
+ * @brief Generates a vector of random ASCII strings of random length in [1,5]
+ *        with characters in [a-c].
+ * @note Complexity: O(n) in both time and space.
  */
 std::vector< std::string > random_strings(const size_t n)
 {

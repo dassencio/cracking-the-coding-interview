@@ -10,8 +10,8 @@
 #include <cassert>
 
 /**
- * @brief computes the largest contiguous-sequence sum using brute force
- * @note complexity: O(n²) in time, O(1) in space
+ * @brief Computes the largest contiguous-sequence sum using brute force.
+ * @note Complexity: O(n²) in time, O(1) in space.
  */
 int sequence_largest_sum_1(const std::vector< int >& values)
 {
@@ -33,9 +33,9 @@ int sequence_largest_sum_1(const std::vector< int >& values)
 }
 
 /**
- * @brief computes the largest contiguous-sequence sum by integrating only over
- *        ranges which sum to nonnegative values
- * @note complexity: O(n) in time, O(1) in space
+ * @brief Computes the largest contiguous-sequence sum by integrating only over
+ *        ranges which sum to nonnegative values.
+ * @note Complexity: O(n) in time, O(1) in space.
  */
 int sequence_largest_sum_2(const std::vector< int >& values)
 {

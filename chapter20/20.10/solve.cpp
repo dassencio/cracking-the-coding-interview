@@ -21,10 +21,10 @@ using dictionary = std::unordered_set< std::string >;
 using word_array = std::vector< std::string >;
 
 /**
- * @brief returns true if two words word1 and word2 have the same length and
- *        differ by exactly one character, false otherwise
- * @note complexity: O(d) in time, O(1) in space, where d is the length of the
- *       words (if not equal, the method runs in O(1) time)
+ * @brief Returns true if two words word1 and word2 have the same length and
+ *        differ by exactly one character, false otherwise.
+ * @note Complexity: O(d) in time, O(1) in space, where d is the length of the
+ *       words (if not equal, the method runs in O(1) time).
  */
 bool is_distance_one(const std::string& word1, const std::string& word2)
 {
@@ -44,9 +44,9 @@ bool is_distance_one(const std::string& word1, const std::string& word2)
 }
 
 /**
- * @brief returns an array containing all words in a given dictionary with
- *        distance one from a given word
- * @note complexity: O(d) in both time and space, where d is the word length
+ * @brief Returns an array containing all words in a given dictionary with
+ *        distance one from a given word.
+ * @note Complexity: O(d) in both time and space, where d is the word length.
  */
 word_array get_distance_one_words(std::string word, const dictionary& dict)
 {
@@ -89,12 +89,12 @@ word_array get_distance_one_words(std::string word, const dictionary& dict)
 }
 
 /**
- * @brief determines a path between word1 and word2 which defines a series of
+ * @brief Determines a path between word1 and word2 which defines a series of
  *        steps to transform word1 into word2 such that each step involves only
  *        one character change and generates a word which is also in the
- *        dictionary (this is merely an implementation of breadth-first search)
- * @note complexity: O(n*d) in both time and space, where n is the number of
- *       words in the dictionary and d is the length of its longest word
+ *        dictionary (this is merely an implementation of breadth-first search).
+ * @note Complexity: O(n*d) in both time and space, where n is the number of
+ *       words in the dictionary and d is the length of its longest word.
  */
 word_array get_path_between_words(const std::string& word1,
                                   const std::string& word2,

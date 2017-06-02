@@ -12,9 +12,9 @@
 using int_pair = std::pair< int, int >;
 
 /**
- * @brief returns an array containing all unique pairs of integers in v which
- *        sum to t using a hash set
- * @note complexity: O(n) in both time and space, where n is the size of v
+ * @brief Returns an array containing all unique pairs of integers in v which
+ *        sum to t using a hash set.
+ * @note Complexity: O(n) in both time and space, where n is the size of v.
  */
 std::vector< int_pair > two_sum_1(const std::vector< int >& v, const int t)
 {
@@ -41,9 +41,10 @@ std::vector< int_pair > two_sum_1(const std::vector< int >& v, const int t)
 }
 
 /**
- * @brief returns an array containing all unique pairs of integers in v which
- *        sum to t by first sorting v and using binary search to find the pairs
- * @note complexity: O(n*log(n)) in time, O(n) in space, where n is the size of v
+ * @brief Returns an array containing all unique pairs of integers in v which
+ *        sum to t by first sorting v and using binary search to find the pairs.
+ * @note Complexity: O(n*log(n)) in time, O(n) in space, where n is the size of
+ *       v.
  */
 std::vector< int_pair > two_sum_2(std::vector< int > v, const int t)
 {
@@ -80,8 +81,8 @@ std::vector< int_pair > two_sum_2(std::vector< int > v, const int t)
 }
 
 /**
- * @brief returns a random vector containing n values in [-100,100]
- * @note complexity: O(n) in both time and space
+ * @brief Returns a random vector containing n values in [-100,100].
+ * @note Complexity: O(n) in both time and space.
  */
 std::vector< int > random_vector(const size_t n)
 {

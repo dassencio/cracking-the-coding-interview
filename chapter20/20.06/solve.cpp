@@ -10,9 +10,9 @@
 #include <cassert>
 
 /**
- * @brief returns the m largest elements of an array using quick-select
- * @note complexity: O(m) in time (on average), O(n) in space, where n is the
- *       number of elements in the array
+ * @brief Returns the m largest elements of an array using quick-select.
+ * @note Complexity: O(m) in time (on average), O(n) in space, where n is the
+ *       number of elements in the array.
  */
 std::vector< int > get_m_largest_1(std::vector< int > values, const size_t m)
 {
@@ -82,9 +82,9 @@ std::vector< int > get_m_largest_1(std::vector< int > values, const size_t m)
 }
 
 /**
- * @brief returns the m largest elements of an array using a min-heap
- * @note complexity: O(n*log(m)) in time, O(m) in space, where n is the number
- *       of elements in the array
+ * @brief Returns the m largest elements of an array using a min-heap.
+ * @note Complexity: O(n*log(m)) in time, O(m) in space, where n is the number
+ *       of elements in the array.
  */
 std::vector< int > get_m_largest_2(const std::vector< int >& values, const size_t m)
 {
@@ -112,9 +112,9 @@ std::vector< int > get_m_largest_2(const std::vector< int >& values, const size_
 }
 
 /**
- * @brief returns the m largest elements of an array by sorting it first
- * @note complexity: O(n*log(n)) in time (on average), O(n) in space, where n
- *       is the number of elements in the array
+ * @brief Returns the m largest elements of an array by sorting it first.
+ * @note Complexity: O(n*log(n)) in time (on average), O(n) in space, where n
+ *       is the number of elements in the array.
  */
 std::vector< int > get_m_largest_3(std::vector< int > values, const size_t m)
 {

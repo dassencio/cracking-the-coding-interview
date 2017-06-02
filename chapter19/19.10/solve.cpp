@@ -9,8 +9,8 @@
 #include <cassert>
 
 /**
- * @brief generates random integers uniformly in [1,5]
- * @note complexity: O(1) in both time and space
+ * @brief Generates random integers uniformly in [1,5].
+ * @note Complexity: O(1) in both time and space.
  */
 int rand5()
 {
@@ -23,8 +23,8 @@ int rand5()
 }
 
 /**
- * @brief generates random integers uniformly in [1,7]
- * @note complexity: O(1) in both time (on average) and space
+ * @brief Generates random integers uniformly in [1,7].
+ * @note Complexity: O(1) in both time (on average) and space.
  */
 int rand7()
 {

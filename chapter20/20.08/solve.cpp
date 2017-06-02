@@ -13,17 +13,15 @@
 #include <cassert>
 
 /**
- * @brief basic suffix tree class for solving the "string search" problem;
- *        here the string which generates the suffix tree is assumed to have
- *        length n
+ * basic suffix tree class for solving the "string search" problem; here the
+ * string which generates the suffix tree is assumed to have length n
  */
 class suffix_tree
 {
 	/**
-	 * @brief tree node: contains pointers to its children and all the
-	 *        locations at which the character sequence root...node appears
-	 *        on the original string (the root node itself represents the
-	 *        empty string "")
+	 * tree node: contains pointers to its children and all the locations at
+	 * which the character sequence root...node appears on the original string
+	 * (the root node itself represents the empty string "")
 	 */
 	struct node
 	{
@@ -42,8 +40,8 @@ class suffix_tree
 
 public:
 	/**
-	 * @brief constructor with generator string
-	 * @note complexity: O(n²) in both time and space
+	 * @brief Constructor with generator string.
+	 * @note Complexity: O(n²) in both time and space.
 	 */
 	suffix_tree(const std::string& str): root(new node)
 	{
@@ -61,8 +59,8 @@ public:
 	}
 
 	/**
-	 * @brief destructor
-	 * @note complexity: O(n) in space, O(n²) in time
+	 * @brief Destructor.
+	 * @note Complexity: O(n²) in time, O(n) in space.
 	 */
 	~suffix_tree()
 	{
@@ -70,9 +68,9 @@ public:
 	}
 
 	/**
-	 * @brief returns an array containing all locations at which a string
-	 *        str appears in the string which generated the tree
-	 * @note complexity: O(1) in space, O(n) in time
+	 * @brief Returns an array containing all locations at which a string
+	 *        str appears in the string which generated the tree.
+	 * @note Complexity: O(n) in time, O(1) in space.
 	 */
 	std::vector< size_t > find(const std::string& str) const
 	{
@@ -98,10 +96,10 @@ public:
 private:
 
 	/**
-	 * @brief inserts a string substr into the suffix tree, where substr is
+	 * @brief Inserts a string substr into the suffix tree, where substr is
 	 *        a substring of the string which is currently generating the
-	 *        tree starting at the position 'start'
-	 * @note complexity: O(n) in both time and space
+	 *        tree starting at the position 'start'.
+	 * @note Complexity: O(n) in both time and space.
 	 */
 	void insert(const std::string& substr, const size_t start)
 	{
@@ -132,8 +130,8 @@ private:
 };
 
 /**
- * @brief generates a random string of length n and characters in [a-d]
- * @note complexity: O(n) in both time and space
+ * @brief Generates a random string of length n and characters in [a-d].
+ * @note Complexity: O(n) in both time and space.
  */
 std::string random_string(const size_t n)
 {
@@ -153,9 +151,10 @@ std::string random_string(const size_t n)
 }
 
 /**
- * @brief returns an array containing all locations where a string str1 appears
- *        in another string str2
- * @note complexity: O(n²) in time, O(n) in space, where n is the length of str2
+ * @brief Returns an array containing all locations where a string str1 appears
+ *        in another string str2.
+ * @note Complexity: O(n²) in time, O(n) in space, where n is the length of
+ *       str2.
  */
 std::vector< size_t > find_occurrences(const std::string& str1,
                                        const std::string& str2)
@@ -176,8 +175,9 @@ std::vector< size_t > find_occurrences(const std::string& str1,
 }
 
 /**
- * @brief returns an array containing all non-empty substrings of a string str
- * @note complexity: O(n²) in time, O(n³) in space, where n is the length of str
+ * @brief Returns an array containing all non-empty substrings of a string str.
+ * @note Complexity: O(n²) in time, O(n³) in space, where n is the length of
+ *       str.
  */
 std::vector< std::string > substrings(const std::string& str)
 {

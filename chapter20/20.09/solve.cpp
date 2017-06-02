@@ -12,17 +12,17 @@
 #include <cassert>
 
 /**
- * @brief this class processes one value in the sequence at a time; since it
- *        stores all values read, it will require O(n) space by the time the
- *        n-th sequence value is processed
+ * class which processes one value in the sequence at a time; since it stores
+ * all values read, it will require O(n) space by the time the n-th sequence
+ * value is processed
  */
 class sequence_median
 {
 public:
 	/**
-	 * @brief stores a new sequence value internally
-	 * @note complexity: O(log(n)) in time, O(1) in space, where n is the
-	 *       number of values added so far
+	 * @brief Stores a new sequence value internally.
+	 * @note Complexity: O(log(n)) in time, O(1) in space, where n is the
+	 *       number of values added so far.
 	 */
 	void push(const double x)
 	{
@@ -58,8 +58,8 @@ public:
 	}
 
 	/**
-	 * @brief returns the median of the values already processed
-	 * @note complexity: O(1) in both time and space
+	 * @brief Returns the median of the values already processed.
+	 * @note Complexity: O(1) in both time and space.
 	 */
 	double median() const
 	{
@@ -83,8 +83,8 @@ private:
 };
 
 /**
- * @brief computes the median of a vector v by sorting its values first
- * @note complexity: O(n*log(n)) in time, O(n) in space
+ * @brief Computes the median of a vector v by sorting its values first.
+ * @note Complexity: O(n*log(n)) in time, O(n) in space.
  */
 double median(std::vector< double > v)
 {

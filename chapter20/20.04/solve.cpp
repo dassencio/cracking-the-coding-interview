@@ -8,9 +8,9 @@
 #include <cassert>
 
 /**
- * @brief returns the number of '2's in a nonnegative integer n
- * @note complexity: O(log10(n)) in time, O(1) in space, since the number of
- *       digits in n is log10(n) + 1
+ * @brief Returns the number of '2's in a nonnegative integer n.
+ * @note Complexity: O(log10(n)) in time, O(1) in space, since the number of
+ *       digits in n is log10(n) + 1.
  */
 int count_twos_in_number(int n)
 {
@@ -26,9 +26,9 @@ int count_twos_in_number(int n)
 }
 
 /**
- * @brief determines the number of '2's in the range [0,n] using brute force
- * @note complexity: O(n*log10(n)) in in time, O(1) in space, since the number
- *       of digits in n is log10(n) + 1
+ * @brief Determines the number of '2's in the range [0,n] using brute force.
+ * @note Complexity: O(n*log10(n)) in in time, O(1) in space, since the number
+ *       of digits in n is log10(n) + 1.
  */
 int count_twos_in_range_1(const int n)
 {
@@ -43,9 +43,9 @@ int count_twos_in_range_1(const int n)
 }
 
 /**
- * @brief determines the number of '2's in the range [0,n] recursively
- * @note complexity: O(2^log10(n)) in time, O(log10(n)) in space, since the
- *       number of digits in n is log10(n) + 1
+ * @brief Determines the number of '2's in the range [0,n] recursively.
+ * @note Complexity: O(2^log10(n)) in time, O(log10(n)) in space, since the
+ *       number of digits in n is log10(n) + 1.
  */
 int count_twos_in_range_2(const int n)
 {

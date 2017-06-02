@@ -9,9 +9,7 @@
 #include <random>
 #include <cassert>
 
-/*
- * @brief generic board class for storing data per cell
- */
+/* a generic board class for storing data per cell */
 template< typename T >
 class board
 {
@@ -42,9 +40,9 @@ private:
 	std::vector< std::vector< T > > element;
 };
 
-/**
- * @brief square class which defines a square by the position of its bottom left
- *        corner cell as well as the edge length in number of cells
+/*
+ * cass which defines a square by the position of its bottom left corner cell
+ * as well as the edge length in number of cells
  */
 struct square
 {
@@ -61,8 +59,8 @@ struct square
 enum class color { WHITE, BLACK };
 
 /**
- * @brief returns true if the square S has black borders, false otherwise
- * @note complexity: O(1) in space, O(n) in time, where n is the board size
+ * @brief Returns true if the square S has black borders, false otherwise.
+ * @note Complexity: O(1) in space, O(n) in time, where n is the board size.
  */
 bool is_valid_solution(const square& S, const board< color >& B)
 {
@@ -92,8 +90,8 @@ bool is_valid_solution(const square& S, const board< color >& B)
 }
 
 /**
- * @brief returns the largest square with black borders
- * @note complexity: O(n²) in space, O(n³) in time, where n is the board size
+ * @brief Returns the largest square with black borders.
+ * @note Complexity: O(n²) in space, O(n³) in time, where n is the board size.
  */
 square maximum_subsquare_1(const board< color >& B)
 {
@@ -166,8 +164,8 @@ square maximum_subsquare_1(const board< color >& B)
 }
 
 /**
- * @brief returns the largest square with black borders using brute force
- * @note complexity: O(1) in space, O(n^4) in time, where n is the board size
+ * @brief Returns the largest square with black borders using brute force.
+ * @note Complexity: O(1) in space, O(n^4) in time, where n is the board size.
  */
 square maximum_subsquare_2(const board< color >& B)
 {
@@ -206,9 +204,9 @@ square maximum_subsquare_2(const board< color >& B)
 }
 
 /**
- * @brief generates a random n×n board with black and white cells, where cells
- *        are black with probability 80% and white with probability 20%
- * @note complexity: O(n²) in both time and space
+ * @brief Generates a random n×n board with black and white cells, where cells
+ *        are black with probability 80% and white with probability 20%.
+ * @note Complexity: O(n²) in both time and space.
  */
 board< color > random_board(const size_t n)
 {
