@@ -155,6 +155,7 @@ int main()
 
             assert(A == A_rot);
         }
+
         std::cout << "passed random tests for matrices of size " << n
                   << std::endl;
     }

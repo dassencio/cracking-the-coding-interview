@@ -50,8 +50,8 @@ public:
     }
 
     /**
-     * @brief Returns the n-th to last value in the list, with n = 0
-     *        meaning the last value in the list.
+     * @brief Returns the n-th to last value in the list, with n = 0 meaning the
+     *        last value in the list.
      * @note Complexity: O(m) in time, O(1) in space, where m is the number
      *       of nodes in the list.
      */

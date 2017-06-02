@@ -17,11 +17,11 @@
  *        that the memory block begins at an address which is divisible by a
  *        specified alignment value.
  * @note The memory layout is as follows: [ ... <mem> <data> ... ], where ...
- *       represents overhead due to the alignment constraint, mem is the
- *       address of the actual memory block allocated and data marks the
- *       beginning of the aligned memory segment with the number of bytes
- *       requested by the user; the user gets the address of this segment, not
- *       the one from the entire allocated block (i.e., data, not mem).
+ *       represents overhead due to the alignment constraint, mem is the address
+ *       of the actual memory block allocated and data marks the beginning of
+ *       the aligned memory segment with the number of bytes requested by the
+ *       user; the user gets the address of this segment, not the one from the
+ *       entire allocated block (i.e., data, not mem).
  */
 void* align_malloc(const size_t bytes, const size_t alignment)
 {

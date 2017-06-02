@@ -16,8 +16,8 @@ public:
     }
 
     /**
-     * @brief Pushes a value onto the last stack if possible, otherwise
-     *        create a new stack for it.
+     * @brief Pushes a value onto the last stack if possible, otherwise creates
+     *        a new stack for it.
      * @note Complexity: O(1) in both time and space.
      */
     void push(const T& value)

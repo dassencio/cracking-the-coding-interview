@@ -15,10 +15,10 @@
  * @param C The target rod to which n disks from A must be moved.
  * @param N The number of disks from A which must be moved to C (this number
  *        may be smaller than the total number of disks in A).
- * @note Complexity: O(2^n) in time since the work T(n) done to move n
- *       disks from A to C requires 2T(n-1) + O(1) steps, O(n) in space
- *       because the recursion will not go deeper than O(n) levels inside
- *       this function and the function itself requires O(1) space in memory.
+ * @note Complexity: O(2^n) in time since the work T(n) done to move n disks
+ *       from A to C requires 2T(n-1) + O(1) steps, O(n) in space because the
+ *       recursion will not go deeper than O(n) levels inside this function and
+ *       the function itself requires O(1) space in memory.
  * @note The correctness of this method is easily proved by induction.
  */
 void solve(std::stack<size_t>& A,

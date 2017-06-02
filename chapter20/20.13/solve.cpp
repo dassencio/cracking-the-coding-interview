@@ -315,12 +315,12 @@ bool build_rectangle(rectangle& rect,
 /**
  * @brief Builds the largest rectangle of characters such that each of its rows
  *        and columns forms a word in a given dictionary.
- * @note Complexity: O(N²*d^N²) in time, O(N²) in space, where N is the
- *       length of the longest word in the dictionary and d is the number of
- *       distinct characters from which the dictionary words are constructed
- *       (notice that d cannot exceed 255 in this implementation; also, this
- *       runtime asymptotic bound is very conservative and a solution will
- *       in general be obtained in much less time).
+ * @note Complexity: O(N²*d^N²) in time, O(N²) in space, where N is the length
+ *       of the longest word in the dictionary and d is the number of distinct
+ *       characters from which the dictionary words are constructed (notice that
+ *       d cannot exceed 255 in this implementation; also, this runtime
+ *       asymptotic bound is very conservative and a solution will in general be
+ *       obtained in much less time).
  */
 rectangle build_largest_word_rectangle(const dictionary& dict)
 {

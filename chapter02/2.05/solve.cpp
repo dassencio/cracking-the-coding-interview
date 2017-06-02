@@ -19,8 +19,8 @@ public:
 
     /**
      * @brief Deletes this and the following list nodes.
-     * @note Complexity: O(n) in both time and space, where n is the
-     *       number of nodes in the list.
+     * @note Complexity: O(n) in both time and space, where n is the number of
+     *       nodes in the list.
      */
     ~list_node()
     {

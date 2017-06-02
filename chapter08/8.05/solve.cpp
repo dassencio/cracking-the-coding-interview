@@ -65,8 +65,8 @@ std::vector<std::string> __generate_parentheses(const size_t open,
 /**
  * @brief Generates an array with all valid parentheses strings containing
  *        n pairs of parentheses.
- * @note Complexity: O((2n)!/(n!*(n-1)!)) in both time and space since
- *       the number of possible strings generated with n '('s and n ')'s is
+ * @note Complexity: O((2n)!/(n!*(n-1)!)) in both time and space since the
+ *       number of possible strings generated with n '('s and n ')'s is
  *       (2n)!/(n!*n!) and each generated string has length n.
  */
 std::vector<std::string> generate_parentheses(const size_t n)

@@ -6,10 +6,10 @@
 #include <stack>
 
 /**
- * @brief Queue implementation using two stacks: one holds the back end of
- *        the queue, the other holds the front end of the queue; whenever
- *        one end becomes empty and an element needs to be accessed there,
- *        the elements from the other end are moved to the empty one.
+ * queue implementation using two stacks: one holds the back end of the queue,
+ * the other holds the front end of the queue; whenever one end becomes empty
+ * and an element needs to be accessed there, the elements from the other end
+ * are moved to the empty one
  */
 template<typename T>
 class two_stacks_queue

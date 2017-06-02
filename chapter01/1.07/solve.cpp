@@ -166,6 +166,7 @@ int main()
 
                 assert(A == A_zero);
             }
+
             std::cout << "passed random tests for matrices of size " << m << "×"
                       << n << std::endl;
         }

@@ -43,8 +43,8 @@ private:
 };
 
 /**
- * @brief Returns true if a path between nodes s and d exists, false
- *        otherwise (the existence of a path is determined using BFS).
+ * @brief Returns true if a path between nodes s and d exists, false otherwise
+ *        (the existence of a path is determined using BFS).
  * @note Complexity: O(m+n) in time, O(n) in space, where m and n are the
  *       number of edges and nodes on the graph respectively.
  */
@@ -110,8 +110,8 @@ bool __has_path_dfs(const directed_graph& G,
 }
 
 /**
- * @brief Returns true if a path between nodes s and d exists, false
- *        otherwise (the existence of a path is determined using DFS).
+ * @brief Returns true if a path between nodes s and d exists, false otherwise
+ *        (the existence of a path is determined using DFS).
  * @note Complexity: O(m+n) in time, O(n) in space, where m and n are the
  *       number of edges and nodes on the graph respectively (the space
  *       complexity is O(n) because the recursion will not go deepder than
