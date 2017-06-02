@@ -7,18 +7,18 @@
  *       all these words are in the dictionary).
  */
 
-#include <string>
-#include <vector>
-#include <queue>
-#include <unordered_set>
-#include <unordered_map>
 #include <algorithm>
+#include <cassert>
 #include <fstream>
 #include <iostream>
-#include <cassert>
+#include <queue>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
 
-using dictionary = std::unordered_set< std::string >;
-using word_array = std::vector< std::string >;
+using dictionary = std::unordered_set<std::string>;
+using word_array = std::vector<std::string>;
 
 /**
  * @brief Returns true if two words word1 and word2 have the same length and
@@ -28,19 +28,19 @@ using word_array = std::vector< std::string >;
  */
 bool is_distance_one(const std::string& word1, const std::string& word2)
 {
-	if (word1.size() != word2.size())
-	{
-		return false;
-	}
+    if (word1.size() != word2.size())
+    {
+        return false;
+    }
 
-	size_t count = 0;
+    size_t count = 0;
 
-	for (size_t i = 0; i < word1.size(); ++i)
-	{
-		count += (word1[i] != word2[i]);
-	}
+    for (size_t i = 0; i < word1.size(); ++i)
+    {
+        count += (word1[i] != word2[i]);
+    }
 
-	return (count == 1);
+    return (count == 1);
 }
 
 /**
@@ -50,42 +50,42 @@ bool is_distance_one(const std::string& word1, const std::string& word2)
  */
 word_array get_distance_one_words(std::string word, const dictionary& dict)
 {
-	word_array dist_one;
+    word_array dist_one;
 
-	/*
-	 * replace each character in word with every character in [a-zA-Z],
-	 * then check if the resulting string is a word in the dictionary
-	 * (this implementation is not portable, but works correctly for ASCII
-	 * strings)
-	 */
-	for (char& current : word)
-	{
-		char original = current;
+    /*
+     * replace each character in word with every character in [a-zA-Z],
+     * then check if the resulting string is a word in the dictionary
+     * (this implementation is not portable, but works correctly for ASCII
+     * strings)
+     */
+    for (char& current : word)
+    {
+        char original = current;
 
-		for (char c = 'a'; c <= 'z'; ++c)
-		{
-			current = c;
+        for (char c = 'a'; c <= 'z'; ++c)
+        {
+            current = c;
 
-			if (dict.find(word) != dict.end())
-			{
-				dist_one.push_back(word);
-			}
-		}
+            if (dict.find(word) != dict.end())
+            {
+                dist_one.push_back(word);
+            }
+        }
 
-		for (char c = 'A'; c <= 'Z'; ++c)
-		{
-			current = c;
+        for (char c = 'A'; c <= 'Z'; ++c)
+        {
+            current = c;
 
-			if (dict.find(word) != dict.end())
-			{
-				dist_one.push_back(word);
-			}
-		}
+            if (dict.find(word) != dict.end())
+            {
+                dist_one.push_back(word);
+            }
+        }
 
-		current = original;
-	}
+        current = original;
+    }
 
-	return dist_one;
+    return dist_one;
 }
 
 /**
@@ -100,127 +100,125 @@ word_array get_path_between_words(const std::string& word1,
                                   const std::string& word2,
                                   const dictionary& dict)
 {
-	/*
-	 * return an empty path if one of these conditions are satisfied:
-	 *
-	 * 1) word1 and word2 are equal
-	 * 2) word1 and word2 have different lengths
-	 * 3) word1 is not in the dictionary
-	 * 4) word2 is not in the dictionary
-	 */
-	if (word1 == word2 ||
-	    word1.size() != word2.size() ||
-	    dict.find(word1) == dict.end() ||
-	    dict.find(word2) == dict.end())
-	{
-		return {};
-	}
+    /*
+     * return an empty path if one of these conditions are satisfied:
+     *
+     * 1) word1 and word2 are equal
+     * 2) word1 and word2 have different lengths
+     * 3) word1 is not in the dictionary
+     * 4) word2 is not in the dictionary
+     */
+    if (word1 == word2 || word1.size() != word2.size() ||
+        dict.find(word1) == dict.end() || dict.find(word2) == dict.end())
+    {
+        return {};
+    }
 
-	std::queue< std::string > Q;
-	std::unordered_set< std::string > explored;
-	std::unordered_map< std::string, std::string > previous;
+    std::queue<std::string> Q;
+    std::unordered_set<std::string> explored;
+    std::unordered_map<std::string, std::string> previous;
 
-	Q.push(word1);
-	explored.insert(word1);
+    Q.push(word1);
+    explored.insert(word1);
 
-	while (Q.empty() == false)
-	{
-		std::string current = Q.front();
-		Q.pop();
+    while (Q.empty() == false)
+    {
+        std::string current = Q.front();
+        Q.pop();
 
-		word_array neighbors = get_distance_one_words(current, dict);
+        word_array neighbors = get_distance_one_words(current, dict);
 
-		for (const std::string& neighbor : neighbors)
-		{
-			/*
-			 * if we reached the target (word2), build the path in
-			 * reverse order from word2 to word1 and then return it
-			 * in correct order
-			 */
-			if (neighbor == word2)
-			{
-				word_array path;
+        for (const std::string& neighbor : neighbors)
+        {
+            /*
+             * if we reached the target (word2), build the path in
+             * reverse order from word2 to word1 and then return it
+             * in correct order
+             */
+            if (neighbor == word2)
+            {
+                word_array path;
 
-				path.push_back(neighbor);
+                path.push_back(neighbor);
 
-				while (current != word1)
-				{
-					path.push_back(current);
-					current = previous[current];
-				}
+                while (current != word1)
+                {
+                    path.push_back(current);
+                    current = previous[current];
+                }
 
-				path.push_back(word1);
+                path.push_back(word1);
 
-				/* correct the path direction: word1 -> word2 */
-				std::reverse(path.begin(), path.end());
+                /* correct the path direction: word1 -> word2 */
+                std::reverse(path.begin(), path.end());
 
-				return path;
-			}
+                return path;
+            }
 
-			/* if neighbor has not been explored yet */
-			if (explored.find(neighbor) == explored.end())
-			{
-				Q.push(neighbor);
-				explored.insert(neighbor);
+            /* if neighbor has not been explored yet */
+            if (explored.find(neighbor) == explored.end())
+            {
+                Q.push(neighbor);
+                explored.insert(neighbor);
 
-				previous[neighbor] = current;
-			}
-		}
-	}
+                previous[neighbor] = current;
+            }
+        }
+    }
 
-	/* if we reach this point, we cannot transform word1 into word2 */
-	return {};
+    /* if we reach this point, we cannot transform word1 into word2 */
+    return {};
 }
 
 int main(int argc, char** argv)
 {
-	/*
-	 * usage: ./solve <dictionary-file> <word1> <word2>
-	 * example: ./solve dictionary.txt cat bit
-	 */
+    /*
+     * usage: ./solve <dictionary-file> <word1> <word2>
+     * example: ./solve dictionary.txt cat bit
+     */
 
-	assert(argc > 3);
+    assert(argc > 3);
 
-	/* make sure the dictionary file is valid */
-	std::ifstream dict_file(argv[1]);
-	assert(dict_file.is_open() == true);
+    /* make sure the dictionary file is valid */
+    std::ifstream dict_file(argv[1]);
+    assert(dict_file.is_open() == true);
 
-	std::string word1(argv[2]);
-	std::string word2(argv[3]);
+    std::string word1(argv[2]);
+    std::string word2(argv[3]);
 
-	dictionary dict;
+    dictionary dict;
 
-	/* read all words from the dictionary file */
-	std::string dict_word;
-	while (dict_file >> dict_word)
-	{
-		dict.insert(dict_word);
-	}
+    /* read all words from the dictionary file */
+    std::string dict_word;
+    while (dict_file >> dict_word)
+    {
+        dict.insert(dict_word);
+    }
 
-	word_array path = get_path_between_words(word1, word2, dict);
+    word_array path = get_path_between_words(word1, word2, dict);
 
-	if (path.empty() == false)
-	{
-		std::cout << path.front();
+    if (path.empty() == false)
+    {
+        std::cout << path.front();
 
-		for (size_t i = 1; i < path.size(); ++i)
-		{
-			std::cout << " -> " << path[i];
+        for (size_t i = 1; i < path.size(); ++i)
+        {
+            std::cout << " -> " << path[i];
 
-			assert(is_distance_one(path[i-1], path[i]) == true);
-		}
+            assert(is_distance_one(path[i - 1], path[i]) == true);
+        }
 
-		std::cout << std::endl;
-	}
-	else if (word1 == word2)
-	{
-		std::cout << "initial and target words are equal" << std::endl;
-	}
-	else
-	{
-		std::cout << "no path found between '" << word1 << "' and '"
-		          << word2 << "'" << std::endl;
-	}
+        std::cout << std::endl;
+    }
+    else if (word1 == word2)
+    {
+        std::cout << "initial and target words are equal" << std::endl;
+    }
+    else
+    {
+        std::cout << "no path found between '" << word1 << "' and '" << word2
+                  << "'" << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

@@ -4,40 +4,40 @@
  *       that all cells at its borders are black.
  */
 
-#include <vector>
+#include <cassert>
 #include <iostream>
 #include <random>
-#include <cassert>
+#include <vector>
 
 /* a generic board class for storing data per cell */
-template< typename T >
+template<typename T>
 class board
 {
 public:
-	board(const size_t n): element(n, std::vector< T >(n))
-	{
-		/* nothing here */
-	}
+    board(const size_t n) : element(n, std::vector<T>(n))
+    {
+        /* nothing here */
+    }
 
-	T& operator()(const size_t i, const size_t j)
-	{
-		assert(i < size() && j < size());
-		return element[i][j];
-	}
+    T& operator()(const size_t i, const size_t j)
+    {
+        assert(i < size() && j < size());
+        return element[i][j];
+    }
 
-	const T& operator()(const size_t i, const size_t j) const
-	{
-		assert(i < size() && j < size());
-		return element[i][j];
-	}
+    const T& operator()(const size_t i, const size_t j) const
+    {
+        assert(i < size() && j < size());
+        return element[i][j];
+    }
 
-	size_t size() const
-	{
-		return element.size();
-	}
+    size_t size() const
+    {
+        return element.size();
+    }
 
 private:
-	std::vector< std::vector< T > > element;
+    std::vector<std::vector<T> > element;
 };
 
 /*
@@ -46,161 +46,165 @@ private:
  */
 struct square
 {
-	size_t area() const
-	{
-		return L*L;
-	}
+    size_t area() const
+    {
+        return L * L;
+    }
 
-	size_t x;
-	size_t y;
-	size_t L;
+    size_t x;
+    size_t y;
+    size_t L;
 };
 
-enum class color { WHITE, BLACK };
+enum class color
+{
+    WHITE,
+    BLACK
+};
 
 /**
  * @brief Returns true if the square S has black borders, false otherwise.
  * @note Complexity: O(1) in space, O(n) in time, where n is the board size.
  */
-bool is_valid_solution(const square& S, const board< color >& B)
+bool is_valid_solution(const square& S, const board<color>& B)
 {
-	const size_t L = S.L;
-	const size_t x = S.x;
-	const size_t y = S.y;
+    const size_t L = S.L;
+    const size_t x = S.x;
+    const size_t y = S.y;
 
-	/* check if the top and bottom borders are black */
-	for (size_t i = x; i < x+L; ++i)
-	{
-		if (B(i,y) == color::WHITE || B(i,y+L-1) == color::WHITE)
-		{
-			return false;
-		}
-	}
+    /* check if the top and bottom borders are black */
+    for (size_t i = x; i < x + L; ++i)
+    {
+        if (B(i, y) == color::WHITE || B(i, y + L - 1) == color::WHITE)
+        {
+            return false;
+        }
+    }
 
-	/* check if the left and right borders are black */
-	for (size_t j = y; j < y+L; ++j)
-	{
-		if (B(x,j) == color::WHITE || B(x+L-1,j) == color::WHITE)
-		{
-			return false;
-		}
-	}
+    /* check if the left and right borders are black */
+    for (size_t j = y; j < y + L; ++j)
+    {
+        if (B(x, j) == color::WHITE || B(x + L - 1, j) == color::WHITE)
+        {
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }
 
 /**
  * @brief Returns the largest square with black borders.
  * @note Complexity: O(n²) in space, O(n³) in time, where n is the board size.
  */
-square maximum_subsquare_1(const board< color >& B)
+square maximum_subsquare_1(const board<color>& B)
 {
-	size_t n = B.size();
+    size_t n = B.size();
 
-	/* number of black cells to the left including self */
-	board< size_t > black_left(n);
+    /* number of black cells to the left including self */
+    board<size_t> black_left(n);
 
-	/* number of black cells below including self */
-	board< size_t > black_down(n);
+    /* number of black cells below including self */
+    board<size_t> black_down(n);
 
-	square result{0,0,0};
+    square result{0, 0, 0};
 
-	/*
-	 * for each black cell, compute the number of black cells below and to
-	 * its left (including the cell itself), the total work is O(n²) in time
-	 */
-	for (size_t i = 0; i < n; ++i)
-	{
-		for (size_t j = 0; j < n; ++j)
-		{
-			black_left(i,j) = (B(i,j) == color::BLACK);
-			black_down(i,j) = (B(i,j) == color::BLACK);
+    /*
+     * for each black cell, compute the number of black cells below and to
+     * its left (including the cell itself), the total work is O(n²) in time
+     */
+    for (size_t i = 0; i < n; ++i)
+    {
+        for (size_t j = 0; j < n; ++j)
+        {
+            black_left(i, j) = (B(i, j) == color::BLACK);
+            black_down(i, j) = (B(i, j) == color::BLACK);
 
-			if (i > 0 && B(i,j) == color::BLACK)
-			{
-				black_left(i,j) += black_left(i-1,j);
-			}
-			if (j > 0 && B(i,j) == color::BLACK)
-			{
-				black_down(i,j) += black_down(i,j-1);
-			}
-		}
-	}
+            if (i > 0 && B(i, j) == color::BLACK)
+            {
+                black_left(i, j) += black_left(i - 1, j);
+            }
+            if (j > 0 && B(i, j) == color::BLACK)
+            {
+                black_down(i, j) += black_down(i, j - 1);
+            }
+        }
+    }
 
-	/*
-	 * now find the largest square with black borders; the total work is
-	 * O(n³) in time
-	 */
-	for (size_t i = 0; i < n; ++i)
-	{
-		for (size_t j = 0; j < n; ++j)
-		{
-			/*
-			 * max_L is the maximum possible length of a square
-			 * with black borders and bottom left position (i,j)
-			 */
-			size_t max_L = std::min(n-i, n-j);
+    /*
+     * now find the largest square with black borders; the total work is
+     * O(n³) in time
+     */
+    for (size_t i = 0; i < n; ++i)
+    {
+        for (size_t j = 0; j < n; ++j)
+        {
+            /*
+             * max_L is the maximum possible length of a square
+             * with black borders and bottom left position (i,j)
+             */
+            size_t max_L = std::min(n - i, n - j);
 
-			for (size_t L = max_L; L*L > result.area(); --L)
-			{
-				/*
-				 * check if the square with bottom left position
-				 * (i,j) and length L has black borders
-				 */
-				if (black_left(i+L-1,j) >= L &&
-				    black_down(i+L-1, j+L-1) >= L &&
-				    black_left(i+L-1, j+L-1) >= L &&
-				    black_down(i, j+L-1) >= L)
-				{
-					result.x = i;
-					result.y = j;
-					result.L = L;
-				}
-			}
-		}
-	}
+            for (size_t L = max_L; L * L > result.area(); --L)
+            {
+                /*
+                 * check if the square with bottom left position
+                 * (i,j) and length L has black borders
+                 */
+                if (black_left(i + L - 1, j) >= L &&
+                    black_down(i + L - 1, j + L - 1) >= L &&
+                    black_left(i + L - 1, j + L - 1) >= L &&
+                    black_down(i, j + L - 1) >= L)
+                {
+                    result.x = i;
+                    result.y = j;
+                    result.L = L;
+                }
+            }
+        }
+    }
 
-	return result;
+    return result;
 }
 
 /**
  * @brief Returns the largest square with black borders using brute force.
  * @note Complexity: O(1) in space, O(n^4) in time, where n is the board size.
  */
-square maximum_subsquare_2(const board< color >& B)
+square maximum_subsquare_2(const board<color>& B)
 {
-	size_t n = B.size();
+    size_t n = B.size();
 
-	square result{0,0,0};
+    square result{0, 0, 0};
 
-	/*
-	 * for every position (i,j), determine the largest square which has
-	 * (i,j) as its bottom left cell and black borders
-	 */
-	for (size_t i = 0; i < n; ++i)
-	{
-		for (size_t j = 0; j < n; ++j)
-		{
-			/*
-			 * max_L is the maximum possible length of a square
-			 * with black borders and bottom left position (i,j)
-			 */
-			size_t max_L = std::min(n-i, n-j);
+    /*
+     * for every position (i,j), determine the largest square which has
+     * (i,j) as its bottom left cell and black borders
+     */
+    for (size_t i = 0; i < n; ++i)
+    {
+        for (size_t j = 0; j < n; ++j)
+        {
+            /*
+             * max_L is the maximum possible length of a square
+             * with black borders and bottom left position (i,j)
+             */
+            size_t max_L = std::min(n - i, n - j);
 
-			for (size_t L = max_L; L*L > result.area(); --L)
-			{
-				square S{i,j,L};
+            for (size_t L = max_L; L * L > result.area(); --L)
+            {
+                square S{i, j, L};
 
-				/* check in O(n) time if S has black borders */
-				if (is_valid_solution(S,B) == true)
-				{
-					result = S;
-				}
-			}
-		}
-	}
+                /* check in O(n) time if S has black borders */
+                if (is_valid_solution(S, B) == true)
+                {
+                    result = S;
+                }
+            }
+        }
+    }
 
-	return result;
+    return result;
 }
 
 /**
@@ -208,45 +212,47 @@ square maximum_subsquare_2(const board< color >& B)
  *        are black with probability 80% and white with probability 20%.
  * @note Complexity: O(n²) in both time and space.
  */
-board< color > random_board(const size_t n)
+board<color> random_board(const size_t n)
 {
-	static std::random_device device;
-	static std::mt19937 generator(device());
+    static std::random_device device;
+    static std::mt19937 generator(device());
 
-	std::bernoulli_distribution distribution(0.8);
+    std::bernoulli_distribution distribution(0.8);
 
-	board< color > B(n);
+    board<color> B(n);
 
-	for (size_t i = 0; i < n; ++i)
-	{
-		for (size_t j = 0; j < n; ++j)
-		{
-			B(i,j) = distribution(generator) == true ? color::BLACK : color::WHITE;
-		}
-	}
+    for (size_t i = 0; i < n; ++i)
+    {
+        for (size_t j = 0; j < n; ++j)
+        {
+            B(i, j) =
+                distribution(generator) == true ? color::BLACK : color::WHITE;
+        }
+    }
 
-	return B;
+    return B;
 }
 
 int main()
 {
-	for (size_t n = 0; n <= 20; ++n)
-	{
-		for (int i = 0; i < 1000; ++i)
-		{
-			board< color > B = random_board(n);
+    for (size_t n = 0; n <= 20; ++n)
+    {
+        for (int i = 0; i < 1000; ++i)
+        {
+            board<color> B = random_board(n);
 
-			square S1 = maximum_subsquare_1(B);
-			square S2 = maximum_subsquare_2(B);
+            square S1 = maximum_subsquare_1(B);
+            square S2 = maximum_subsquare_2(B);
 
-			assert(is_valid_solution(S1,B) == true);
-			assert(is_valid_solution(S2,B) == true);
+            assert(is_valid_solution(S1, B) == true);
+            assert(is_valid_solution(S2, B) == true);
 
-			assert(S1.area() == S2.area());
-		}
+            assert(S1.area() == S2.area());
+        }
 
-		std::cout << "passed random tests for boards of size " << n << std::endl;
-	}
+        std::cout << "passed random tests for boards of size " << n
+                  << std::endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

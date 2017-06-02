@@ -3,8 +3,8 @@
  *       occurrences of each unique word read from the stream.
  */
 
-#include <map>
 #include <iostream>
+#include <map>
 
 /**
  * @brief Returns a map containing the number of occurrences of each unique
@@ -13,28 +13,28 @@
  *       number of words in the input stream and m is the length of the longest
  *       word.
  */
-std::map< std::string, size_t > count_words(std::istream& stream)
+std::map<std::string, size_t> count_words(std::istream& stream)
 {
-	std::string word;
+    std::string word;
 
-	std::map< std::string, size_t > count;
+    std::map<std::string, size_t> count;
 
-	while (stream >> word)
-	{
-		++count[word];
-	}
+    while (stream >> word)
+    {
+        ++count[word];
+    }
 
-	return count;
+    return count;
 }
 
 int main()
 {
-	std::map< std::string, size_t > count = count_words(std::cin);
+    std::map<std::string, size_t> count = count_words(std::cin);
 
-	for (const auto& p : count)
-	{
-		std::cout << p.first << ": " << p.second << "\n";
-	}
+    for (const auto& p : count)
+    {
+        std::cout << p.first << ": " << p.second << "\n";
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

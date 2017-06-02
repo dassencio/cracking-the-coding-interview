@@ -4,9 +4,9 @@
  *       must be accessible as in array[i][j].
  */
 
+#include <cassert>
 #include <cstdlib>
 #include <iostream>
-#include <cassert>
 
 /**
  * @brief Returns an m×n matrix as a pointer to an array of pointers to
@@ -21,51 +21,51 @@
  */
 int** my_2d_alloc(const int m, const int n)
 {
-	/* number of bytes necessary to store a matrix row */
-	int row_space = n*sizeof(int);
+    /* number of bytes necessary to store a matrix row */
+    int row_space = n * sizeof(int);
 
-	/* memory layout: row pointers first, then the matrix elements */
-	int** matrix = (int**)malloc(m*sizeof(int*) + m*row_space);
+    /* memory layout: row pointers first, then the matrix elements */
+    int** matrix = (int**)malloc(m * sizeof(int*) + m * row_space);
 
-	/* set the row pointers */
-	for (int i = 0; i < m; ++i)
-	{
-		matrix[i] = (int*)((char*)matrix + (m*sizeof(int*) + i*row_space));
-	}
+    /* set the row pointers */
+    for (int i = 0; i < m; ++i)
+    {
+        matrix[i] = (int*)((char*)matrix + (m * sizeof(int*) + i * row_space));
+    }
 
-	return matrix;
+    return matrix;
 }
 
 int main()
 {
-	for (int m = 0; m < 10; ++m)
-	{
-		for (int n = 0; n < 10; ++n)
-		{
-			int** matrix = my_2d_alloc(m,n);
+    for (int m = 0; m < 10; ++m)
+    {
+        for (int n = 0; n < 10; ++n)
+        {
+            int** matrix = my_2d_alloc(m, n);
 
-			for (int i = 0; i < m; ++i)
-			{
-				for (int j = 0; j < n; ++j)
-				{
-					matrix[i][j] = i*n + j;
-				}
-			}
+            for (int i = 0; i < m; ++i)
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    matrix[i][j] = i * n + j;
+                }
+            }
 
-			/* check if we corrupted anything */
-			for (int i = 0; i < m; ++i)
-			{
-				for (int j = 0; j < n; ++j)
-				{
-					assert(matrix[i][j] == i*n + j);
-				}
-			}
+            /* check if we corrupted anything */
+            for (int i = 0; i < m; ++i)
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    assert(matrix[i][j] == i * n + j);
+                }
+            }
 
-			free(matrix);
-		}
-	}
+            free(matrix);
+        }
+    }
 
-	std::cout << "passed all tests" << std::endl;
+    std::cout << "passed all tests" << std::endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

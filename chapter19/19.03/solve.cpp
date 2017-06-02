@@ -4,9 +4,9 @@
  *       9! = 362880 and for n = 10, the answer should be 2 since n! = 3628800.
  */
 
+#include <cassert>
 #include <cmath>
 #include <iostream>
-#include <cassert>
 
 /**
  * @brief Computes n!.
@@ -14,15 +14,15 @@
  */
 uint64_t factorial(uint64_t n)
 {
-	uint64_t result = 1;
+    uint64_t result = 1;
 
-	while (n > 0)
-	{
-		result *= n;
-		--n;
-	}
+    while (n > 0)
+    {
+        result *= n;
+        --n;
+    }
 
-	return result;
+    return result;
 }
 
 /**
@@ -34,16 +34,16 @@ uint64_t factorial(uint64_t n)
  */
 uint64_t trailing_zeros_1(uint64_t n)
 {
-	uint64_t nfac = factorial(n);
-	uint64_t count = 0;
+    uint64_t nfac = factorial(n);
+    uint64_t count = 0;
 
-	while (nfac > 0 && (nfac % 10) == 0)
-	{
-		++count;
-		nfac /= 10;
-	}
+    while (nfac > 0 && (nfac % 10) == 0)
+    {
+        ++count;
+        nfac /= 10;
+    }
 
-	return count;
+    return count;
 }
 
 /**
@@ -57,45 +57,45 @@ uint64_t trailing_zeros_1(uint64_t n)
  */
 uint64_t trailing_zeros_2(uint64_t n)
 {
-	/*
-	 * n! has as many zeros as the number of times it can be divided
-	 * by 10. Since being divisible by 10 means being divisible by both
-	 * 2 and 5, and since n! can always be divided by 2 more often than by
-	 * 5, we just need to count the number of times n! can be divided by 5,
-	 * and we do that by counting the number of times we can divide the
-	 * following numbers by 5: n, n-1, ..., 5
-	 */
-	uint64_t count = 0;
+    /*
+     * n! has as many zeros as the number of times it can be divided
+     * by 10. Since being divisible by 10 means being divisible by both
+     * 2 and 5, and since n! can always be divided by 2 more often than by
+     * 5, we just need to count the number of times n! can be divided by 5,
+     * and we do that by counting the number of times we can divide the
+     * following numbers by 5: n, n-1, ..., 5
+     */
+    uint64_t count = 0;
 
-	while (n >= 5)
-	{
-		uint64_t m = n;
+    while (n >= 5)
+    {
+        uint64_t m = n;
 
-		while (m >= 5)
-		{
-			if (m % 5 == 0)
-			{
-				++count;
-				m /= 5;
-			}
-			else
-			{
-				break;
-			}
-		}
+        while (m >= 5)
+        {
+            if (m % 5 == 0)
+            {
+                ++count;
+                m /= 5;
+            }
+            else
+            {
+                break;
+            }
+        }
 
-		--n;
-	}
+        --n;
+    }
 
-	return count;
+    return count;
 }
 
 int main()
 {
-	for (uint64_t n = 0; n <= 20; ++n)
-	{
-		assert(trailing_zeros_1(n) == trailing_zeros_2(n));
+    for (uint64_t n = 0; n <= 20; ++n)
+    {
+        assert(trailing_zeros_1(n) == trailing_zeros_2(n));
 
-		std::cout << "passed test for n = " << n << std::endl;
-	}
+        std::cout << "passed test for n = " << n << std::endl;
+    }
 }
