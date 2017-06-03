@@ -1,0 +1,11 @@
+#!/bin/bash -e
+
+for word1 in $(cat dictionary.txt | shuf | head -n 50)
+do
+    for word2 in $(cat dictionary.txt | shuf | head -n 50)
+    do
+        ./solve dictionary.txt "$word1" "$word2" > /dev/null
+    done
+done
+
+echo "passed all tests"

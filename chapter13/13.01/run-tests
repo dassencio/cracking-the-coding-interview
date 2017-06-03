@@ -1,0 +1,26 @@
+#!/bin/bash -e
+
+tmp_file="input-file.txt"
+
+rm -f $tmp_file
+touch $tmp_file
+
+# consider input files containing 0-50 lines
+for m in $(seq 0 50)
+do
+    # m = 0 => empty input file
+    if [ $m != 0 ]
+    then
+        echo $m >> $tmp_file
+    fi
+
+    # get the last $n lines from the input file
+    for n in $(seq 0 50)
+    do
+        diff <(./solve $n $tmp_file) <(tail -n $n $tmp_file) || { rm -f $tmp_file; exit 1; }
+    done
+done
+
+rm -f $tmp_file
+
+echo "passed all tests"

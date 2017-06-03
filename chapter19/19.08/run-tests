@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+diff <(./solve < <(echo "")) <(echo -en "")
+diff <(./solve < <(echo "a")) <(echo -en "a: 1\n")
+diff <(./solve < <(echo "a b")) <(echo -en "a: 1\nb: 1\n")
+diff <(./solve < <(echo "a b a b")) <(echo -en "a: 2\nb: 2\n")
+diff <(./solve < <(echo "a b c c b a")) <(echo -en "a: 2\nb: 2\nc: 2\n")
+
+echo "passed all tests"

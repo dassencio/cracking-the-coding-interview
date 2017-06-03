@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+./solve dictionaries/dictionary-100.txt > /dev/null
+./solve dictionaries/dictionary-1000.txt > /dev/null
+./solve dictionaries/dictionary-10000.txt > /dev/null
+./solve dictionaries/dictionary-20000.txt > /dev/null
+
+echo "passed all tests"
