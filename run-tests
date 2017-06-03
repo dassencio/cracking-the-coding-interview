@@ -2,99 +2,99 @@
 
 ################################################################################
 #
-#	This script compiles and runs the tests for all problem solutions in
-#	this repository. It is intended to be used for automated verification.
+#   This script compiles and runs the tests for all problem solutions in
+#   this repository. It is intended to be used for automated verification.
 #
 ################################################################################
 
 for chapter in $(ls -d */)
 do
-	cd $chapter
+    cd $chapter
 
-	for problem in $(ls -d */)
-	do
-		cd $problem
+    for problem in $(ls -d */)
+    do
+        cd $problem
 
-		# compile the solution code, if necessary
-		if [ -e Makefile ]
-		then
-			make > /dev/null
-		fi
+        # compile the solution code, if necessary
+        if [ -e Makefile ]
+        then
+            make > /dev/null
+        fi
 
-		case "${problem}" in
+        case "${problem}" in
 
-			# problems 8.01 and 19.01 contain no tests (only a README file)
-			8.01*|19.01*)
-				echo "Problem ${problem/\//} contains no tests"
+            # problems 8.01 and 19.01 contain no tests (only a README file)
+            8.01*|19.01*)
+                echo "Problem ${problem/\//} contains no tests"
 
-				cd ..
-				continue
-				;;
+                cd ..
+                continue
+                ;;
 
-			# problem 13.01 requires an input file
-			13.01*)
-				tmp_file="input-file.txt"
-				rm -f $tmp_file
-				touch $tmp_file
+            # problem 13.01 requires an input file
+            13.01*)
+                tmp_file="input-file.txt"
+                rm -f $tmp_file
+                touch $tmp_file
 
-				# consider input files containing 0-50 lines
-				for m in $(seq 0 50)
-				do
-					# m = 0 => empty input file
-					if [ $m != 0 ]
-					then
-						echo $m >> $tmp_file
-					fi
+                # consider input files containing 0-50 lines
+                for m in $(seq 0 50)
+                do
+                    # m = 0 => empty input file
+                    if [ $m != 0 ]
+                    then
+                        echo $m >> $tmp_file
+                    fi
 
-					# get the last $n lines from the input file
-					for n in $(seq 0 50)
-					do
-						diff <(./solve $n $tmp_file) <(tail -n $n $tmp_file) || { rm -f $tmp_file; exit 1; }
-					done
-				done
+                    # get the last $n lines from the input file
+                    for n in $(seq 0 50)
+                    do
+                        diff <(./solve $n $tmp_file) <(tail -n $n $tmp_file) || { rm -f $tmp_file; exit 1; }
+                    done
+                done
 
-				rm -f $tmp_file
-				;;
+                rm -f $tmp_file
+                ;;
 
-			# problem 19.08 requires user input
-			19.08*)
-				diff <(./solve < <(echo "")) <(echo -en "")
-				diff <(./solve < <(echo "a")) <(echo -en "a: 1\n")
-				diff <(./solve < <(echo "a b")) <(echo -en "a: 1\nb: 1\n")
-				diff <(./solve < <(echo "a b a b")) <(echo -en "a: 2\nb: 2\n")
-				diff <(./solve < <(echo "a b c c b a")) <(echo -en "a: 2\nb: 2\nc: 2\n")
-				;;
+            # problem 19.08 requires user input
+            19.08*)
+                diff <(./solve < <(echo "")) <(echo -en "")
+                diff <(./solve < <(echo "a")) <(echo -en "a: 1\n")
+                diff <(./solve < <(echo "a b")) <(echo -en "a: 1\nb: 1\n")
+                diff <(./solve < <(echo "a b a b")) <(echo -en "a: 2\nb: 2\n")
+                diff <(./solve < <(echo "a b c c b a")) <(echo -en "a: 2\nb: 2\nc: 2\n")
+                ;;
 
-			# problem 20.10 requires an input dictionary file and user input
-			20.10*)
-				for word1 in $(cat dictionary.txt | shuf | head -n 50)
-				do
-					for word2 in $(cat dictionary.txt | shuf | head -n 50)
-					do
-						./solve dictionary.txt "$word1" "$word2" > /dev/null
-					done
-				done
-				;;
+            # problem 20.10 requires an input dictionary file and user input
+            20.10*)
+                for word1 in $(cat dictionary.txt | shuf | head -n 50)
+                do
+                    for word2 in $(cat dictionary.txt | shuf | head -n 50)
+                    do
+                        ./solve dictionary.txt "$word1" "$word2" > /dev/null
+                    done
+                done
+                ;;
 
-			# problem 20.13 requires an input dictionary file
-			20.13*)
-				./solve dictionaries/dictionary-100.txt > /dev/null
-				./solve dictionaries/dictionary-1000.txt > /dev/null
-				./solve dictionaries/dictionary-10000.txt > /dev/null
-				./solve dictionaries/dictionary-20000.txt > /dev/null
-				;;
+            # problem 20.13 requires an input dictionary file
+            20.13*)
+                ./solve dictionaries/dictionary-100.txt > /dev/null
+                ./solve dictionaries/dictionary-1000.txt > /dev/null
+                ./solve dictionaries/dictionary-10000.txt > /dev/null
+                ./solve dictionaries/dictionary-20000.txt > /dev/null
+                ;;
 
-			# for all other problems, simply run tests from ./solve
-			*)
-				./solve > /dev/null
-		esac
+            # for all other problems, simply run tests from ./solve
+            *)
+                ./solve > /dev/null
+        esac
 
-		echo "Passed tests for problem ${problem/\//}"
+        echo "Passed tests for problem ${problem/\//}"
 
-		cd ..
-	done
+        cd ..
+    done
 
-	cd ..
+    cd ..
 done
 
 echo "Success: all tests passed!"
