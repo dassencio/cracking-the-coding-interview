@@ -19,20 +19,19 @@ Usage instructions
 ==================
 
 Each solution in this repository is self-contained. Each directory contains
-the solution to a given problem and (except for solutions which require user
-input) tests to check its correctness (most of the tests are randomized). To run
-the tests for a given problem on Linux, enter the associated directory for that
-solution and compile it first:
+the solution to a given problem and tests to check its correctness (most of the
+tests are randomized). To run the tests for a given problem, enter its
+associated directory and run:
 
-	make
+	make test
 
-The tests can then be executed by running:
-
-	./solve
-
-The solutions to problems `13.01`, `19.08`, `20.10` and `20.13` require user
-input to be tested. See the comment right on top of their associated `main()`
-functions for instructions on how to run them.
+For the majority of the problems, this will simply generate and run an
+executable file called `solve` which tests the provided solution.
+Problems `13.01`, `19.08`, `20.10` and `20.13` require user input to be tested
+and are therefore accompanied by Bash scripts called `run-tests` which generate
+the necessary input for testing them. See the comments on top of the associated
+`main()` functions for these problems for instructions on how to test their
+solutions manually.
 
 
 Contributors & contact information
