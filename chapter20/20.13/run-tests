@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
+set -e
 
 ./solve dictionaries/dictionary-100.txt > /dev/null
 ./solve dictionaries/dictionary-1000.txt > /dev/null

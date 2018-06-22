@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
+set -e
 
 for word1 in $(cat dictionary.txt | shuf | head -n 50)
 do

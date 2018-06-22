@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
+set -e
 
 diff <(./solve < <(echo "")) <(echo -en "")
 diff <(./solve < <(echo "a")) <(echo -en "a: 1\n")
