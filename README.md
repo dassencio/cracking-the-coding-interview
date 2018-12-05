@@ -1,29 +1,24 @@
-[![Build Status](https://travis-ci.org/dassencio/cracking-the-coding-interview.svg?branch=master)](https://travis-ci.org/dassencio/cracking-the-coding-interview)
+[![Build Status](https://api.travis-ci.com/dassencio/cracking-the-coding-interview.svg?branch=master)](https://travis-ci.com/dassencio/cracking-the-coding-interview)
 
-Description
-===========
+# Description
 
 Solutions (in C++) to selected problems from the book "Cracking the Coding
 Interview, 4th Edition - 150 Programming Interview Questions and Solutions".
 
-
-License
-=======
+# License
 
 All code from this project is licensed under the GPLv3. See the
 [`LICENSE`](https://github.com/dassencio/cracking-the-coding-interview/tree/master/LICENSE)
 file for more information.
 
-
-Usage instructions
-==================
+# Usage instructions
 
 Each solution in this repository is self-contained. Each directory contains
 the solution to a given problem and tests to check its correctness (most of the
 tests are randomized). To run the tests for a given problem, enter its
 associated directory and run:
 
-	make test
+    make test
 
 For the majority of the problems, this will simply generate and run an
 executable file called `solve` which tests the provided solution.
@@ -33,8 +28,6 @@ the necessary input for testing them. See the comments on top of the associated
 `main()` functions for these problems for instructions on how to test their
 solutions manually.
 
-
-Contributors & contact information
-==================================
+# Contributors & contact information
 
 Diego Assencio / diego@assencio.com
