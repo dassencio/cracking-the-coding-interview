@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <random>
 #include "binary_search_tree.hpp"
 
 /**

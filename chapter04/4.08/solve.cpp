@@ -11,6 +11,7 @@
 #include <cassert>
 #include <iostream>
 #include <list>
+#include <random>
 #include <vector>
 
 /** @brief A node of a binary tree. */

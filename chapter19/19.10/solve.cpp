@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <random>
 
 /**
  * @brief Generates random integers uniformly in [1,5].

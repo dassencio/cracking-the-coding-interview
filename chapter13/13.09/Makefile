@@ -1,4 +1,4 @@
-CXXFLAGS := -g -std=c++11 -Wall -Wextra -Werror
+CXXFLAGS := -g -std=c++11 -Wall -Wextra -Werror -Wno-self-assign
 
 all: solve
 

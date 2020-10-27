@@ -14,6 +14,7 @@
 #include <bitset>
 #include <cassert>
 #include <iostream>
+#include <random>
 
 /**
  * @brief Returns true if the bits [m_0,...,m_(j-i)] of M are equal to the bits

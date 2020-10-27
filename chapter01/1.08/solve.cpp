@@ -10,6 +10,7 @@
 #include <cassert>
 #include <iomanip>
 #include <iostream>
+#include <random>
 
 /**
  * @brief Solution which checks if str2 appears in (str1 + str1).

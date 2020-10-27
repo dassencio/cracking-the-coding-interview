@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.com/dassencio/cracking-the-coding-interview.svg?branch=master)](https://travis-ci.com/dassencio/cracking-the-coding-interview)
+![Functional tests](https://github.com/dassencio/cracking-the-coding-interview/workflows/Functional%20tests/badge.svg)
 
 # Description
 

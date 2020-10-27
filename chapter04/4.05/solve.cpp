@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <random>
 
 /** @brief A node of a binary search tree. */
 struct tree_node

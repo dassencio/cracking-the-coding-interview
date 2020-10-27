@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <random>
 
 /**
  * @brief Returns the smallest integer which is larger than n but has the same

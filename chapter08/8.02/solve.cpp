@@ -18,6 +18,7 @@
 #include <cassert>
 #include <iostream>
 #include <list>
+#include <random>
 #include <vector>
 
 /** @brief A grid cell represented as a pair of indices (x,y). */

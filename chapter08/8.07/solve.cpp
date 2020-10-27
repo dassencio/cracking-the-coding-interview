@@ -13,6 +13,7 @@
 #include <array>
 #include <cassert>
 #include <iostream>
+#include <random>
 #include <vector>
 
 using coin_sequence = std::vector<int>;

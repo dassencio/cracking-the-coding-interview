@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <random>
 #include <string>
 #include <vector>
 

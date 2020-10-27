@@ -8,6 +8,7 @@
 #include <cassert>
 #include <cstring> /* std::strlen */
 #include <iostream>
+#include <random>
 
 /**
  * @brief Reverses an input C-string in place.

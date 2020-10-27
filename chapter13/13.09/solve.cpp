@@ -4,6 +4,7 @@
 
 #include <cassert>
 #include <iostream>
+#include <random>
 
 /**
  * @brief A very simple smart pointer class: no move operations, no comparison

@@ -12,6 +12,7 @@
 #include <cassert>
 #include <deque>
 #include <iostream>
+#include <random>
 #include <vector>
 
 struct person

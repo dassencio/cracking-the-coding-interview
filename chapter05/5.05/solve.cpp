@@ -9,6 +9,7 @@
 #include <bitset>
 #include <cassert>
 #include <iostream>
+#include <random>
 
 /**
  * @brief Returns the number of bits in x which differ from y.

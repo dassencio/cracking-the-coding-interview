@@ -11,6 +11,7 @@
 #include <deque>
 #include <iostream>
 #include <queue>
+#include <random>
 
 enum color
 {

@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <random>
 
 /**
  * @brief Returns the largest of two numbers a and b.

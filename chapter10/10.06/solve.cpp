@@ -7,6 +7,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <random>
 #include <vector>
 #include "line.h"
 

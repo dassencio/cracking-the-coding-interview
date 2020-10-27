@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <random>
 #include <vector>
 
 /** @brief A node of a binary tree. */

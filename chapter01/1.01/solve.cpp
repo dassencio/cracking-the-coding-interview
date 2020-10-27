@@ -8,6 +8,7 @@
 #include <algorithm> /* std::sort */
 #include <cassert>
 #include <iostream>
+#include <random>
 #include <string>
 
 /**

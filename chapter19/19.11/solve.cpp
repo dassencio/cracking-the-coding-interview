@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <random>
 #include <unordered_set>
 #include <vector>
 
