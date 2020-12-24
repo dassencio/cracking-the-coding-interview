@@ -2,7 +2,7 @@
 #define __STACKS_HPP__
 
 #include <cassert>
-#include <cstddef> /* size_t */
+#include <cstddef>
 #include <stack>
 #include <vector>
 

@@ -2,7 +2,7 @@
 #define __TWO_STACKS_QUEUE_HPP__
 
 #include <cassert>
-#include <cstddef> /* size_t */
+#include <cstddef>
 #include <stack>
 
 /**

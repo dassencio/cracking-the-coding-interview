@@ -6,7 +6,7 @@
  *       using std::find) at most once.
  */
 
-#include <algorithm> /* std::rotate */
+#include <algorithm>
 #include <cassert>
 #include <iomanip>
 #include <iostream>

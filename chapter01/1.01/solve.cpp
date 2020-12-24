@@ -5,7 +5,7 @@
  *       buffer).
  */
 
-#include <algorithm> /* std::sort */
+#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <random>

@@ -4,9 +4,9 @@
  *       the C-string literal "word" are {'w','o','r','d','\0'}.
  */
 
-#include <algorithm> /* std::reverse */
+#include <algorithm>
 #include <cassert>
-#include <cstring> /* std::strlen */
+#include <cstring>
 #include <iostream>
 #include <random>
 

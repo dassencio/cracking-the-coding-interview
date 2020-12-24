@@ -3,7 +3,7 @@
  *       on this string with the string "%20".
  */
 
-#include <algorithm> /* std::count */
+#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <random>

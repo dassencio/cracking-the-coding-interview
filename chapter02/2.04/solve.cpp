@@ -11,7 +11,7 @@
 #include <cassert>
 #include <iostream>
 #include <list>
-#include <random> /* std::uniform_int_distribution */
+#include <random>
 
 /* a decimal digit (value on range [0,9]) */
 using digit = uint8_t;

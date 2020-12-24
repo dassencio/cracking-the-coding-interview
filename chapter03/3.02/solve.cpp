@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <queue>
-#include <random> /* std::uniform_int_distribution */
+#include <random>
 #include "stack_min.hpp"
 
 int main()

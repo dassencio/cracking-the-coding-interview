@@ -6,7 +6,7 @@
 
 #include <cassert>
 #include <iostream>
-#include <random> /* std::uniform_int_distribution */
+#include <random>
 #include <stack>
 
 /**

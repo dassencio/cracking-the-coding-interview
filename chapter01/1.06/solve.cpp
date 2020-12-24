@@ -8,7 +8,7 @@
 #include <cassert>
 #include <iomanip>
 #include <iostream>
-#include <random> /* std::uniform_int_distribution */
+#include <random>
 #include <vector>
 
 class square_matrix

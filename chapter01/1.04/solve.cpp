@@ -5,7 +5,7 @@
  *
  */
 
-#include <algorithm> /* std::sort, std::shuffle */
+#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <random>
