@@ -1,0 +1,34 @@
+name: Static code analysis
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  codeql:
+    name: Scan code with CodeQL
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: cpp
+        queries: security-and-quality
+
+    - name: Build problem solvers
+      run: |
+        IFS=$'\n'
+        for makefile in $(find . -name Makefile)
+        do
+          make -C "$(dirname "$makefile")"
+        done
+
+    - name: Perform CodeQL analysis
+      uses: github/codeql-action/analyze@v1
