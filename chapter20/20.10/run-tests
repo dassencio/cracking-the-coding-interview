@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-for word1 in $(cat dictionary.txt | shuf | head -n 50)
+for word1 in $(shuf -n 50 dictionary.txt)
 do
-    for word2 in $(cat dictionary.txt | shuf | head -n 50)
+    for word2 in $(shuf -n 50 dictionary.txt)
     do
         ./solve dictionary.txt "$word1" "$word2" > /dev/null
     done
